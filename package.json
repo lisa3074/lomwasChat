@@ -4,6 +4,7 @@
   "description": "Internal chat system for AcBaCl",
   "main": "index.html",
   "dependencies": {
+    "feather-icons": "^4.28.0",
     "parcel-bundler": "^1.12.4",
     "sass": "^1.26.11"
   },

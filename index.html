@@ -3,10 +3,334 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link rel="stylesheet" href="sass/style.css" />
+    <link rel="stylesheet" href="sass/style.scss" />
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;700&display=swap" rel="stylesheet">
     <title>Messages</title>
   </head>
   <body>
+    <!-- INBOX NAVIGATION (INCL. BURGER NAV) -->
+    <nav class="inbox-nav">
+      <div class="burger">
+        <i data-feather="menu"></i>
+      </div>
+      <h1>Indbakke</h1>
+      <div class="new-chat">    
+          <i data-feather="edit"></i></div>
+    </nav>
+
+    <!-- MESSAGE NAVIGATION -->
+    <nav class="chat-nav hide">
+      <div class="back">    
+          <i data-feather="arrow-left"></i>
+        </div>
+      <div class="participants">
+          <div class="list">
+              <!-- TEMPLATE APPEND -->
+              <div class="participant-wrapper">
+                <img src="static/test/lisa_ME_03.jpg" alt="lisa" class="profile-picture">
+            </div>
+              <div class="participant-wrapper">
+                <img src="static/test/sarahThomassen.jpg" alt="sarah" class="profile-picture">
+            </div>
+              <div class="participant-wrapper">
+                <div class="no-picture">
+                    <p class="initials">RV</p>
+                </div>
+            </div>
+              <div class="participant-wrapper">
+                <img src="static/test/andersChristiansen.jpg" alt="anders" class="profile-picture">
+            </div>
+              <div class="participant-wrapper">
+                <img src="static/test/henrikAmundsen.jpg" alt="henrik" class="profile-picture">
+            </div>
+            <!-- SLUT -->
+          </div>
+          <p class="plus">+2</p>
+        <div class="dropdown">
+            <div class="participants-dropdown">
+                  <!-- TEMPLATE APPEND -->
+                  <div class="participant-wrapper">
+                    <img src="" alt="" class="profile-picture">
+                    <div class="no-picture">
+                        <p class="initials"></p>
+                    </div>
+                    <p class="name"></p>
+                </div>
+                <!-- SLUT -->
+            </div>
+        </div>
+      </div>
+      <label for="search-chat-desktop" class="search-chat-label desktop">
+        <input class="search-chat desktop search" type="text" id="search-chat-desktop" placeholder="Søg i tråd"><i data-feather="search"></i></input>
+      </label>
+      <div class="more-container">
+          <div class="more"><i data-feather="more-vertical"></i>
+            <div class="more-dropdoen">
+              <label for="search-chat-mobile" class="search-chat-label mobile">
+              <input class="search-chat mobile search" type="text" id="search-chat-mobile" placeholder="Søg i tråd"><i data-feather="search"></i></input>
+            </label>
+              <div class="leave-chat"><p>Forlad samtale</p><i data-feather="log-out"></i></div>
+              <div class="add-participant"><p>Tilføj deltager</p><i data-feather="user-plus"></i></div>
+              <div class="mark-as-read"><p>Marker tråd som læst</p><i data-feather="check-circle"></i></div>
+          </div>
+        </div>
+      </div>
+    </nav>
+    <main>
+      <!-- INBOX -->
+      <section class="inbox-container">
+        <label for="search-messages" class="search-messages-label">
+            <input type="text" id="search-messages" class="search-messages search" placeholder="Søg i beskeder">
+                <i data-feather="search"></i>
+             </input>
+            </label>
+        <section class="overview-container">
+             <!-- TEMPLATE APPENDS -->
+             <!-- STATISK KODEDE BESKEDER -->
+             <article class="overview-wrapper">
+                <div class="picture-wrapper">
+                  <img src="static/test/christianJensen.jpg" alt="Christian Jensen" class="profile-picture overview img1" />
+                  <div class="unread-count"><p>3</p></div>
+                </div>
+                <div class="chat-overview">
+                  <h4 class="name overview">Christian Jensen</h4>
+                  <p class="message-preview">Lorem ipsum dolor sit amet consectetur adipisicing elit. 
+                      Cumque praesentium ratione numquam at odio delectus possimus ea nisi illo 
+                      reprehenderit quibusdam atque nulla veritatis, odit incidunt animi eius pariatur 
+                      officiis?</p>
+                  <div class="time-posted overview" data-read="unread">
+                    <i data-feather="clock"></i>
+                    <p>1 min siden</p>
+                  </div>
+                  <div class="total-participants"></div>
+                </div>
+              </article>
+              <article class="overview-wrapper">
+                <div class="picture-wrapper">
+                  <img src="static/test/AnjaRasmussen.jpg" alt="Anja Rasmussen" class="profile-picture overview img1" />
+                  <div class="unread-count"><p>1</p></div>
+                </div>
+                <div class="chat-overview">
+                  <h4 class="name overview">Anja Rasmussen</h4>
+                  <p class="message-preview">Lorem ipsum dolor sit amet consectetur adipisicing elit. 
+                      Cumque praesentium ratione numquam at odio delectus possimus ea nisi illo 
+                      reprehenderit quibusdam atque nulla veritatis, odit incidunt animi eius pariatur 
+                      officiis?</p>
+                  <div class="time-posted overview" data-read="unread">
+                    <i data-feather="clock"></i>
+                    <p>10 min siden</p>
+                  </div>
+                  <div class="total-participants"></div>
+                </div>
+              </article>
+              <article class="overview-wrapper">
+                <div class="picture-wrapper">
+                  <img src="static/test/sarahThomassen.jpg" alt="Sarah Thomassen" class="profile-picture overview img2" />
+                  <img src="static/test/StefaniHansen.jpg" alt="Stefanie Hansen" class="profile-picture overview img2" />
+                  <div class="unread-count"><p>2</p></div>
+                </div>
+                <div class="chat-overview">
+                  <h4 class="name overview">Sarah Thomassen, Stefanie Hansen, Anders Christiansen, Rikke Villumsen, Henrik Armundsen, Anja Rasmussen</h4>
+                  <p class="message-preview">Lorem ipsum dolor sit amet consectetur adipisicing elit. 
+                      Cumque praesentium ratione numquam at odio delectus possimus ea nisi illo 
+                      reprehenderit quibusdam atque nulla veritatis, odit incidunt animi eius pariatur 
+                      officiis?</p>
+                  <div class="time-posted overview" data-read="unread">
+                    <i data-feather="clock"></i>
+                    <p>36 min siden</p>
+                  </div>
+                  <div class="total-participants">
+                      <div>7</div></div>
+                </div>
+              </article>
+              <article class="overview-wrapper">
+                <div class="picture-wrapper">
+                  <img src="static/test/AnjaRasmussen.jpg" alt="Anja Rasmussen" class="profile-picture overview img2" />
+                  <img src="static/test/andersChristiansen.jpg" alt="Anders Christiansen" class="profile-picture overview img2" />
+                  <div class="unread-count"><p>11</p></div>
+                </div>
+                <div class="chat-overview">
+                  <h4 class="name overview">Team 4</h4>
+                  <p class="message-preview">Lorem ipsum dolor sit amet consectetur adipisicing elit. 
+                      Cumque praesentium ratione numquam at odio delectus possimus ea nisi illo 
+                      reprehenderit quibusdam atque nulla veritatis, odit incidunt animi eius pariatur 
+                      officiis?</p>
+                  <div class="time-posted overview" data-read="unread">
+                    <i data-feather="clock"></i>
+                    <p>1 time 23 min siden</p>
+                  </div>
+                  <div class="total-participants"><div>11</div>
+                </div>
+              </article>
+              <article class="overview-wrapper">
+                <div class="picture-wrapper">
+                    <div class="no-img">
+                        <p class="initials">RV</p>
+                      </div>
+                </div>
+                <div class="chat-overview">
+                  <h4 class="name overview">Rikke Villumsen</h4>
+                  <p class="message-preview">Lorem ipsum dolor sit amet consectetur adipisicing elit. 
+                      Cumque praesentium ratione numquam at odio delectus possimus ea nisi illo 
+                      reprehenderit quibusdam atque nulla veritatis, odit incidunt animi eius pariatur 
+                      officiis?</p>
+                  <div class="time-posted overview">
+                    <i data-feather="clock"></i>
+                    <p>3 dage siden</p>
+                  </div>
+                  <div class="total-participants"></div>
+                </div>
+              </article>
+              <article class="overview-wrapper">
+                <div class="picture-wrapper">
+                    <div class="no-img">
+                        <p class="initials">DR</p>
+                      </div>
+                </div>
+                <div class="chat-overview">
+                  <h4 class="name overview">Dansk Rengøring</h4>
+                  <p class="message-preview">Lorem ipsum dolor sit amet consectetur adipisicing elit. 
+                      Cumque praesentium ratione numquam at odio delectus possimus ea nisi illo 
+                      reprehenderit quibusdam atque nulla veritatis, odit incidunt animi eius pariatur 
+                      officiis?</p>
+                  <div class="time-posted overview">
+                    <i data-feather="clock"></i>
+                    <p>1 dag siden</p>
+                  </div>
+                  <div class="total-participants"></div>
+                </div>
+              </article>
+              <article class="overview-wrapper">
+                <div class="picture-wrapper">
+                  <img src="static/test/andersChristiansen.jpg" alt="Anders Christiansen" class="profile-picture overview img1" />
+                </div>
+                <div class="chat-overview">
+                  <h4 class="name overview">Anders Christiansen</h4>
+                  <p class="message-preview">Lorem ipsum dolor sit amet consectetur adipisicing elit. 
+                      Cumque praesentium ratione numquam at odio delectus possimus ea nisi illo 
+                      reprehenderit quibusdam atque nulla veritatis, odit incidunt animi eius pariatur 
+                      officiis?</p>
+                  <div class="time-posted overview">
+                    <i data-feather="clock"></i>
+                    <p>10 dage siden</p>
+                  </div>
+                  <div class="total-participants"></div>
+                </div>
+              </article>
+              <!-- STATISK KODEDE BESKEDER SLUT -->
+        </section>
+      </section>
+
+      <!-- SINGLE CHAT -->
+      <section class="chat-container hide">
+        <div class="unread-messages"></div>
+        <article class="chat-wrapper">
+          <!-- TEMPLATE APPENDS -->
+        </article>
+        <fieldset class="new-message-wrapper">
+          <button class="attach"></button>
+          <textarea
+            name="new-message"
+            placeholder="Skriv besked..."
+            id="new-message"
+            cols="30"
+            rows="10"
+            class="new-message"
+          ></textarea>
+          <button class="send"></button>
+        </fieldset>
+      </section>
+    </main>
+
+    <!-- TEMPLATE INBOX -->
+    <template class="inbox-temp">
+      <article class="overview-wrapper">
+        <div class="picture-wrapper">
+            <!-- CREATE WHATEVER IS NEEDED AND APPEND HERE -->
+      <!--     <img src="" alt="" class="profile-picture overview img*1" />
+        <div class="no-img">
+          <p class="initials"></p>
+        </div>
+          <div class="unread-count"></div> -->
+        </div>
+        <div class="chat-overview">
+          <h4 class="name overview"></h4>
+          <p class="message-preview"></p>
+          <div class="time-posted overview">
+            <i data-feather="clock"></i>
+            <p></p>
+          </div>
+          <div class="total-participants">
+              <!-- APPEND DIV WITH NUMBER HERE IF MORE THAN 2 -->
+          </div>
+        </div>
+      </article>
+    </template>
+
+    <!-- TEMPLATE CHAT -->
+    <template class="chat-temp">
+      <article class="message-wrapper">
+        <img src="" alt="" class="profile-picture" />
+        <div-message-content-wrapper>
+          <h4 class="name"></h4>
+          <div class="time-posted"></div>
+          <p class="message"></p>
+        </div-message-content-wrapper>
+        <div class="options-container">
+          <div class="options"><button class="more"></button><button class="reaction"></button></div>
+          <div class="reaction-container">
+            <button class="happy"></button>
+            <button class="sad"></button>
+            <button class="like"></button>
+            <button class="dislike"></button>
+            <button class="heart"></button>
+          </div>
+          <div class="more-container">
+            <button class="copy"></button>
+            <button class="info"></button>
+            <button class="delete"></button>
+          </div>
+        </div>
+        <div class="feedback-container">
+          <div class="feedback-container">
+            <div class="happy"></div>
+            <p class="happy-count"></p>
+          </div>
+          <div class="feedback-container">
+            <div class="sad"></div>
+            <p class="sad-count"></p>
+          </div>
+          <div class="feedback-container">
+            <div class="like"></div>
+            <p class="like-count"></p>
+          </div>
+          <div class="feedback-container">
+            <div class="dislike"></div>
+            <p class="dislike-count"></p>
+          </div>
+          <div class="feedback-container">
+            <div class="heart"></div>
+            <p class="heart-count"></p>
+          </div>
+        </div>
+      </article>
+    </template>
+
+    <!-- TEMPLATE MESSAGE NAVIGATION (PARTICIPANTS) -->
+    <template class="participants-temp">
+        <div class="participant-wrapper">
+              <!-- CREATE WHATEVER IS NEEDED AND APPEND HERE -->
+           <!--  <img src="" alt="" class="profile-picture">
+            <div class="no-picture">
+                <p class="initials"></p>
+            </div>
+            <p class="name"></p> -->
+        </div>
+    </template>
     <script src="script.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/feather-icons/dist/feather.min.js"></script>
+    <script>
+        feather.replace()
+      </script> 
   </body>
 </html>

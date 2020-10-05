@@ -1,0 +1,136 @@
+.inbox-container {
+  .search {
+    width: 100%;
+    margin: 1rem 0 2rem;
+  }
+  .overview-wrapper {
+    display: grid;
+    grid-template-areas: "picture preview";
+    grid-template-columns: 60px calc((100vw - 60px) - 4rem);
+    border-radius: var(--border-radius);
+    box-shadow: var(--suddleShadow);
+    width: 100%;
+    padding: 1rem;
+    margin-bottom: 8px;
+  }
+  .picture-wrapper {
+    position: relative;
+    grid-area: picture;
+  }
+
+  .chat-overview {
+    grid-area: preview;
+    padding-left: 1rem;
+    position: relative;
+  }
+  img,
+  .no-img {
+    width: 60px;
+    height: 60px;
+    object-fit: cover;
+  }
+
+  .no-img {
+    background-color: var(--background-gray);
+    box-shadow: var(--imageShadow);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    p {
+      font-size: 22px;
+      letter-spacing: 1px;
+      padding-bottom: 0.1rem;
+    }
+  }
+  .unread-count {
+    width: 20px;
+    height: 20px;
+    border-radius: 50%;
+    background-color: var(--blue);
+    color: #fff;
+    font-size: 12px;
+    text-align: center;
+    padding-top: 0.08rem;
+    letter-spacing: -1px;
+    position: absolute;
+    top: 0;
+    right: -0.5rem;
+  }
+
+  .name.overview {
+    font-size: 16px;
+  }
+  .message-preview,
+  .name.overview {
+    font-size: 14px;
+    white-space: nowrap;
+    width: 100%;
+    overflow: hidden;
+    text-overflow: ellipsis;
+  }
+  .name.overview {
+    width: calc(100% - 30px);
+  }
+  .time-posted.overview {
+    display: flex;
+  }
+  .feather-clock {
+    width: 19px;
+    height: 19px;
+  }
+  .time-posted.overview > p {
+    font-size: 13px;
+    padding-left: 0.3rem;
+  }
+
+  .time-posted.overview[data-read="unread"] {
+    .feather-clock {
+      stroke: var(--blue);
+    }
+    p {
+      color: var(--blue);
+    }
+  }
+  .time-posted.overview {
+    padding-top: 0.2rem;
+    .feather-clock {
+      stroke: var(--main-gray);
+    }
+    p {
+      color: var(--main-gray);
+    }
+  }
+
+  .total-participants > div {
+    width: 20px;
+    height: 20px;
+    border-radius: 50%;
+    background-color: var(--main-gray);
+    color: #fff;
+    font-size: 12px;
+    text-align: center;
+    padding-top: 0.08rem;
+    letter-spacing: -1px;
+    position: absolute;
+    top: -0.3rem;
+    right: 0rem;
+  }
+
+  .img1,
+  .img2 {
+    box-shadow: var(--imageShadow);
+  }
+
+  .img2 {
+    position: absolute;
+    width: 40px;
+    height: 40px;
+  }
+  .img2:nth-child(1) {
+    transform: translate(0px, 20px);
+  }
+  .img2:nth-child(2) {
+    transform: translate(20px, 0px);
+    z-index: -1;
+  }
+}

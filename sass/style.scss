@@ -1,0 +1,100 @@
+@use 'partials/_top-nav.scss';
+@use 'partials/_inbox.scss';
+////////////////////
+//# VARIABLES
+////////////////////
+:root {
+  /* colors */
+  --main-gray: #707070;
+  --background-gray: #f4f5f8;
+  --light-gray: #d6d6d6;
+  --meBox-gray: #e7eaf0;
+  --black: #001737;
+  --blue: #0e68fa;
+  --unread: rgb(255, 255, 255, 0.91);
+  /* shadows */
+  --imageShadow: 0 0 10px rgb(28, 39, 60, 0.16);
+  --suddleShadow: 0 0 3px rgb(28, 39, 60, 0.16);
+  /* borders */
+  /*   --inboxBorder: 1px solid rgb(72, 94, 144, 0.29); */
+  --border: 1px solid #cad0df;
+  --border-radius: 0.2rem;
+}
+
+////////////////////
+//# GENEREL
+////////////////////
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Roboto", sans-serif;
+}
+
+body {
+  /* HUSK HØJDE ? */
+}
+
+main {
+  padding: 1rem;
+  /*   background-color: var(--background-gray); */
+  margin-top: 70px;
+  height: 100%;
+}
+
+////////////////////
+//# ICONS
+////////////////////
+.feather {
+  width: 24px;
+  height: 24px;
+  stroke: var(--main-gray);
+  stroke-width: 1.5px;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+  fill: none;
+}
+
+////////////////////
+//# SEARCH
+////////////////////
+.search {
+  position: relative;
+}
+
+.feather-search {
+  position: absolute;
+  transform: translate(-2.3rem, 1.4rem);
+  stroke-width: 2.5px;
+  height: 22px;
+  width: 22px;
+}
+
+input {
+  padding: 0.5rem 3rem 0.5rem 1rem;
+  border-radius: var(--border-radius);
+  border: var(--border);
+}
+
+input,
+textarea {
+  outline-color: rgba(14, 104, 250, 0.7);
+  outline-width: 1px;
+  &::placeholder {
+    font-weight: 300;
+  }
+}
+////////////////////
+//# IMAGES
+////////////////////
+img,
+.no-img {
+  border-radius: 50%;
+}
+
+////////////////////
+//# MISC
+////////////////////
+.hide {
+  display: none;
+}
