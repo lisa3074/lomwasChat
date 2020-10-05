@@ -1,0 +1,25 @@
+{
+  "name": "acbacl-chat-system",
+  "version": "1.0.0",
+  "description": "Internal chat system for AcBaCl",
+  "main": "index.html",
+  "dependencies": {
+    "parcel-bundler": "^1.12.4",
+    "sass": "^1.26.11"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "start": "parcel index.html --open",
+    "build": "parcel build *.html --public-url ./"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/lisa3074/lomwasChat.git"
+  },
+  "author": "Lisa Søndergaard",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/lisa3074/lomwasChat/issues"
+  },
+  "homepage": "https://github.com/lisa3074/lomwasChat#readme"
+}
