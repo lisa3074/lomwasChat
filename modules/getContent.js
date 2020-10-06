@@ -1,0 +1,190 @@
+import * as timeago from "timeago.js";
+
+const HTML = {};
+
+export function getContent() {
+  console.log("[function] || getContent.js | getContent");
+  HTML.groupUrl = "https://frontend-22d4.restdb.io/rest/chatgroup";
+  HTML.profileUrl = "https://frontend-22d4.restdb.io/rest/chatprofile";
+  HTML.messageUrl = "https://frontend-22d4.restdb.io/rest/chatmessage";
+  HTML.apiKey = "5e9581a6436377171a0c234f";
+  getMessage();
+  getProfile();
+  getGroup();
+  HTML.count = 0;
+  HTML.messages;
+}
+
+async function getGroup() {
+  console.log("[function || getContent.js | getGroup");
+
+  let response = await fetch(HTML.groupUrl, {
+    method: "get",
+    headers: {
+      "Content-Type": "application/json; charset=utf-8",
+      "x-apikey": HTML.apiKey,
+      "cache-control": "no-cache",
+    },
+  });
+  let data = await response.json();
+  console.log(data);
+
+  data.filter(displayGroup);
+}
+async function getMessage() {
+  console.log("[function || getContent.js | getMessage");
+
+  let response = await fetch(HTML.messageUrl, {
+    method: "get",
+    headers: {
+      "Content-Type": "application/json; charset=utf-8",
+      "x-apikey": HTML.apiKey,
+      "cache-control": "no-cache",
+    },
+  });
+  let data = await response.json();
+  HTML.messages = data;
+}
+
+async function getProfile() {
+  console.log("[function || getProfile");
+
+  let response = await fetch(HTML.profileUrl, {
+    method: "get",
+    headers: {
+      "Content-Type": "application/json; charset=utf-8",
+      "x-apikey": HTML.apiKey,
+      "cache-control": "no-cache",
+    },
+  });
+  let data = await response.json();
+  console.log(data);
+}
+
+function displayGroup(data) {
+  /* Variables */
+  console.log("[function || getContent.js | displayGroup");
+  const img1 = document.createElement("img");
+  const img2 = document.createElement("img");
+  const noPic = document.createElement("div");
+  const noPic2 = document.createElement("div");
+
+  noPic.innerHTML = "";
+  const clone = document.querySelector(".inbox-temp").cloneNode(true).content;
+  //This assumes the first entry always is the current user (data.participant[0]) which we do not want in this overview.
+  //If this is a group of 3 or more participants:
+  if (data.participants.length > 2) {
+    img1.classList = "img2";
+    img2.classList = "img2";
+    //if the first participant does not have a profile picture
+    if (data.participants[1].image.length === 0) {
+      const initials = getInitials(data, 1);
+      noPic.classList = "no-img no-img2";
+      clone.querySelector(".picture-wrapper").appendChild(noPic);
+      noPic.appendChild(initials);
+      //if the second participant does not have a profile picture
+      if (data.participants[2].image.length === 0) {
+        const initials = getInitials(data, 2);
+        noPic2.classList = "no-img no-img3";
+        clone.querySelector(".picture-wrapper").appendChild(noPic2);
+        noPic2.appendChild(initials);
+        //if the first participant does not have a profile picture but the second does
+      } else {
+        img2.src = "https://frontend-22d4.restdb.io/media/" + data.participants[2].image;
+        clone.querySelector(".picture-wrapper").appendChild(img2);
+      }
+      //if the first participant has a profile picture but the second doesn't
+    } else if (data.participants[1].image.length !== 0 && data.participants[2].image.length === 0) {
+      img2.src = "https://frontend-22d4.restdb.io/media/" + data.participants[1].image;
+      clone.querySelector(".picture-wrapper").appendChild(img2);
+      const initials = getInitials(data, 2);
+      noPic2.classList = "no-img no-img3";
+      clone.querySelector(".picture-wrapper").appendChild(noPic2);
+      noPic2.appendChild(initials);
+      //if both participant have a profile picture
+    } else {
+      img2.src = "https://frontend-22d4.restdb.io/media/" + data.participants[1].image;
+      clone.querySelector(".picture-wrapper").appendChild(img2);
+      img1.src = "https://frontend-22d4.restdb.io/media/" + data.participants[2].image;
+      clone.querySelector(".picture-wrapper").appendChild(img1);
+    }
+    //If this is a conversation between 2 participants
+  } else {
+    //if the participant does not have a profile picture
+    img1.classList = "img1";
+    if (data.participants[1].image.length === 0) {
+      const initials = getInitials(data, 1);
+      clone.querySelector(".picture-wrapper").appendChild(noPic);
+      noPic.classList = "no-img";
+      noPic.appendChild(initials);
+    } else {
+      img1.src = "https://frontend-22d4.restdb.io/media/" + data.participants[1].image;
+      clone.querySelector(".picture-wrapper").appendChild(img1);
+    }
+  }
+
+  /* NAMES */
+  if (!data.name == "") {
+    clone.querySelector(".name.overview").textContent = data.name;
+  } else {
+    data.participants.forEach((participant) => {
+      let firstName = participant.name.substring(0, participant.name.indexOf(" ") + 1);
+      let lastName = participant.name.substring(participant.name.lastIndexOf(" "));
+      //If users name, set to nothing
+      if (participant._id === "5f7c361dd279373c004baa92") {
+        firstName = "";
+        lastName = "";
+      }
+      clone.querySelector(".name.overview").textContent += " " + firstName + " " + lastName;
+    });
+  }
+  /* MESSAGES */
+  if (HTML.messages != undefined) {
+    console.log(HTML.messages);
+    HTML.messages.forEach((m) => {
+      m.chatgroup.forEach((group) => {
+        if (group._id === data._id) {
+          console.log(m.message);
+          clone.querySelector(".message-preview").textContent = m.message;
+          clone.querySelector(".time-posted.overview>p").textContent = timeago.format(m.time);
+        }
+      });
+    });
+  }
+
+  /* AMOUNT OF PARTICIPANTS */
+  const amountOfParticipants = data.participants.length;
+  if (amountOfParticipants > 2) {
+    const amount = document.createElement("div");
+    const number = document.createTextNode(amountOfParticipants);
+    clone.querySelector(".total-participants").appendChild(amount);
+    amount.appendChild(number);
+  }
+
+  document.querySelector(".overview-container").appendChild(clone);
+}
+
+function displayNewestMessage() {
+  console.log("[function || getContent.js | displayNewestMessage");
+
+  /* MESSAGE PREVIEW */
+  //For each message find all that has this group_id. For each of those messages, find the newest and display.
+
+  HTML.messages.forEach((message) => {
+    if (message.chatgroup._id === data._id) {
+      console.log(message.message);
+    }
+  });
+}
+
+function getInitials(data, count) {
+  console.log("[function || getContent.js | getInitials");
+  const firstLetter = data.participants[count].name.substring(0, 1);
+  const lastLetter = data.participants[count].name.substring(
+    data.participants[count].name.lastIndexOf(" ") + 1,
+    data.participants[count].name.lastIndexOf(" ") + 2
+  );
+
+  const initials = document.createTextNode(firstLetter + lastLetter);
+  return initials;
+}

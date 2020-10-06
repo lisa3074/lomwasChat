@@ -1,7 +1,11 @@
+"use strict";
+import { getContent } from "./modules/getContent";
+import "@babel/polyfill";
 window.addEventListener("DOMContentLoaded", init);
 
 function init() {
   console.log("[Function] || init");
+  getContent();
   //lav en createElement img, i inbox template, hvis det er en gruppebesked => noget lignende:
   /* if(image){
     let el = document.createElement("img");
