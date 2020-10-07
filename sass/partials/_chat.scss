@@ -1,0 +1,278 @@
+////////////////////
+////////////////////
+// # GENEREL
+////////////////////
+////////////////////
+
+main[data-state="chat"] {
+  background-color: var(--background-gray);
+  position: relative;
+  padding-bottom: 70px;
+}
+.reaction-container,
+.more-container {
+  display: flex;
+}
+.feedback-wrapper {
+  display: flex;
+}
+button {
+  font-size: 100%;
+  font-family: inherit;
+  border: none;
+  background-color: rgba(255, 255, 255, 0);
+  margin: 0;
+  padding: 0;
+  outline: none;
+}
+
+////////////////////
+////////////////////
+// # UNREAD MESSAGES
+////////////////////
+////////////////////
+.chat-container {
+  .unread-messages {
+    width: 200px;
+    background-color: var(--unread);
+    border-radius: 10px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: fixed;
+    top: 5rem;
+    left: 50%;
+    transform: translateX(-50%);
+    z-index: 50;
+
+    svg {
+      stroke-width: 2px;
+      height: 18px;
+      stroke: var(--black);
+    }
+    p {
+      padding: 0.4rem 0.4rem 0.4rem 0.7rem;
+      color: var(--black);
+      font-size: 14px;
+    }
+  }
+}
+//////////////////////
+//////////////////////
+// # FOR ALL MESSAGES
+//////////////////////
+//////////////////////
+.chat-container {
+  .message-wrapper {
+    display: grid;
+    grid-template-areas: "pic message more";
+    grid-template-columns: 3rem auto 3rem;
+    grid-gap: 0.2rem;
+    margin-bottom: 3rem;
+    position: relative;
+
+    .profile-picture {
+      grid-area: pic;
+    }
+    ///////////////////////////
+    // # THE MESSAGE ITSELF
+    ///////////////////////////
+    .message-content-wrapper {
+      grid-area: message;
+      border-radius: var(--border-radius);
+      width: 100%;
+      padding: 1rem;
+      box-shadow: var(--suddleShadow);
+      .name {
+        font-size: 16px;
+        color: var(--black);
+      }
+      .message {
+        font-size: 14px;
+        color: var(--main-gray);
+      }
+      .time-posted {
+        color: var(--main-gray);
+        font-size: 12px;
+        display: flex;
+        align-items: center;
+        p {
+          padding-left: 0.5rem;
+        }
+        svg {
+          width: 18px;
+        }
+      }
+    }
+    ///////////////////////////
+    // # THE OPTIONS
+    ///////////////////////////
+    .options-container {
+      grid-area: more;
+      align-self: center;
+      .options {
+        display: flex;
+        justify-content: flex-end;
+        svg {
+          width: 19px;
+          stroke-width: 2px;
+          pointer-events: none;
+        }
+        button:nth-child(1) {
+          margin-right: 0.3rem;
+        }
+        button {
+          transform: translateX(5px);
+        }
+      }
+    }
+
+    ///////////////////////////
+    // # REACTION BUTTONS
+    ///////////////////////////
+    .reaction-container,
+    .more-container {
+      position: absolute;
+      align-items: center;
+      justify-content: space-between;
+      width: 12rem;
+      background-color: #fff;
+      box-shadow: var(--imageShadow);
+      border-radius: var(--border-radius);
+      padding: 0.3rem 0.5rem 0.1rem 0.7rem;
+
+      svg {
+        width: 19px;
+        stroke-width: 2px;
+        pointer-events: none;
+      }
+    }
+
+    ///////////////////////////
+    // # MORE BUTTONS
+    ///////////////////////////
+    .more-container {
+      width: 6rem;
+      transform: translate(-6.5rem, -2.1rem);
+    }
+
+    ///////////////////////////
+    // # DISPLAYING LIKES
+    ///////////////////////////
+    .feedback-container {
+      width: calc(100vw - 6rem);
+      display: flex;
+      justify-content: flex-end;
+      height: 24px;
+      position: absolute;
+      bottom: -1.7rem;
+      .feedback-wrapper {
+        font-size: 10px;
+        align-items: flex-end;
+        svg {
+          width: 17px;
+        }
+        p {
+          padding: 0.2rem 0.2rem 0.2rem 0.1rem;
+        }
+      }
+    }
+  }
+
+  ///////////////////////////
+  // # MESSAGES FROM OTHERS
+  ///////////////////////////
+  .you .message-content-wrapper {
+    background-color: #fff;
+  }
+  .message-wrapper.you {
+    .reaction-container {
+      transform: translate(-12.5rem, -2.1rem);
+    }
+  }
+
+  ///////////////////////////
+  // # MESSAGES FROM YOU
+  ///////////////////////////
+  .message-wrapper.me {
+    .message-content-wrapper {
+      background-color: var(--meBox-gray);
+    }
+
+    .profile-picture {
+      grid-area: more;
+      justify-self: flex-end;
+    }
+    .options-container {
+      grid-area: pic;
+      .options {
+        flex-direction: row-reverse;
+      }
+      button:nth-child(1) {
+        margin-left: 0.3rem;
+      }
+      button {
+        transform: translateX(-5px);
+      }
+    }
+    .feedback-container {
+      justify-content: flex-start;
+      margin-left: 4rem;
+    }
+    .feedback-wrapper {
+      font-size: 10px;
+      align-items: flex-end;
+    }
+    .reaction-container {
+      transform: translate(3.5rem, -2.1rem);
+    }
+    .more-container {
+      transform: translate(3.5rem, -2.1rem);
+    }
+  }
+}
+
+//////////////////////
+//////////////////////
+// # WRITE NEW MESSAGE
+//////////////////////
+//////////////////////
+.new-message-wrapper {
+  grid-template-areas: "attach write send";
+  background-color: #fff;
+  height: 70px;
+  width: 100%;
+  display: grid;
+  grid-template-columns: 3.5rem auto 3.5rem;
+  align-items: center;
+  z-index: 50;
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  border-top: var(--border);
+  textarea {
+    grid-area: write;
+    padding: 1.5rem 1rem;
+    border: none;
+    height: 100%;
+    width: 100%;
+  }
+  button {
+    padding: 1.2rem 1rem 1rem;
+    height: 70px;
+  }
+  .attach {
+    border-right: var(--border);
+    grid-area: attach;
+    width: 100%;
+  }
+  .send {
+    border-left: var(--border);
+    grid-area: send;
+    width: 100%;
+    svg {
+      width: 20px;
+      transform: rotate(45deg) translateX(-3px);
+    }
+  }
+}

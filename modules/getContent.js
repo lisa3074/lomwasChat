@@ -11,7 +11,6 @@ export function getContent() {
   getMessage();
   getProfile();
   getGroup();
-  HTML.count = 0;
   HTML.messages;
 }
 
@@ -162,19 +161,6 @@ function displayGroup(data) {
   }
 
   document.querySelector(".overview-container").appendChild(clone);
-}
-
-function displayNewestMessage() {
-  console.log("[function || getContent.js | displayNewestMessage");
-
-  /* MESSAGE PREVIEW */
-  //For each message find all that has this group_id. For each of those messages, find the newest and display.
-
-  HTML.messages.forEach((message) => {
-    if (message.chatgroup._id === data._id) {
-      console.log(message.message);
-    }
-  });
 }
 
 function getInitials(data, count) {

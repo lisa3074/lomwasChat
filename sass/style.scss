@@ -1,5 +1,6 @@
 @use 'partials/_top-nav.scss';
 @use 'partials/_inbox.scss';
+@use 'partials/_chat.scss';
 ////////////////////
 //# VARIABLES
 ////////////////////
@@ -14,7 +15,7 @@
   --unread: rgb(255, 255, 255, 0.91);
   /* shadows */
   --imageShadow: 0 0 10px rgb(28, 39, 60, 0.16);
-  --suddleShadow: 0 0 3px rgb(28, 39, 60, 0.16);
+  --suddleShadow: 0 0 10px rgba(21, 30, 47, 0.079);
   /* borders */
   /*   --inboxBorder: 1px solid rgb(72, 94, 144, 0.29); */
   --border: 1px solid #cad0df;
@@ -45,14 +46,23 @@ main {
 ////////////////////
 //# ICONS
 ////////////////////
-.feather {
+.feather:not(.gray-stroke):not(.blue-stroke) {
   width: 24px;
   height: 24px;
-  stroke: var(--main-gray);
   stroke-width: 1.5px;
   stroke-linecap: round;
   stroke-linejoin: round;
   fill: none;
+}
+
+.blue-stroke {
+  stroke: var(--blue);
+}
+.gray-stroke {
+  stroke: var(--light-gray);
+}
+.main-gray-stroke {
+  stroke: var(--main-gray);
 }
 
 ////////////////////
@@ -85,11 +95,18 @@ textarea {
   }
 }
 ////////////////////
-//# IMAGES
+//# IMAGES AND INITIALS DIV
 ////////////////////
 img,
 .no-img {
   border-radius: 50%;
+}
+
+.profile-picture {
+  box-shadow: var(--imageShadow);
+  width: 40px;
+  height: 40px;
+  object-fit: cover;
 }
 
 ////////////////////
@@ -97,4 +114,8 @@ img,
 ////////////////////
 .hide {
   display: none;
+}
+
+.hidden {
+  visibility: hidden;
 }
