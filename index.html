@@ -470,7 +470,7 @@
               <img src="/static/test/AnjaRasmussen.jpg" alt="Anja Rasmussen" class="profile-picture img1" />
             
               <div class="message-content-wrapper">
-                <h4 class="name">Anje Rasmussen</h4>
+                <h4 class="name">Anja Rasmussen</h4>
                 <div class="time-posted">
                   <i data-feather="clock"></i><p>5 min siden</p>
                 </div>
@@ -660,57 +660,82 @@
     <!-- TEMPLATE CHAT -->
     <template class="chat-temp">
       <article class="message-wrapper">
-        <!-- APPEND IMG OR DIV (WHATEVER IS NEEDED) -->
-      <!--   <img src="" alt="" class="profile-picture" />
+    <!-- APPEND IMG OR DIV (WHATEVER IS NEEDED) -->
+      <!--   
+        <img src="" alt="" class="profile-picture img1" />
+
+        OR
+
         <div class="no-img">
           <p class="initials"></p>
-        </div> -->
-        <div-message-content-wrapper>
-          <h4 class="name"></h4>
-          <div class="time-posted">
-            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-clock"><circle cx="12" cy="12" r="10"></circle><polyline points="12 6 12 12 16 14"></polyline></svg>
-         <p></p>
-          </div>
-          <p class="message"></p>
-        </div-message-content-wrapper>
-        <div class="options-container">
-          <div class="options"><button class="more"></button><button class="reaction"></button></div>
-          <div class="reaction-container">
-            <button class="happy"></button>
-            <button class="sad"></button>
-            <button class="like"></button>
-            <button class="dislike"></button>
-            <button class="heart"></button>
-          </div>
-          <div class="more-container">
-            <button class="copy"></button>
-            <button class="info"></button>
-            <button class="delete"></button>
-          </div>
+        </div> 
+      -->
+     
+       <div class="message-content-wrapper">
+         <h4 class="name"></h4>
+         <div class="time-posted">
+          <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-clock"><circle cx="12" cy="12" r="10"></circle><polyline points="12 6 12 12 16 14"></polyline></svg>
+          <p></p>
+         </div>
+         <p class="message"></p>
+       </div>
+       <div class="options-container">
+         <div class="options">
+           <button class="reaction btn"><i data-feather="smile" class="gray-stroke btn"></i></button>
+           <button class="more btn"> <i data-feather="more-vertical" class="gray-stroke btn"></i></button>
+       </div>
+         <div class="reaction-container hide">
+           <button class="smile reaction">
+            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-smile main-gray-stroke"><circle cx="12" cy="12" r="10"></circle><path d="M8 14s1.5 2 4 2 4-2 4-2"></path><line x1="9" y1="9" x2="9.01" y2="9"></line><line x1="15" y1="9" x2="15.01" y2="9"></line></svg>
+           </button>
+           <button class="frown reaction">
+            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-frown main-gray-stroke"><circle cx="12" cy="12" r="10"></circle><path d="M16 16s-1.5-2-4-2-4 2-4 2"></path><line x1="9" y1="9" x2="9.01" y2="9"></line><line x1="15" y1="9" x2="15.01" y2="9"></line></svg>
+           </button>
+           <button class="thumbs-up reaction">
+            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-thumbs-up main-gray-stroke"><path d="M14 9V5a3 3 0 0 0-3-3l-4 9v11h11.28a2 2 0 0 0 2-1.7l1.38-9a2 2 0 0 0-2-2.3zM7 22H4a2 2 0 0 1-2-2v-7a2 2 0 0 1 2-2h3"></path></svg>
+           </button>
+           <button class="thumbs-down reaction">
+            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-thumbs-down main-gray-stroke"><path d="M10 15v4a3 3 0 0 0 3 3l4-9V2H5.72a2 2 0 0 0-2 1.7l-1.38 9a2 2 0 0 0 2 2.3zm7-13h2.67A2.31 2.31 0 0 1 22 4v7a2.31 2.31 0 0 1-2.33 2H17"></path></svg>
+           </button>
+           <button class="heart reaction">
+            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-heart main-gray-stroke"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"></path></svg>
+           </button>
+         </div>
+         <div class="more-container hide">
+          <button class="copy">
+            <i data-feather="copy" class="main-gray-stroke"></i>
+          </button>
+          <button class="info">
+            <i data-feather="info" class="main-gray-stroke"></i>
+          </button>
+          <button class="delete">
+            <i data-feather="trash" class="main-gray-stroke"></i>
+          </button>
         </div>
-        <div class="feedback-container">
-          <div class="feedback-wrapper">
-            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-smile"><circle cx="12" cy="12" r="10"></circle><path d="M8 14s1.5 2 4 2 4-2 4-2"></path><line x1="9" y1="9" x2="9.01" y2="9"></line><line x1="15" y1="9" x2="15.01" y2="9"></line></svg>
-            <p class="happy-count"></p>
-          </div>
-          <div class="feedback-wrapper">
-            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-frown"><circle cx="12" cy="12" r="10"></circle><path d="M16 16s-1.5-2-4-2-4 2-4 2"></path><line x1="9" y1="9" x2="9.01" y2="9"></line><line x1="15" y1="9" x2="15.01" y2="9"></line></svg>
-            <p class="sad-count"></p>
-          </div>
-          <div class="feedback-wrapper">
-            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-thumbs-up"><path d="M14 9V5a3 3 0 0 0-3-3l-4 9v11h11.28a2 2 0 0 0 2-1.7l1.38-9a2 2 0 0 0-2-2.3zM7 22H4a2 2 0 0 1-2-2v-7a2 2 0 0 1 2-2h3"></path></svg>
-            <p class="like-count"></p>
-          </div>
-          <div class="feedback-wrapper">
-            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-thumbs-down"><path d="M10 15v4a3 3 0 0 0 3 3l4-9V2H5.72a2 2 0 0 0-2 1.7l-1.38 9a2 2 0 0 0 2 2.3zm7-13h2.67A2.31 2.31 0 0 1 22 4v7a2.31 2.31 0 0 1-2.33 2H17"></path></svg>
-            <p class="dislike-count"></p>
-          </div>
-          <div class="feedback-wrapper">
-            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-heart"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"></path></svg>
-            <p class="heart-count"></p>
-          </div>
+      </div>
+      <div class="feedback-container hide">
+        <div class="feedback-wrapper smile hide">
+          <i data-feather="smile"></i>
+          <p class="smile-count">0</p>
         </div>
-      </article>
+        <div class="feedback-wrapper frown hide">
+          <i data-feather="frown"></i>
+          <p class="frown-count">0</p>
+        </div>
+        <div class="feedback-wrapper thumbs-up hide">
+          <i data-feather="thumbs-up"></i>
+          <p class="thumbs-up-count">0</p>
+        </div>
+        <div class="feedback-wrapper thumbs-down hide">
+          <i data-feather="thumbs-down"></i>
+          <p class="thumbs-down-count">0</p>
+        </div>
+        <div class="feedback-wrapper heart hide">
+          <i data-feather="heart"></i>
+          <p class="heart-count">0</p>
+        </div>
+      </div>
+     </article>
     </template>
 
     <!-- TEMPLATE MESSAGE NAVIGATION (PARTICIPANTS) -->
