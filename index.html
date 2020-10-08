@@ -5,11 +5,19 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel="stylesheet" href="sass/style.scss" />
     <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;700&display=swap" rel="stylesheet">
+    <link
+    rel="stylesheet"
+    href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"
+  />
     <title>Messages</title>
   </head>
   <body>
-    <!-- INBOX NAVIGATION (INCL. BURGER NAV) -->
-    <nav class="inbox-nav hide">
+
+    
+    <main data-state="inbox">
+      <section id="inbox">
+         <!-- INBOX NAVIGATION (INCL. BURGER NAV) -->
+    <nav class="inbox-nav">
       <div class="burger">
         <i data-feather="menu"></i>
       </div>
@@ -17,97 +25,9 @@
       <div class="new-chat">    
           <i data-feather="edit"></i></div>
     </nav>
-
-    <!-- MESSAGE NAVIGATION -->
-    <nav class="chat-nav">
-      <div class="back">    
-          <i data-feather="arrow-left"></i>
-        </div>
-      <div class="participants">
-        <div>
-          <div class="list">
-              <!-- TEMPLATE APPEND -->
-              <div class="participant-wrapper">
-                <img src="static/test/lisa_ME_03.jpg" alt="lisa" class="profile-picture">
-            </div>
-              <div class="participant-wrapper">
-                <img src="static/test/sarahThomassen.jpg" alt="sarah" class="profile-picture">
-            </div>
-              <div class="participant-wrapper">
-                <div class="no-img no-img2">
-                    <p class="initials">RV</p>
-                </div>
-            </div>
-              <div class="participant-wrapper">
-                <img src="static/test/andersChristiansen.jpg" alt="anders" class="profile-picture">
-            </div>
-              <div class="participant-wrapper">
-                <img src="static/test/henrikAmundsen.jpg" alt="henrik" class="profile-picture">
-              </div>
-              <!-- SLUT -->
-            </div>
-            <p class="plus">+2</p>
-          </div>
-        <div class="dropdown">
-            <div class="participants-dropdown hide">
-                  <!-- TEMPLATE APPEND -->
-                 <!-- STATIC PROFILES -->
-                 <div class="participant-wrapper">
-                  <img src="static/test/lisa_ME_03.jpg" alt="lisa" class="profile-picture">
-                  <h4 class="name overview">Lisa Søndergaard</h4>
-              </div>
-                <div class="participant-wrapper">
-                  <img src="static/test/sarahThomassen.jpg" alt="sarah" class="profile-picture">
-                  <h4 class="name overview">Sarah Thomassen</h4>
-              </div>
-                <div class="participant-wrapper">
-                  <div class="no-img no-img2">
-                      <p class="initials">RV</p>
-                  </div>
-                  <h4 class="name overview">Rikke Villumsen</h4>
-              </div>
-                <div class="participant-wrapper">
-                  <img src="static/test/andersChristiansen.jpg" alt="anders" class="profile-picture">
-                  <h4 class="name overview">Anders Christiansen</h4>
-              </div>
-                <div class="participant-wrapper">
-                  <img src="static/test/henrikAmundsen.jpg" alt="henrik" class="profile-picture">
-                  <h4 class="name overview">Henrik Amundsen</h4>
-                </div>
-                <div class="participant-wrapper">
-                  <img src="static/test/StefaniHansen.jpg" alt="Stefanie" class="profile-picture">
-                  <h4 class="name overview">Stefanie Hansen</h4>
-                </div>
-                <div class="participant-wrapper">
-                  <img src="static/test/pernilleSchelde.jpg" alt="Pernille" class="profile-picture">
-                  <h4 class="name overview">Pernille Schelde</h4>
-                </div>
-              </div>
-                <!-- STATIC PROFILES END -->
-            </div>
-        </div>
-      </div>
-      <div class="desk-search hide">
-      <label for="search-chat-desktop" class="search-chat-label desktop">
-        <input class="search-chat desktop search" type="text" id="search-chat-desktop" placeholder="Søg i tråd"><i data-feather="search"></i></input>
-      </label>
-    </div>
-      <div class="more-container">
-          <div class="more"><i data-feather="more-vertical"></i>
-            <div class="more-dropdown hide">
-              <label for="search-chat-mobile" class="search-chat-label mobile">
-              <input class="search-chat mobile search" type="text" id="search-chat-mobile" placeholder="Søg i tråd"><i data-feather="search"></i></input>
-            </label>
-              <div class="leave-chat"><p>Forlad samtale</p><i data-feather="log-out"></i></div>
-              <div class="add-participant"><p>Tilføj deltager</p><i data-feather="user-plus"></i></div>
-              <div class="mark-as-read"><p>Marker tråd som læst</p><i data-feather="check-circle"></i></div>
-          </div>
-        </div>
-      </div>
-    </nav>
-    <main data-state="chat">
       <!-- INBOX -->
-      <section class="inbox-container hide">
+      <section class="inbox-container ">
+        <section class="inbox-container animate__animated">
         <label for="search-messages" class="search-messages-label">
             <input type="text" id="search-messages" class="search-messages search" placeholder="Søg i beskeder">
                 <i data-feather="search"></i>
@@ -249,9 +169,101 @@
               <!-- STATISK KODEDE BESKEDER SLUT -->
         </section>
       </section>
+    </section>
+  </section>
+    <section id="chat" class="hide">
+          <!-- MESSAGE NAVIGATION -->
+    <nav class="chat-nav ">
+      <div class="back">    
+          <i data-feather="arrow-left"></i>
+        </div>
+      <div class="participants">
+        <div class="profiles">
+          <div class="list">
+              <!-- TEMPLATE APPEND -->
+              <div class="participant-wrapper">
+                <img src="static/test/lisa_ME_03.jpg" alt="lisa" class="profile-picture">
+            </div>
+              <div class="participant-wrapper">
+                <img src="static/test/sarahThomassen.jpg" alt="sarah" class="profile-picture">
+            </div>
+              <div class="participant-wrapper">
+                <div class="no-img no-img2">
+                    <p class="initials">RV</p>
+                </div>
+            </div>
+              <div class="participant-wrapper">
+                <img src="static/test/andersChristiansen.jpg" alt="anders" class="profile-picture">
+            </div>
+              <div class="participant-wrapper">
+                <img src="static/test/henrikAmundsen.jpg" alt="henrik" class="profile-picture">
+              </div>
+              <!-- SLUT -->
+            </div>
+            <p class="plus">+2</p>
+          </div>
+        <div class="dropdown animate__animated animate__fadeOutUp hide" data-open="closed">
+            <div class="participants-dropdown">
+                  <!-- TEMPLATE APPEND -->
+                 <!-- STATIC PROFILES -->
+                 <div class="participant-wrapper">
+                  <img src="static/test/lisa_ME_03.jpg" alt="lisa" class="profile-picture">
+                  <h4 class="name overview">Lisa Søndergaard</h4>
+              </div>
+                <div class="participant-wrapper">
+                  <img src="static/test/sarahThomassen.jpg" alt="sarah" class="profile-picture">
+                  <h4 class="name overview">Sarah Thomassen</h4>
+              </div>
+                <div class="participant-wrapper">
+                  <div class="no-img no-img2">
+                      <p class="initials">RV</p>
+                  </div>
+                  <h4 class="name overview">Rikke Villumsen</h4>
+              </div>
+                <div class="participant-wrapper">
+                  <img src="static/test/andersChristiansen.jpg" alt="anders" class="profile-picture">
+                  <h4 class="name overview">Anders Christiansen</h4>
+              </div>
+                <div class="participant-wrapper">
+                  <img src="static/test/henrikAmundsen.jpg" alt="henrik" class="profile-picture">
+                  <h4 class="name overview">Henrik Amundsen</h4>
+                </div>
+                <div class="participant-wrapper">
+                  <img src="static/test/StefaniHansen.jpg" alt="Stefanie" class="profile-picture">
+                  <h4 class="name overview">Stefanie Hansen</h4>
+                </div>
+                <div class="participant-wrapper">
+                  <img src="static/test/pernilleSchelde.jpg" alt="Pernille" class="profile-picture">
+                  <h4 class="name overview">Pernille Schelde</h4>
+                </div>
+              </div>
+                <!-- STATIC PROFILES END -->
+            </div>
+        </div>
+      </div>
+      <div class="desk-search hide">
+      <label for="search-chat-desktop" class="search-chat-label desktop">
+        <input class="search-chat desktop search" type="text" id="search-chat-desktop" placeholder="Søg i tråd"><i data-feather="search"></i></input>
+      </label>
+    </div>
+      <div class="more-container" data-height="68px">
+          <div class="more"><i data-feather="more-vertical"></i>
+            <div class="more-dropdown-wrapper animate__animated animate__fadeOutUp hide" data-open="closed">
+            <div class="more-dropdown">
+              <label for="search-chat-mobile" class="search-chat-label mobile">
+              <input class="search-chat mobile search" type="text" id="search-chat-mobile" placeholder="Søg i tråd"><i data-feather="search"></i></input>
+            </label>
+              <div class="leave-chat"><p>Forlad samtale</p><i data-feather="log-out"></i></div>
+              <div class="add-participant"><p>Tilføj deltager</p><i data-feather="user-plus"></i></div>
+              <div class="mark-as-read"><p>Marker tråd som læst</p><i data-feather="check-circle"></i></div>
+          </div>
+        </div>
+      </div>
+      </div>
+    </nav>
 
       <!-- SINGLE CHAT -->
-      <section class="chat-container">
+      <section class="chat-container animate__animated">
         <div class="unread-messages">
           <p><span class="total-unread">2</span> ulæste beskeder</p><i data-feather="arrow-up"></i>
         </div>
@@ -276,6 +288,7 @@
                 <button class="more btn"> <i data-feather="more-vertical" class="gray-stroke btn"></i></button>
             </div>
             <div class="reaction-container hide">
+              <div class="reaction-wrapper animate__animated animate__flipOutX">
               <button class="smile reaction">
                <i data-feather="smile" class="main-gray-stroke"></i>
               </button>
@@ -292,7 +305,9 @@
                <i data-feather="heart" class="main-gray-stroke"></i>
               </button>
             </div>
+          </div>
               <div class="more-container hide">
+                <div class="more-wrapper animate__animated animate__flipOutX">
                 <button class="copy">
                   <i data-feather="copy" class="main-gray-stroke"></i>
                 </button>
@@ -302,6 +317,7 @@
                 <button class="delete">
                   <i data-feather="trash" class="main-gray-stroke"></i>
                 </button>
+                </div>
               </div>
             </div>
             <div class="feedback-container hide">
@@ -346,6 +362,7 @@
                 <button class="more btn"> <i data-feather="more-vertical" class="gray-stroke btn"></i></button>
             </div>
             <div class="reaction-container hide">
+              <div class="reaction-wrapper animate__animated animate__flipOutX">
               <button class="smile reaction">
                <i data-feather="smile" class="main-gray-stroke"></i>
               </button>
@@ -361,8 +378,10 @@
               <button class="heart reaction">
                <i data-feather="heart" class="main-gray-stroke"></i>
               </button>
+              </div>
             </div>
             <div class="more-container hide">
+              <div class="more-wrapper animate__animated animate__flipOutX">
               <button class="copy">
                 <i data-feather="copy" class="main-gray-stroke"></i>
               </button>
@@ -372,6 +391,7 @@
               <button class="delete">
                 <i data-feather="trash"class="main-gray-stroke"></i>
               </button>
+              </div>
             </div>
           </div>
           <div class="feedback-container hide">
@@ -415,6 +435,7 @@
                 <button class="more btn"> <i data-feather="more-vertical" class="gray-stroke btn"></i></button>
             </div>
             <div class="reaction-container hide">
+              <div class="reaction-wrapper animate__animated animate__flipOutX">
               <button class="smile reaction">
                <i data-feather="smile" class="main-gray-stroke"></i>
               </button>
@@ -430,8 +451,10 @@
               <button class="heart reaction">
                <i data-feather="heart" class="main-gray-stroke"></i>
               </button>
+              </div>
             </div>
             <div class="more-container hide">
+              <div class="more-wrapper animate__animated animate__flipOutX">
               <button class="copy">
                 <i data-feather="copy" class="main-gray-stroke"></i>
               </button>
@@ -441,6 +464,7 @@
               <button class="delete">
                 <i data-feather="trash" class="main-gray-stroke"></i>
               </button>
+            </div>
             </div>
           </div>
           <div class="feedback-container hide">
@@ -490,6 +514,7 @@
                   <button class="more btn"> <i data-feather="more-vertical" class="gray-stroke btn"></i></button>
               </div>
               <div class="reaction-container hide">
+                <div class="reaction-wrapper animate__animated animate__flipOutX">
                 <button class="smile reaction">
                  <i data-feather="smile" class="main-gray-stroke"></i>
                 </button>
@@ -505,8 +530,10 @@
                 <button class="heart reaction">
                  <i data-feather="heart"class="main-gray-stroke"></i>
                 </button>
+                </div>
               </div>
               <div class="more-container hide">
+                <div class="more-wrapper animate__animated animate__flipOutX">
                 <button class="copy">
                   <i data-feather="copy"class="main-gray-stroke"></i>
                 </button>
@@ -516,6 +543,7 @@
                 <button class="delete">
                   <i data-feather="trash"class="main-gray-stroke"></i>
                 </button>
+                </div>
               </div>
             </div>
             <div class="feedback-container hide">
@@ -559,6 +587,7 @@
                    <button class="more btn"> <i data-feather="more-vertical" class="gray-stroke btn"></i></button>
                </div>
                  <div class="reaction-container hide">
+                  <div class="reaction-wrapper animate__animated animate__flipOutX">
                    <button class="smile reaction">
                     <i data-feather="smile" class="main-gray-stroke"></i>
                    </button>
@@ -574,8 +603,10 @@
                    <button class="heart reaction">
                     <i data-feather="heart" class="main-gray-stroke"></i>
                    </button>
+                   </div>
                  </div>
                  <div class="more-container hide">
+                  <div class="more-wrapper animate__animated animate__flipOutX">
                   <button class="copy">
                     <i data-feather="copy" class="main-gray-stroke"></i>
                   </button>
@@ -585,6 +616,7 @@
                   <button class="delete">
                     <i data-feather="trash" class="main-gray-stroke"></i>
                   </button>
+                  </div>
                 </div>
               </div>
               <div class="feedback-container hide">
@@ -630,7 +662,7 @@
         </div>
       </section>
     </main>
-
+ 
     <!-- TEMPLATE INBOX -->
     
     <template class="inbox-temp">
@@ -751,6 +783,7 @@
     </template>
     <script src="script.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/feather-icons/dist/feather.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/mark.js/8.11.1/mark.min.js"></script>
 
     <script>
         feather.replace()

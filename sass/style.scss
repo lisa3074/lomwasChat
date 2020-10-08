@@ -1,6 +1,7 @@
 @use 'partials/_top-nav.scss';
 @use 'partials/_inbox.scss';
 @use 'partials/_chat.scss';
+
 ////////////////////
 //# VARIABLES
 ////////////////////
@@ -37,10 +38,21 @@ body {
 }
 
 main {
-  padding: 1rem;
-  /*   background-color: var(--background-gray); */
-  margin-top: 70px;
   height: 100%;
+}
+
+#chat,
+#inbox {
+  padding: 1rem;
+}
+
+.inbox-container {
+  margin-top: 70px;
+}
+
+mark {
+  background: var(--blue);
+  color: white;
 }
 
 ////////////////////

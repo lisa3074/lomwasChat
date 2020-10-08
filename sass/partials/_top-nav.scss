@@ -15,7 +15,7 @@ main [data-state="inbox"] {
   border-bottom: var(--border);
   z-index: 50;
 
-  .inbox-nav h1 {
+  h1 {
     grid-area: inbox;
     padding-left: 1rem;
   }
@@ -73,20 +73,22 @@ main [data-state="inbox"] {
 .chat-nav {
   grid-template-areas: "back pics more";
   background-color: #fff;
-  height: 70px;
+  height: 71px;
   width: 100%;
   display: grid;
   grid-template-columns: 3.5rem auto 3.5rem;
   align-items: center;
   position: fixed;
-  top: 0;
+  top: -1px;
   left: 0;
   border-bottom: var(--border);
-  z-index: 50;
+  z-index: 51;
 
   .participants {
     grid-area: pics;
     position: relative;
+    height: 100%;
+    width: 100%;
   }
 
   .back {
@@ -99,9 +101,10 @@ main [data-state="inbox"] {
   .more-container {
     grid-area: more;
     padding: 1.5rem 1rem 1rem;
-    height: 70px;
+    height: 68px;
     border-left: var(--border);
     position: relative;
+    background-color: #fff;
   }
 
   .profile-picture {
@@ -138,9 +141,15 @@ main [data-state="inbox"] {
     width: 35px;
   }
 
+  .profiles {
+    background-color: white;
+    height: 69px;
+    width: 100%;
+    padding: 0.8rem 0 0;
+  }
+
   .list,
   .participants > div {
-    display: flex;
     justify-content: center;
     .plus {
       padding: 0 0 0 1rem;
@@ -152,18 +161,32 @@ main [data-state="inbox"] {
   .more-dropdown {
     position: absolute;
   }
+
+  .more-dropdown-wrapper {
+    height: 100vh;
+    width: 100vw;
+    position: absolute;
+    top: 4.5rem;
+    left: calc(-100vw + 3.5rem);
+    z-index: -1;
+  }
   .participants .dropdown {
-    left: -1px;
+    left: -3.54rem;
     top: 3.54rem;
     justify-content: flex-start;
-    z-index: 50;
+    background: #ffffff00;
+    height: 100vh;
+    width: 100vw;
+    z-index: -1;
 
     .participants-dropdown {
       padding: 1.5rem 2rem 0.5rem;
       background-color: #fff;
       border: var(--border);
       border-top: none;
-      width: calc(100% - 6px);
+      width: calc(100% - 7rem + 2px);
+      position: absolute;
+      left: 3.5rem;
     }
     .profile-picture,
     .no-img {
@@ -186,11 +209,12 @@ main [data-state="inbox"] {
   }
 
   .more-dropdown {
-    right: 0;
-    top: 4.33rem;
+    right: 1px;
+    top: -1px;
     padding: 2rem;
     width: calc(100vw - 3.5rem + 1px);
     border: var(--border);
+    border-top: none;
     border-right: none;
     background-color: #fff;
     z-index: 50;
@@ -221,5 +245,24 @@ main [data-state="inbox"] {
   label svg {
     position: absolute;
     top: 1rem;
+  }
+}
+.list,
+.profiles,
+.dropdown {
+  display: flex;
+}
+.chat-nav .more-container[data-height="68px"] {
+  height: 68px;
+}
+.chat-nav .more-container[data-height="72px"] {
+  animation: bigger 1s linear 1 forwards;
+}
+@keyframes bigger {
+  0% {
+    height: 68px;
+  }
+  100% {
+    height: 72px;
   }
 }
