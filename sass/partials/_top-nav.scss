@@ -139,13 +139,23 @@ main [data-state="inbox"] {
 
   .participant-wrapper {
     width: 35px;
+    height: 40px;
   }
 
   .profiles {
     background-color: white;
     height: 69px;
     width: 100%;
-    padding: 0.8rem 0 0;
+    align-items: center;
+    padding-top: 0.2rem;
+  }
+
+  .participants-dropdown .participant-wrapper {
+    padding-top: 0.8rem;
+    height: 65px;
+    h4 {
+      font-size: 14px;
+    }
   }
 
   .list,
@@ -187,6 +197,8 @@ main [data-state="inbox"] {
       width: calc(100% - 7rem + 2px);
       position: absolute;
       left: 3.5rem;
+      max-height: calc(100vh - 70px);
+      overflow-x: scroll;
     }
     .profile-picture,
     .no-img {

@@ -1,5 +1,5 @@
 "use strict";
-import { getContent } from "./modules/getContent";
+/* import { getContent } from "./modules/getContent"; */
 import { displayOptions } from "./modules/displayOptions";
 import { reactions } from "./modules/reactions";
 import { participantsDropdown } from "./modules/participantsDropdown";
@@ -11,7 +11,7 @@ window.addEventListener("DOMContentLoaded", init);
 
 function init() {
   console.log("[Function] || script.js | init()");
-  getContent();
+  /*   getContent(); */
   displayOptions();
   reactions();
   participantsDropdown();

@@ -44,7 +44,7 @@ button {
     width: 200px;
     background-color: var(--unread);
     border-radius: 10px;
-    display: flex;
+    /*   display: flex; */
     justify-content: center;
     align-items: center;
     position: fixed;
@@ -64,6 +64,9 @@ button {
       font-size: 14px;
     }
   }
+}
+.unread-messages {
+  display: flex;
 }
 //////////////////////
 //////////////////////
