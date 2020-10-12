@@ -74,6 +74,7 @@ button {
 //////////////////////
 //////////////////////
 .chat-container {
+  min-height: calc(100vh - 140px);
   .chat-wrapper {
     background-color: var(--background-gray);
     position: absolute;
@@ -81,6 +82,8 @@ button {
     top: 70px;
     left: 0;
     padding-bottom: 70px;
+    min-height: calc(100vh - 140px);
+    width: 100%;
   }
   .message-wrapper {
     display: grid;

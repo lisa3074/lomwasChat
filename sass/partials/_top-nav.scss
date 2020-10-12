@@ -18,6 +18,7 @@ main [data-state="inbox"] {
   h1 {
     grid-area: inbox;
     padding-left: 1rem;
+    font-size: 25px;
   }
 
   .no-img {
@@ -96,6 +97,10 @@ main [data-state="inbox"] {
     padding: 1.5rem 1rem 1rem;
     height: 70px;
     border-right: var(--border);
+    background-color: #fff;
+    svg {
+      pointer-events: none;
+    }
   }
 
   .more-container {
@@ -105,6 +110,17 @@ main [data-state="inbox"] {
     border-left: var(--border);
     position: relative;
     background-color: #fff;
+    .mark-as-read p,
+    .mark-as-read svg,
+    .leave-chat p,
+    .leave-chat svg,
+    .add-participant p,
+    .add-participant svg {
+      pointer-events: none;
+    }
+    .more > svg {
+      pointer-events: none;
+    }
   }
 
   .profile-picture {
@@ -150,14 +166,6 @@ main [data-state="inbox"] {
     padding-top: 0.2rem;
   }
 
-  .participants-dropdown .participant-wrapper {
-    padding-top: 0.8rem;
-    height: 65px;
-    h4 {
-      font-size: 14px;
-    }
-  }
-
   .list,
   .participants > div {
     justify-content: center;
@@ -179,45 +187,6 @@ main [data-state="inbox"] {
     top: 4.5rem;
     left: calc(-100vw + 3.5rem);
     z-index: -1;
-  }
-  .participants .dropdown {
-    left: -3.54rem;
-    top: 3.54rem;
-    justify-content: flex-start;
-    background: #ffffff00;
-    height: 100vh;
-    width: 100vw;
-    z-index: -1;
-
-    .participants-dropdown {
-      padding: 1.5rem 2rem 0.5rem;
-      background-color: #fff;
-      border: var(--border);
-      border-top: none;
-      width: calc(100% - 7rem + 2px);
-      position: absolute;
-      left: 3.5rem;
-      max-height: calc(100vh - 70px);
-      overflow-x: scroll;
-    }
-    .profile-picture,
-    .no-img {
-      margin-bottom: 1rem;
-    }
-    .participant-wrapper {
-      display: flex;
-      width: 100%;
-      h4 {
-        align-self: center;
-        margin-bottom: 1rem;
-        padding-left: 1rem;
-        white-space: nowrap;
-        width: 44vw;
-
-        overflow: hidden;
-        text-overflow: ellipsis;
-      }
-    }
   }
 
   .more-dropdown {

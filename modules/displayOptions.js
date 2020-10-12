@@ -10,19 +10,20 @@ export function displayOptions() {
       HTML.oppositeSvg = HTML.chosen === "reaction" ? "feather-more-vertical" : "feather-smile";
       HTML.chosenSvg = HTML.mainSvg + ".btn";
       HTML.notChosenSvg = HTML.oppositeSvg + ".btn";
-      reaction1(e);
+      reaction(e);
     });
   });
 }
 
-function reaction1(e) {
-  document.querySelectorAll("." + HTML.chosen + "-container").forEach((container) => {
+function reaction(e) {
+  document.querySelectorAll(".chat-container ." + HTML.chosen + "-container").forEach((container) => {
     //Find the buttons pressed's 2 x parent and scoop down to find the buttons child .*-container
     if (
       container === e.target.parentNode.parentNode.querySelector("." + HTML.chosen + "-container") &&
       e.target.classList.contains("btn")
     ) {
       console.log("if match");
+    //Animate in and out on click
       container.parentNode.querySelector("." + HTML.chosen + "-wrapper").classList.toggle("animate__flipOutX");
       container.parentNode.querySelector("." + HTML.chosen + "-wrapper").classList.toggle("animate__flipInX");
       container.classList.contains("hide")
@@ -30,7 +31,7 @@ function reaction1(e) {
         : setTimeout(() => {
             container.classList.add("hide");
           }, 800);
-      //Find the child and toggle
+      //Find the child and toggle stroke color on clicked button
       container.parentNode.querySelector("." + HTML.chosenSvg).classList.toggle("blue-stroke");
       container.parentNode.querySelector("." + HTML.chosenSvg).classList.toggle("gray-stroke");
     } else {

@@ -4,6 +4,8 @@
   "description": "Internal chat system for AcBaCl",
   "main": "index.html",
   "dependencies": {
+    "@babel/polyfill": "^7.11.5",
+    "@babel/runtime": "^7.11.2",
     "animate.css": "^4.1.1",
     "babel": "^6.23.0",
     "feather-icons": "^4.28.0",

@@ -175,9 +175,14 @@
           <!-- MESSAGE NAVIGATION -->
     <nav class="chat-nav hide">
       <div class="back">    
-          <i data-feather="arrow-left"></i>
+          <i data-feather="arrow-left" class="arrow"></i>
+          <i data-feather="x" class="leave hide"></i>
         </div>
       <div class="participants">
+        <div class="search-participants hide">
+          <p>Søg: </p>
+          <input type="text" placeholder="Søg efter person"><i data-feather="check"></i>
+        </div>
         <div class="profiles">
           <div class="list">
               <!-- TEMPLATE APPEND -->
@@ -204,40 +209,61 @@
           </div>
         <div class="dropdown animate__animated animate__fadeOutUp hide" data-open="closed">
             <div class="participants-dropdown">
-                  <!-- TEMPLATE APPEND -->
-                 <!-- STATIC PROFILES -->
-                 <div class="participant-wrapper">
-                  <img src="static/test/lisa_ME_03.jpg" alt="lisa" class="profile-picture">
-                  <h4 class="name overview">Lisa Søndergaard</h4>
+              <div class="participant-list">
+                <!-- TEMPLATE APPEND -->
+                <!-- STATIC PROFILES -->
+
+                <div class="participant-wrapper">
+                 <img src="static/test/lisa_ME_03.jpg" alt="lisa" class="profile-picture">
+                 <h4 class="name overview">Lisa Søndergaard</h4>
+             </div>
+               <div class="participant-wrapper">
+                 <img src="static/test/sarahThomassen.jpg" alt="sarah" class="profile-picture">
+                 <h4 class="name overview">Sarah Thomassen</h4>
+             </div>
+               <div class="participant-wrapper">
+                 <div class="no-img no-img2">
+                     <p class="initials">RV</p>
+                 </div>
+                 <h4 class="name overview">Rikke Villumsen</h4>
+             </div>
+               <div class="participant-wrapper">
+                 <img src="static/test/andersChristiansen.jpg" alt="anders" class="profile-picture">
+                 <h4 class="name overview">Anders Christiansen</h4>
+             </div>
+               <div class="participant-wrapper">
+                 <img src="static/test/henrikAmundsen.jpg" alt="henrik" class="profile-picture">
+                 <h4 class="name overview">Henrik Amundsen</h4>
+               </div>
+               <div class="participant-wrapper">
+                 <img src="static/test/StefaniHansen.jpg" alt="Stefanie" class="profile-picture">
+                 <h4 class="name overview">Stefanie Hansen</h4>
+               </div>
+               <div class="participant-wrapper">
+                 <img src="static/test/pernilleSchelde.jpg" alt="Pernille" class="profile-picture">
+                 <h4 class="name overview">Pernille Schelde</h4>
+               </div>
+               <!-- STATIC PROFILES END -->
+              </div>
+              <div class="add-new hide">
+                <div class="participant-wrapper">
+                  <img src="static/test/pelleThomsen.jpg" alt="Pelle" class="profile-picture">
+                  <h4 class="name overview">Pelle Thomsen</h4>
               </div>
                 <div class="participant-wrapper">
-                  <img src="static/test/sarahThomassen.jpg" alt="sarah" class="profile-picture">
-                  <h4 class="name overview">Sarah Thomassen</h4>
-              </div>
-                <div class="participant-wrapper">
-                  <div class="no-img no-img2">
-                      <p class="initials">RV</p>
-                  </div>
-                  <h4 class="name overview">Rikke Villumsen</h4>
-              </div>
-                <div class="participant-wrapper">
-                  <img src="static/test/andersChristiansen.jpg" alt="anders" class="profile-picture">
-                  <h4 class="name overview">Anders Christiansen</h4>
-              </div>
-                <div class="participant-wrapper">
-                  <img src="static/test/henrikAmundsen.jpg" alt="henrik" class="profile-picture">
-                  <h4 class="name overview">Henrik Amundsen</h4>
+                  <img src="static/test/AnjaRasmussen.jpg" alt="Anja" class="profile-picture">
+                  <h4 class="name overview">Anja Rasmussen</h4>
                 </div>
                 <div class="participant-wrapper">
-                  <img src="static/test/StefaniHansen.jpg" alt="Stefanie" class="profile-picture">
-                  <h4 class="name overview">Stefanie Hansen</h4>
+                  <img src="static/test/erikKraft.jpg" alt="Erik" class="profile-picture">
+                  <h4 class="name overview">Erik Kraft</h4>
                 </div>
                 <div class="participant-wrapper">
-                  <img src="static/test/pernilleSchelde.jpg" alt="Pernille" class="profile-picture">
-                  <h4 class="name overview">Pernille Schelde</h4>
+                  <img src="static/test/christianJensen.jpg" alt="Christian" class="profile-picture">
+                  <h4 class="name overview">Christian Jensen</h4>
                 </div>
               </div>
-                <!-- STATIC PROFILES END -->
+              </div>
             </div>
         </div>
       </div>

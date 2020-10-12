@@ -6,7 +6,15 @@ export function search() {
   document.querySelector(".more-dropdown svg").addEventListener("click", () => {
     instance.mark(search.value);
   });
-  more.addEventListener("click", (e) => {
+  more.addEventListener("click", () => {
     instance.unmark();
+    search.value = "";
   });
+  search.addEventListener("keyup", ()=>{
+    search.value === "" ? instance.unmark() : ""
+  })
+  document.querySelector(".back").addEventListener("click", ()=>{
+    search.value = ""; 
+    instance.unmark();
+  })
 }

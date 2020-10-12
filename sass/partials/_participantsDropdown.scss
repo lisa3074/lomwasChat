@@ -1,0 +1,115 @@
+//////////////////////
+// #VIEW PARTICIPANTS
+//////////////////////
+
+.chat-nav {
+  .participants-dropdown .participant-wrapper {
+    padding-top: 0.8rem;
+    height: 65px;
+    h4 {
+      font-size: 14px;
+    }
+  }
+  .participants .dropdown {
+    left: -3.54rem;
+    top: 3.54rem;
+    justify-content: flex-start;
+    background: #ffffff00;
+    height: 100vh;
+    width: 100vw;
+    z-index: -1;
+
+    .participants-dropdown {
+      padding: 1.5rem 2rem 0.5rem;
+      background-color: #fff;
+      border: var(--border);
+      border-top: none;
+      width: calc(100% - 7rem + 2px);
+      position: absolute;
+      left: 3.5rem;
+      max-height: calc(100vh - 70px);
+      overflow-x: scroll;
+    }
+    .profile-picture,
+    .no-img {
+      margin-bottom: 1rem;
+    }
+    .participant-wrapper {
+      display: flex;
+      width: 100%;
+      h4 {
+        align-self: center;
+        margin-bottom: 1rem;
+        padding-left: 1rem;
+        white-space: nowrap;
+        width: 44vw;
+
+        overflow: hidden;
+        text-overflow: ellipsis;
+      }
+    }
+  }
+
+  //////////////////////
+  // #ADD PARTICIPANT
+  //////////////////////
+
+  .participants .dropdown[data-state="add"],
+  .participants .dropdown[data-state="new"] {
+    top: 4.45rem;
+    justify-content: center;
+
+    .participant-list {
+      display: flex;
+      justify-content: flex-start;
+      overflow-y: scroll;
+    }
+
+    .participants-dropdown {
+      padding: 1.5rem 2rem 2.5rem;
+      width: calc(100% + 4px);
+      left: 0rem;
+    }
+    .profile-picture,
+    .no-img {
+      margin-bottom: 1rem;
+    }
+    .no-img {
+      width: 42px;
+      height: 48px;
+    }
+
+    .participant-wrapper {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      height: 100px;
+      h4 {
+        padding: 0 0.7rem;
+        text-align: center;
+        overflow: hidden;
+        text-overflow: ellipsis;
+        max-width: 10ch;
+      }
+    }
+    .add-new {
+      background-color: #fff;
+      height: auto;
+      max-height: 50vh;
+      width: calc(100vw - 4rem);
+      overflow-x: scroll;
+      padding: 1rem 0 1rem;
+      .participant-wrapper {
+        flex-direction: row;
+        align-items: center;
+        height: 65px;
+
+        h4 {
+          padding: 0 0 0 1rem;
+          text-align: left;
+          max-width: 100%;
+        }
+      }
+    }
+  }
+}
