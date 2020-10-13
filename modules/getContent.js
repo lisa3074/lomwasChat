@@ -1,4 +1,5 @@
 import * as timeago from "timeago.js";
+import { displayChat } from "./shiftView/displayChat";
 
 const HTML = {};
 
@@ -26,8 +27,6 @@ async function getGroup() {
     },
   });
   let data = await response.json();
-  console.log(data);
-
   data.filter(displayGroup);
 }
 async function getMessage() {
@@ -57,12 +56,12 @@ async function getProfile() {
     },
   });
   let data = await response.json();
-  console.log(data);
 }
 
 function displayGroup(data) {
   /* Variables */
   console.log("[function || getContent.js | displayGroup");
+
   const img1 = document.createElement("img");
   const img2 = document.createElement("img");
   const noPic = document.createElement("div");
@@ -139,16 +138,28 @@ function displayGroup(data) {
   }
   /* MESSAGES */
   if (HTML.messages != undefined) {
-    console.log(HTML.messages);
     HTML.messages.forEach((m) => {
       m.chatgroup.forEach((group) => {
         if (group._id === data._id) {
-          console.log(m.message);
           clone.querySelector(".message-preview").textContent = m.message;
           clone.querySelector(".time-posted.overview>p").textContent = timeago.format(m.time);
+          //If particular date and time is needed
+          /*  const year = m.time.substring(0, 4);
+          const month = m.time.substring(5, 7);
+          const day = m.time.substring(8, 10);
+          const time = m.time.substring(11, 16);
+          clone.querySelector(".time-posted.overview>p").textContent = `Sendt d. ${day}/${month}-${year} kl. ${time}`; */
         }
       });
     });
+    //set eventlistner when content is loaded into DOM
+    if (data.length !== 0) {
+      setTimeout(() => {
+        document.querySelectorAll(".overview-wrapper").forEach((conversation) => {
+          conversation.addEventListener("click", displayChat);
+        });
+      }, 10);
+    }
   }
 
   /* AMOUNT OF PARTICIPANTS */

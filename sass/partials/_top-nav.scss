@@ -247,3 +247,8 @@ main [data-state="inbox"] {
     height: 72px;
   }
 }
+@media (min-width: 650px) {
+  .inbox-nav {
+    left: auto;
+  }
+}

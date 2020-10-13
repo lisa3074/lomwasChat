@@ -2,6 +2,8 @@ const HTML = {};
 
 export function displayOptions() {
   console.log("[function] || displayOptions.js | displayOptions");
+  const $ = document.querySelector.bind(document);
+  const $a = document.querySelectorAll.bind(document);
   document.querySelectorAll(".reaction.btn, .more.btn").forEach((btn) => {
     btn.addEventListener("click", (e) => {
       HTML.chosen = e.target.classList[0];
@@ -11,6 +13,19 @@ export function displayOptions() {
       HTML.chosenSvg = HTML.mainSvg + ".btn";
       HTML.notChosenSvg = HTML.oppositeSvg + ".btn";
       reaction(e);
+    });
+  });
+  $a(".you button.delete").forEach((btn) => {
+    btn.classList.add("hide");
+  });
+  $a(".more-container button").forEach((btn) => {
+    btn.addEventListener("click", (e) => {
+      e.target.parentNode.classList = "more-wrapper animate__animated animate__flipOutX";
+      e.target.parentNode.parentNode.parentNode.querySelector(".more.btn>svg").classList =
+        "feather feather-more-vertical btn gray-stroke";
+      setTimeout(() => {
+        e.target.parentNode.parentNode.classList.add("hide");
+      }, 800);
     });
   });
 }
@@ -23,7 +38,7 @@ function reaction(e) {
       e.target.classList.contains("btn")
     ) {
       console.log("if match");
-    //Animate in and out on click
+      //Animate in and out on click
       container.parentNode.querySelector("." + HTML.chosen + "-wrapper").classList.toggle("animate__flipOutX");
       container.parentNode.querySelector("." + HTML.chosen + "-wrapper").classList.toggle("animate__flipInX");
       container.classList.contains("hide")

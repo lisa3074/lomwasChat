@@ -6,6 +6,9 @@
   .participants-dropdown .participant-wrapper {
     padding-top: 0.8rem;
     height: 65px;
+    .no-img2 {
+      width: 100px;
+    }
     h4 {
       font-size: 14px;
     }
@@ -63,6 +66,10 @@
       display: flex;
       justify-content: flex-start;
       overflow-y: scroll;
+      &::-webkit-scrollbar {
+        width: 0;
+        height: 0;
+      }
     }
 
     .participants-dropdown {
@@ -84,6 +91,7 @@
       flex-direction: column;
       align-items: center;
       height: 100px;
+
       h4 {
         padding: 0 0.7rem;
         text-align: center;
@@ -99,6 +107,10 @@
       width: calc(100vw - 4rem);
       overflow-x: scroll;
       padding: 1rem 0 1rem;
+      &::-webkit-scrollbar {
+        width: 0;
+        height: 0;
+      }
       .participant-wrapper {
         flex-direction: row;
         align-items: center;

@@ -79,14 +79,13 @@ button {
     background-color: var(--background-gray);
     position: absolute;
     padding: 1rem;
-    top: 70px;
+    top: 60px;
     left: 0;
     padding-bottom: 70px;
     min-height: calc(100vh - 140px);
     width: 100%;
   }
   .message-wrapper {
-    display: grid;
     grid-template-areas: "pic message more";
     grid-template-columns: 3rem auto 3rem;
     grid-gap: 0.2rem;
@@ -212,8 +211,16 @@ button {
     background-color: #fff;
   }
   .message-wrapper.you {
+    //without delete option - smaller width
+    .more-wrapper {
+      width: 4.5rem;
+    }
     .reaction-container {
       transform: translate(-12.5rem, -2.1rem);
+    }
+    .more-container {
+      width: 4.5rem;
+      transform: translate(-5rem, -2.1rem);
     }
   }
 
@@ -258,6 +265,10 @@ button {
   }
 }
 
+.message-wrapper {
+  display: grid;
+}
+
 //////////////////////
 //////////////////////
 // # WRITE NEW MESSAGE
@@ -282,6 +293,7 @@ button {
     border: none;
     height: 100%;
     width: 100%;
+    outline: none;
   }
   button {
     padding: 1.2rem 1rem 1rem;
@@ -300,5 +312,27 @@ button {
       width: 20px;
       transform: rotate(45deg) translateX(-3px);
     }
+  }
+}
+
+//////////////////////
+//////////////////////
+// # ANIMATIONS
+//////////////////////
+//////////////////////
+
+.copy_text {
+  animation: copy 0.8s ease-out 1 forwards;
+}
+
+@keyframes copy {
+  0% {
+    color: var(--main-gray);
+  }
+  50% {
+    color: var(--blue);
+  }
+  100% {
+    color: var(--main-gray);
   }
 }
