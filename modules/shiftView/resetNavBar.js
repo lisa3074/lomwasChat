@@ -1,7 +1,5 @@
 import { displayInbox, displayInboxMobile } from "./displayInbox";
-export function resetNavBar(e) {
-  const $ = document.querySelector.bind(document);
-
+export function resetNavBar($, e) {
   if ($(".back").dataset.state === "add" || $(".back").dataset.state === "new") {
     setTimeout(() => {
       $(".profiles").classList.remove("hide");
@@ -15,13 +13,15 @@ export function resetNavBar(e) {
       $(".chat-nav").setAttribute("data-state", "view");
       $(".participants").setAttribute("data-state", "view");
     }, 500);
-    if (e.target.classList.contains("back")) {
+    //If more is clicked
+    if (e.target.classList.contains("back") || e.target.classList.contains("overview-wrapper")) {
       $(".dropdown").setAttribute("data-open", "closed");
       $(".dropdown").classList.toggle("animate__fadeInDown");
       $(".dropdown").classList.toggle("animate__fadeOutUp");
     }
   } else if (e.target.classList.contains("back")) {
-    displayInbox();
-    window.addEventListener("resize", displayInboxMobile());
+    //.back is only present in mobile view
+    displayInbox($);
+    window.addEventListener("resize", displayInboxMobile($));
   }
 }

@@ -1,7 +1,5 @@
-export function displayAddParticipant() {
+export function displayAddParticipant($) {
   console.log("[Function] || displayAddParticipant.js | displayAddParticipant()");
-  const $ = document.querySelector.bind(document);
-  const $a = document.querySelectorAll.bind(document);
   $(".profiles").classList.add("hide");
   $(".search-participants").classList.remove("hide");
   $(".add-new").classList.remove("hide");

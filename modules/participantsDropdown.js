@@ -1,11 +1,11 @@
-export function participantsDropdown() {
+export function participantsDropdown($) {
   console.log("[Function] || participantsDropdown.js | participantsDropdown()");
-  const dropdown = document.querySelector(".dropdown");
-  const more = document.querySelector(".more-dropdown-wrapper");
-  const moreContainer = document.querySelector(".chat-nav .more-container");
+  const dropdown = $(".dropdown");
+  const more = $(".more-dropdown-wrapper");
+  const moreContainer = $(".chat-nav .more-container");
 
-  document.querySelector(".participants").addEventListener("click", () => {
-    if (document.querySelector(".participants").dataset.state !== "add") {
+  $(".participants").addEventListener("click", () => {
+    if ($(".participants").dataset.state !== "add") {
       dropdown.classList.remove("hide");
       dropdown.classList.toggle("animate__fadeInDown");
       dropdown.classList.toggle("animate__fadeOutUp");
@@ -17,21 +17,28 @@ export function participantsDropdown() {
     }
   });
 
-  document.querySelector(".add-participant").addEventListener("click", () => {
+  $(".add-participant").addEventListener("click", () => {
     dropdown.classList.remove("hide");
     dropdown.classList.add("animate__fadeInDown");
     dropdown.classList.remove("animate__fadeOutUp");
     dropdown.setAttribute("data-open", dropdown.getAttribute("data-open") === "closed" ? "open" : "closed");
-    displayFirstNames();
+    $(".search-participants").dataset.state = "open";
+    $(".back").addEventListener("click", () => {
+      $(".search-participants").dataset.state = "closed";
+    });
+
+    displayFirstNames($);
   });
 
-  document.querySelector(".new-chat").addEventListener("click", displayFirstNames);
+  $(".new-chat").addEventListener("click", () => {
+    displayFirstNames($);
+  });
 }
 
-function displayFirstNames() {
+function displayFirstNames($) {
   const fullNames = [];
   setTimeout(() => {
-    const nav = document.querySelector(".chat-nav");
+    const nav = $(".chat-nav");
     if (nav.dataset.state === "add" || nav.dataset.state === "new") {
       console.log("WHY");
 

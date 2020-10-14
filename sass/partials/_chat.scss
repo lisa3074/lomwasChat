@@ -4,24 +4,6 @@
 ////////////////////
 ////////////////////
 
-/* main[data-state="chat"] {
-  transition: 1s;
-  background-color: var(--background-gray);
-  position: relative;
-  padding-bottom: 70px;
-}
-main[data-state="inbox"] {
-  transition: 1s;
-  background-color: #fff;
-  position: relative;
-  padding-bottom: 70px;
-} */
-main {
-  position: relative;
-  padding-bottom: 70px;
-  background-color: #fff;
-}
-
 .more-wrapper,
 .reaction-wrapper {
   display: flex;
@@ -315,7 +297,7 @@ button {
     width: 100%;
     svg {
       width: 20px;
-      transform: rotate(45deg) translateX(-3px);
+      transform: rotate(20deg) translateX(-3px);
     }
   }
 }

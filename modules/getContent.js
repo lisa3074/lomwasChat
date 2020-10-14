@@ -59,16 +59,18 @@ async function getProfile() {
 }
 
 function displayGroup(data) {
-  /* Variables */
   console.log("[function || getContent.js | displayGroup");
 
+  /* Variables */
+  const $ = document.querySelector.bind(document);
+  const $a = document.querySelectorAll.bind(document);
   const img1 = document.createElement("img");
   const img2 = document.createElement("img");
   const noPic = document.createElement("div");
   const noPic2 = document.createElement("div");
 
   noPic.innerHTML = "";
-  const clone = document.querySelector(".inbox-temp").cloneNode(true).content;
+  const clone = $(".inbox-temp").cloneNode(true).content;
   //This assumes the first entry always is the current user (data.participant[0]) which we do not want in this overview.
   //If this is a group of 3 or more participants:
   if (data.participants.length > 2) {
@@ -155,12 +157,12 @@ function displayGroup(data) {
     //set eventlistner when content is loaded into DOM
     if (data.length !== 0) {
       setTimeout(() => {
-        document.querySelectorAll(".overview-wrapper").forEach((conversation) => {
+        $a(".overview-wrapper").forEach((conversation) => {
           conversation.addEventListener("click", () => {
-            if (window.innerWidth < 650) {
-              displayChat();
+            if ($("body").clientWidth < 650) {
+              displayChat($);
             } else {
-              displayChatDesktop();
+              displayChatDesktop($);
             }
           });
         });
@@ -177,7 +179,7 @@ function displayGroup(data) {
     amount.appendChild(number);
   }
 
-  document.querySelector(".overview-container").appendChild(clone);
+  $(".overview-container").appendChild(clone);
 }
 
 function getInitials(data, count) {

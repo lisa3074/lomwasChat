@@ -57,6 +57,18 @@ mark {
   color: white;
 }
 
+button,
+.more-container,
+.feather-search,
+.profiles,
+.feather-edit,
+.overview-wrapper,
+.unread-messages,
+.back,
+.feather-check {
+  cursor: pointer;
+}
+
 ////////////////////
 //# ICONS
 ////////////////////
@@ -150,6 +162,18 @@ img,
 .desk-search {
   display: none;
 }
+
+.search-participants[data-state="open"] {
+  animation: higher 1s linear 1 forwards;
+}
+
+@keyframes higher {
+  0% {
+  }
+  100% {
+    height: calc(100% + 3px);
+  }
+}
 @media (min-width: 650px) {
   body {
     //overflow: hidden;
@@ -160,6 +184,9 @@ img,
     display: grid;
     grid-template-areas: "chat inbox";
     grid-template-columns: 60% 40%;
+    position: relative;
+    padding-bottom: 70px;
+    background-color: #fff;
   }
 
   #chat {
@@ -292,7 +319,7 @@ img,
   }
   .participants .dropdown[data-state="add"],
   .participants .dropdown[data-state="new"] {
-    width: calc(60vw - 3px);
+    width: calc(60vw - 2px);
   }
 
   .search-participants {

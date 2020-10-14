@@ -2,9 +2,8 @@ const HTML = {};
 
 export function displayOptions() {
   console.log("[function] || displayOptions.js | displayOptions");
-  const $ = document.querySelector.bind(document);
   const $a = document.querySelectorAll.bind(document);
-  document.querySelectorAll(".reaction.btn, .more.btn").forEach((btn) => {
+  $a(".reaction.btn, .more.btn").forEach((btn) => {
     btn.addEventListener("click", (e) => {
       HTML.chosen = e.target.classList[0];
       HTML.opposite = e.target.classList[0] === "more" ? "reaction" : "more";
@@ -31,7 +30,8 @@ export function displayOptions() {
 }
 
 function reaction(e) {
-  document.querySelectorAll(".chat-container ." + HTML.chosen + "-container").forEach((container) => {
+  const $a = document.querySelectorAll.bind(document);
+  $a(".chat-container ." + HTML.chosen + "-container").forEach((container) => {
     //Find the buttons pressed's 2 x parent and scoop down to find the buttons child .*-container
     if (
       container === e.target.parentNode.parentNode.querySelector("." + HTML.chosen + "-container") &&
@@ -61,14 +61,14 @@ function reaction(e) {
         HTML.chosen + "-wrapper animate__animated animate__flipOutX";
     }
     //hide all not chosen containers and animate not chosen wrapper out
-    document.querySelectorAll(".chat-container ." + HTML.opposite + "-container").forEach((container) => {
+    $a(".chat-container ." + HTML.opposite + "-container").forEach((container) => {
       container.classList.add("hide");
-      document.querySelectorAll("." + HTML.opposite + "-wrapper").forEach((wrapper) => {
+      $a("." + HTML.opposite + "-wrapper").forEach((wrapper) => {
         wrapper.classList = HTML.opposite + "-wrapper animate__animated animate__flipOutX";
       });
     });
     //Reset color on unselected buttons
-    document.querySelectorAll("." + HTML.notChosenSvg).forEach((more) => {
+    $a("." + HTML.notChosenSvg).forEach((more) => {
       more.parentNode.querySelector("." + HTML.notChosenSvg).classList =
         "feather " + HTML.oppositeSvg + " btn gray-stroke";
     });

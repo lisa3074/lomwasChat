@@ -1,20 +1,34 @@
-export function search() {
+export function search($) {
   console.log("[Function] || search.js | search()");
-  const search = document.querySelector(".mobile .search");
-  const more = document.querySelector(".chat-wrapper");
-  let instance = new Mark(document.querySelector("#chat"));
-  document.querySelector(".more-dropdown svg").addEventListener("click", () => {
-    instance.mark(search.value);
+  let instance = new Mark($(".chat-wrapper"));
+
+  //search the chat
+  $(".more-dropdown svg").addEventListener("click", () => {
+    instance.mark($(".mobile .search").value);
   });
-  more.addEventListener("click", () => {
+  $(".search-chat-label.desktop svg").addEventListener("click", () => {
+    instance.mark($(".desktop .search").value);
+  });
+
+  //remove search result
+  $(".mobile .search").addEventListener("keyup", () => {
+    $(".mobile .search").value === "" ? instance.unmark() : "";
+  });
+  $(".desktop .search").addEventListener("keyup", () => {
+    $(".desktop .search").value === "" ? instance.unmark() : "";
+  });
+  window.addEventListener("resize", () => {
+    reset();
+  });
+  document.querySelectorAll(".overview-wrapper, .back, .chat-wrapper").forEach((wrapper) => {
+    wrapper.addEventListener("click", () => {
+      reset();
+    });
+  });
+
+  function reset() {
+    $(".desktop .search").value = "";
+    $(".mobile .search").value = "";
     instance.unmark();
-    search.value = "";
-  });
-  search.addEventListener("keyup", () => {
-    search.value === "" ? instance.unmark() : "";
-  });
-  document.querySelector(".back").addEventListener("click", () => {
-    search.value = "";
-    instance.unmark();
-  });
+  }
 }

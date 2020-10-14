@@ -1,6 +1,5 @@
 export function messageOptions() {
   console.log("[function] || messageOptions.js | messageOptions()");
-  const $ = document.querySelector.bind(document);
   const $a = document.querySelectorAll.bind(document);
 
   //Copy message
