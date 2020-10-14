@@ -4,7 +4,7 @@
 ////////////////////
 ////////////////////
 
-main[data-state="chat"] {
+/* main[data-state="chat"] {
   transition: 1s;
   background-color: var(--background-gray);
   position: relative;
@@ -15,6 +15,11 @@ main[data-state="inbox"] {
   background-color: #fff;
   position: relative;
   padding-bottom: 70px;
+} */
+main {
+  position: relative;
+  padding-bottom: 70px;
+  background-color: #fff;
 }
 
 .more-wrapper,

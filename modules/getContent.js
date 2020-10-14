@@ -1,5 +1,5 @@
 import * as timeago from "timeago.js";
-import { displayChat } from "./shiftView/displayChat";
+import { displayChat, displayChatDesktop } from "./shiftView/displayChat";
 
 const HTML = {};
 
@@ -156,7 +156,13 @@ function displayGroup(data) {
     if (data.length !== 0) {
       setTimeout(() => {
         document.querySelectorAll(".overview-wrapper").forEach((conversation) => {
-          conversation.addEventListener("click", displayChat);
+          conversation.addEventListener("click", () => {
+            if (window.innerWidth < 650) {
+              displayChat();
+            } else {
+              displayChatDesktop();
+            }
+          });
         });
       }, 10);
     }

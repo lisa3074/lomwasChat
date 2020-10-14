@@ -2,9 +2,6 @@ export function newChat() {
   const $ = document.querySelector.bind(document);
   const $a = document.querySelectorAll.bind(document);
   $(".new-chat").addEventListener("click", () => {
-    if (window.innerWidth < 649) {
-      $("#inbox").classList.add("hide");
-    }
     $("#chat").classList.remove("hide");
     $(".chat-wrapper").classList.add("hide");
     $(".unread-messages").classList.add("hide");
@@ -31,5 +28,13 @@ export function newChat() {
       $(".new-message-wrapper").classList = "new-message-wrapper animate__animated";
       $(".chat-container").classList = "chat-container animate__animated animate-faster";
     }, 800);
+  });
+}
+
+export function newChatMobile() {
+  document.querySelector(".new-chat").addEventListener("click", () => {
+    if (window.innerWidth < 649) {
+      document.querySelector("#inbox").classList.add("hide");
+    }
   });
 }

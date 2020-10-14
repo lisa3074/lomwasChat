@@ -1,44 +1,32 @@
-import { displayChat } from "./shiftView/displayChat";
+import { displayChat, displayChatDesktop } from "./shiftView/displayChat";
 import { displayAddParticipant } from "./shiftView/displayAddParticipant";
 import { resetNavBar } from "./shiftView/resetNavBar";
 
 const HTML = {};
 
 export function shiftView() {
-  console.log("[Function] || shiftviewMobile.js | shiftviewMobile()");
+  console.log("[Function] || shiftview.js | shiftview() | " + window.innerWidth);
   /* vars */
   const $ = document.querySelector.bind(document);
   const $a = document.querySelectorAll.bind(document);
 
-  //display chat interface with click om group overview and hide overview
-
+  //display chat interface with click om group overview and hide overview}
   $a(".overview-wrapper").forEach((conversation) => {
     conversation.addEventListener("click", () => {
-      if (window.innerWidth < 650) {
+      /*      if (window.innerWidth < 650) {
+        console.log(window.innerWidth);
         displayChat();
       } else {
         //go to function that shows the right content in chat-side
-      }
+        console.log(window.innerWidth);
+        displayChatDesktop();
+      } */
+      console.log(window.innerWidth);
+      displayChat();
     });
   });
 
-  document.querySelector(".more-container .add-participant").addEventListener("click", () => {
-    /*  setTimeout(() => {
-      const nav = document.querySelector(".chat-nav");
-      console.log(nav.dataset.state);
-      if (nav.dataset.state === "add" || nav.dataset.state === "new") {
-        console.log("WHY");
-        document.querySelectorAll(".participant-list .participant-wrapper h4").forEach((fullName) => {
-          const name = fullName.textContent;
-          const space = name.indexOf(" ");
-          console.log(name);
-          console.log(name.substring(0, space));
-          fullName.textContent = name.substring(0, space);
-        });
-      }
-    }, 100); */
-    displayAddParticipant();
-  });
+  document.querySelector(".more-container .add-participant").addEventListener("click", displayAddParticipant);
 
   //display inbox with clik on "back" and hide chat interface
   $a(".back, .more").forEach((btn) => {

@@ -1,4 +1,4 @@
-import { displayInbox } from "./displayInbox";
+import { displayInbox, displayInboxMobile } from "./displayInbox";
 export function resetNavBar(e) {
   const $ = document.querySelector.bind(document);
 
@@ -22,5 +22,6 @@ export function resetNavBar(e) {
     }
   } else if (e.target.classList.contains("back")) {
     displayInbox();
+    window.addEventListener("resize", displayInboxMobile());
   }
 }

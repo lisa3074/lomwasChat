@@ -1,5 +1,5 @@
 export function displayAddParticipant() {
-  console.log("ADDPARTICIPANT");
+  console.log("[Function] || displayAddParticipant.js | displayAddParticipant()");
   const $ = document.querySelector.bind(document);
   const $a = document.querySelectorAll.bind(document);
   $(".profiles").classList.add("hide");
@@ -14,19 +14,4 @@ export function displayAddParticipant() {
   setTimeout(() => {
     $(".back").setAttribute("data-state", "add");
   }, 100);
-
-  /*   setTimeout(() => {
-    const nav = document.querySelector(".chat-nav");
-    console.log(nav.dataset.state);
-    if (nav.dataset.state === "add" || nav.dataset.state === "new") {
-      console.log("WHY");
-      document.querySelectorAll(".participant-list .participant-wrapper h4").forEach((fullName) => {
-        const name = fullName.textContent;
-        const space = name.indexOf(" ");
-        console.log(name);
-        console.log(name.substring(0, space));
-        fullName.textContent = name.substring(0, space);
-      });
-    }
-  }, 100); */
 }
