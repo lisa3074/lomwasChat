@@ -1,10 +1,12 @@
 import * as timeago from "timeago.js";
-import { displayChat, displayChatDesktop } from "./shiftView/displayChat";
+import { resetParticipantList } from "../chat/chatNavigation";
+import { displayConversation } from "../inbox/inbox";
+import { checkDataState } from "../../script";
 
 const HTML = {};
 
 export function getContent() {
-  console.log("[function] || getContent.js | getContent");
+  console.log("[function] || DB/getContent.js | getContent");
   HTML.groupUrl = "https://frontend-22d4.restdb.io/rest/chatgroup";
   HTML.profileUrl = "https://frontend-22d4.restdb.io/rest/chatprofile";
   HTML.messageUrl = "https://frontend-22d4.restdb.io/rest/chatmessage";
@@ -16,7 +18,7 @@ export function getContent() {
 }
 
 async function getGroup() {
-  console.log("[function || getContent.js | getGroup");
+  console.log("[Function] || DB/getContent.js | getContent()");
 
   let response = await fetch(HTML.groupUrl, {
     method: "get",
@@ -30,7 +32,7 @@ async function getGroup() {
   data.filter(displayGroup);
 }
 async function getMessage() {
-  console.log("[function || getContent.js | getMessage");
+  console.log("[Function] || DB/getContent.js | getMessage()");
 
   let response = await fetch(HTML.messageUrl, {
     method: "get",
@@ -45,7 +47,7 @@ async function getMessage() {
 }
 
 async function getProfile() {
-  console.log("[function || getProfile");
+  console.log("[Function] || DB/getContent.js | getProfile()");
 
   let response = await fetch(HTML.profileUrl, {
     method: "get",
@@ -59,7 +61,7 @@ async function getProfile() {
 }
 
 function displayGroup(data) {
-  console.log("[function || getContent.js | displayGroup");
+  console.log("[Function] || DB/getContent.js | displayGroup()");
 
   /* Variables */
   const $ = document.querySelector.bind(document);
@@ -156,17 +158,13 @@ function displayGroup(data) {
     });
     //set eventlistner when content is loaded into DOM
     if (data.length !== 0) {
+      $(".loading").classList.add("animate__fadeOut");
       setTimeout(() => {
-        $a(".overview-wrapper").forEach((conversation) => {
-          conversation.addEventListener("click", () => {
-            if ($("body").clientWidth < 650) {
-              displayChat($);
-            } else {
-              displayChatDesktop($);
-            }
-          });
-        });
-      }, 10);
+        $(".loading").classList.add("hide");
+      }, 1000);
+    } else {
+      $(".loading").classList.remove("hide");
+      $(".loading").classList.remove("animate_fadeOut");
     }
   }
 
@@ -183,7 +181,7 @@ function displayGroup(data) {
 }
 
 function getInitials(data, count) {
-  console.log("[function || getContent.js | getInitials");
+  console.log("[Function] || DB/getContent.js | getInitials()");
   const firstLetter = data.participants[count].name.substring(0, 1);
   const lastLetter = data.participants[count].name.substring(
     data.participants[count].name.lastIndexOf(" ") + 1,

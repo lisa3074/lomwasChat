@@ -9,12 +9,18 @@
     rel="stylesheet"
     href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"
   />
+<!--   <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css"> -->
     <title>Messages</title>
   </head>
   <body>
 
     
     <main data-state="inbox">
+  <div class="loading animate__animated">
+      <div class="spinner-border text-primary" role="status">
+      </div>
+      <p>loading messages</p>
+    </div>
       <section id="inbox">
          <!-- INBOX NAVIGATION (INCL. BURGER NAV) -->
     <nav class="inbox-nav">
@@ -28,6 +34,7 @@
       <!-- INBOX -->
   
         <section class="inbox-container animate__animated">
+         
         <label for="search-messages" class="search-messages-label">
             <input type="text" id="search-messages" class="search-messages search" placeholder="Søg i beskeder">
                 <i data-feather="search"></i>
@@ -278,12 +285,12 @@
         <input class="search-chat desktop search" type="text" id="search-chat-desktop" placeholder="Søg i tråd"><i data-feather="search"></i></input>
       </label>
     </div>
-      <div class="more-container" data-height="68px">
+      <div class="menu-container" data-height="68px">
         <i data-feather="check" class="check hide"></i>
-          <div class="more">
+          <div class="menu">
             <i data-feather="more-vertical"></i>
-            <div class="more-dropdown-wrapper animate__animated animate__fadeOutUp hide" data-open="closed">
-            <div class="more-dropdown" data-state="more">
+            <div class="menu-dropdown-wrapper animate__animated animate__fadeOutUp hide" data-open="closed">
+            <div class="menu-dropdown" data-state="more">
               <label for="search-chat-mobile" class="search-chat-label mobile">
               <input class="search-chat mobile search" type="text" id="search-chat-mobile" placeholder="Søg i tråd"><i data-feather="search"></i></input>
             </label>

@@ -1,9 +1,9 @@
-export function search($) {
-  console.log("[Function] || search.js | search()");
+export function search($, $a) {
+  console.log("[Function] || CHAT/CHATFUNCTIONS/search.js | search()");
   let instance = new Mark($(".chat-wrapper"));
 
   //search the chat
-  $(".more-dropdown svg").addEventListener("click", () => {
+  $(".menu-dropdown svg").addEventListener("click", () => {
     instance.mark($(".mobile .search").value);
   });
   $(".search-chat-label.desktop svg").addEventListener("click", () => {
@@ -18,15 +18,16 @@ export function search($) {
     $(".desktop .search").value === "" ? instance.unmark() : "";
   });
   window.addEventListener("resize", () => {
-    reset();
+    resetSearch();
   });
-  document.querySelectorAll(".overview-wrapper, .back, .chat-wrapper").forEach((wrapper) => {
+  $a(".overview-wrapper, .back, .chat-wrapper").forEach((wrapper) => {
     wrapper.addEventListener("click", () => {
-      reset();
+      resetSearch();
     });
   });
 
-  function reset() {
+  function resetSearch() {
+    console.log("[Function] || CHAT/CHATFUNCTIONS/search.js | resetSearch()");
     $(".desktop .search").value = "";
     $(".mobile .search").value = "";
     instance.unmark();

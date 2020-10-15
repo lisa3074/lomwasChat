@@ -1,7 +1,68 @@
+import { doc } from "prettier";
+import { checkDataState } from "../../script";
 const HTML = {};
+export function unreadMessages($) {
+  console.log("[Function] || CHAT/chatbody.js | unreadMessages()");
+  //scroll to top, when clicking "unread messages". Should be replaced with a scroll to first unread message.
+  if ($("body").clientWidth > 650) {
+    $("#chat").scrollTo({ top: 0, left: 0, behavior: "smooth" });
+  } else {
+    window.scrollTo({ top: 0, left: 0, behavior: "smooth" });
+  }
+  $(".unread-messages").classList = "unread-messages animate__animated animate__fadeOut";
+}
 
-export function displayOptions() {
-  console.log("[function] || displayOptions.js | displayOptions");
+export function displayChatMobile($) {
+  console.log("[Function] || CHAT/chatbody.js | displayChatMobile()");
+  /* vars */
+  const animateFast = " animate__animated animate__faster animate__";
+
+  $(".inbox-nav").classList = animateFast + "fadeOut inbox-nav";
+  $(".inbox-container").classList = animateFast + "slideOutLeft animate__fadeOut inbox-container";
+  $(".chat-container").classList = animateFast + "slideInRight animate__fadeIn chat-container";
+  setTimeout(() => {
+    $("#inbox").classList.add("hide");
+    $(".inbox-nav").classList.add("hide");
+    $(".chat-nav").classList = animateFast + "fadeIn chat-nav";
+    $(".chat-container").classList = animateFast + "fadeIn chat-container";
+  }, 400);
+  setTimeout(() => {
+    window.scrollTo({ top: $(".chat-wrapper").scrollHeight, left: 0, behavior: "smooth" }); //////scroll to bottom
+  }, 400);
+  displayChat($);
+}
+
+export function displayChat($) {
+  console.log("[Function] || CHAT/chatbody.js | displayChat()");
+  const $a = document.querySelectorAll.bind(document);
+  setTimeout(() => {
+    $("#chat").scrollTo({ top: $(".chat-wrapper").scrollHeight, left: 0, behavior: "smooth" }); //////scroll to bottom
+  }, 800);
+  $(".menu-container").classList.remove("hide");
+  if ($(".chat-nav").dataset.state === "new") {
+    $(".dropdown").classList = "dropdown animate__animated animate__fadeOutUp";
+    $(".dropdown").dataset.state = "closed";
+    setTimeout(() => {
+      $(".dropdown").classList.add("hide");
+    }, 500);
+    checkDataState($);
+  } else {
+    $(".dropdown").classList.add("hide");
+  }
+  $a("#chat, .profiles, .chat-wrapper, .unread-messages").forEach((element) => {
+    element.classList.remove("hide");
+  });
+  $a(".chat-nav, .dropdown, .participants, .back").forEach((element) => {
+    element.setAttribute("data-state", "view");
+  });
+  $a(".search-participants, .add-new").forEach((element) => {
+    element.classList.add("hide");
+  });
+  $("main").setAttribute("data-state", "chat");
+}
+
+export function setMessageActions() {
+  console.log("[Function] || CHAT/chatbody.js | setMessageActions()");
   const $a = document.querySelectorAll.bind(document);
   $a(".reaction.btn, .more.btn").forEach((btn) => {
     btn.addEventListener("click", (e) => {
@@ -11,12 +72,14 @@ export function displayOptions() {
       HTML.oppositeSvg = HTML.chosen === "reaction" ? "feather-more-vertical" : "feather-smile";
       HTML.chosenSvg = HTML.mainSvg + ".btn";
       HTML.notChosenSvg = HTML.oppositeSvg + ".btn";
-      reaction(e);
+      displayMessageActions(e);
     });
   });
+  //remove delete option on messages sent by others
   $a(".you button.delete").forEach((btn) => {
     btn.classList.add("hide");
   });
+  //reset all more wrappers
   $a(".more-container button").forEach((btn) => {
     btn.addEventListener("click", (e) => {
       e.target.parentNode.classList = "more-wrapper animate__animated animate__flipOutX";
@@ -29,7 +92,8 @@ export function displayOptions() {
   });
 }
 
-function reaction(e) {
+function displayMessageActions(e) {
+  console.log("[Function] || CHAT/chatbody.js | displayMessageActions()");
   const $a = document.querySelectorAll.bind(document);
   $a(".chat-container ." + HTML.chosen + "-container").forEach((container) => {
     //Find the buttons pressed's 2 x parent and scoop down to find the buttons child .*-container
@@ -37,8 +101,7 @@ function reaction(e) {
       container === e.target.parentNode.parentNode.querySelector("." + HTML.chosen + "-container") &&
       e.target.classList.contains("btn")
     ) {
-      console.log("if match");
-      //Animate in and out on click
+      //If match => Animate in and out on click
       container.parentNode.querySelector("." + HTML.chosen + "-wrapper").classList.toggle("animate__flipOutX");
       container.parentNode.querySelector("." + HTML.chosen + "-wrapper").classList.toggle("animate__flipInX");
       container.classList.contains("hide")
@@ -50,7 +113,7 @@ function reaction(e) {
       container.parentNode.querySelector("." + HTML.chosenSvg).classList.toggle("blue-stroke");
       container.parentNode.querySelector("." + HTML.chosenSvg).classList.toggle("gray-stroke");
     } else {
-      console.log("if NO match");
+      //If no match
       container.classList.add("hide"); //for all the .*-containers that did not macth the buttons
       //Find the child and set classes
       container.parentNode.parentNode.querySelector("." + HTML.chosenSvg).classList =

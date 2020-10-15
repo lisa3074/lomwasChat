@@ -72,7 +72,7 @@ main [data-state="inbox"] {
 }
 
 .chat-nav {
-  grid-template-areas: "back pics more";
+  grid-template-areas: "back pics menu";
   background-color: #fff;
   height: 71px;
   width: 100%;
@@ -103,8 +103,8 @@ main [data-state="inbox"] {
     }
   }
 
-  .more-container {
-    grid-area: more;
+  .menu-container {
+    grid-area: menu;
     padding: 1.5rem 1rem 1rem;
     height: 68px;
     border-left: var(--border);
@@ -118,7 +118,7 @@ main [data-state="inbox"] {
     .add-participant svg {
       pointer-events: none;
     }
-    .more > svg {
+    .menu > svg {
       pointer-events: none;
     }
   }
@@ -176,11 +176,11 @@ main [data-state="inbox"] {
     }
   }
   .dropdown,
-  .more-dropdown {
+  .menu-dropdown {
     position: absolute;
   }
 
-  .more-dropdown-wrapper {
+  .menu-dropdown-wrapper {
     height: 100vh;
     width: 100vw;
     position: absolute;
@@ -189,7 +189,7 @@ main [data-state="inbox"] {
     z-index: -1;
   }
 
-  .more-dropdown {
+  .menu-dropdown {
     right: 1px;
     top: -1px;
     padding: 2rem;
@@ -233,11 +233,18 @@ main [data-state="inbox"] {
 .dropdown {
   display: flex;
 }
-.chat-nav .more-container[data-height="68px"] {
+.chat-nav .menu-container[data-height="68px"] {
   height: 68px;
 }
-.chat-nav .more-container[data-height="72px"] {
+.chat-nav .menu-container[data-height="72px"] {
   animation: bigger 1s linear 1 forwards;
+}
+
+.participant-wrapper .extra {
+  display: none;
+}
+.participant-wrapper .plus {
+  display: block;
 }
 @keyframes bigger {
   0% {
@@ -247,8 +254,121 @@ main [data-state="inbox"] {
     height: 72px;
   }
 }
+.search-chat-label.mobile {
+  display: block;
+}
+.back {
+  display: block;
+}
+
+.desk-search {
+  display: none;
+}
+
+.search-participants[data-state="open"] {
+  animation: higher 1s linear 1 forwards;
+}
+
+@keyframes higher {
+  0% {
+  }
+  100% {
+    height: calc(100% + 3px);
+  }
+}
 @media (min-width: 650px) {
   .inbox-nav {
     left: auto;
+  }
+  .chat-nav {
+    width: 60%;
+    grid-template-areas: "pics search menu";
+    grid-template-columns: calc((100% - 3.5rem) / 2) calc((100% - 3.5rem) / 2) 3.5rem;
+    .participant-wrapper {
+      width: 20px;
+    }
+    .back {
+      display: none;
+    }
+    .profiles {
+      border-right: 1px solid var(--light-gray);
+    }
+    .desk-search {
+      background-color: #fff;
+      grid-area: search;
+      height: 100%;
+      width: 100%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      position: relative;
+      padding: 1rem;
+      input {
+        width: 100%;
+      }
+      svg {
+        position: absolute;
+        top: 0;
+      }
+    }
+    .menu-dropdown {
+      width: calc((60% - 3.5rem) / 2 + 3.5rem + 1px);
+    }
+    .back,
+    .participants,
+    .desk-search,
+    .profiles {
+      height: 68px;
+    }
+    .participants .dropdown {
+      width: 100%;
+      .participants-dropdown {
+        width: calc(100% + 1px);
+        &::-webkit-scrollbar {
+          width: 0;
+          height: 0;
+        }
+      }
+    }
+  }
+  .search-chat-label.mobile {
+    display: none;
+  }
+
+  .back[data-state="add"],
+  .back[data-state="new"] {
+    display: block;
+  }
+  .chat-nav[data-state="add"],
+  .chat-nav[data-state="new"] {
+    grid-template-areas: "back pics search menu";
+    grid-template-columns: 3.5rem calc((100% - 7rem) / 2) calc((100% - 7rem) / 2) 3.5rem;
+  }
+  .chat-nav .participants .dropdown[data-state="add"],
+  .chat-nav .participants .dropdown[data-state="new"] {
+    width: calc(60vw - 2px);
+  }
+
+  .search-participants {
+    border-right: 1px solid var(--light-gray);
+  }
+}
+@media (min-width: 800px) {
+  .chat-nav .participant-wrapper {
+    width: 30px;
+  }
+}
+@media (min-width: 950px) {
+  .chat-nav .participant-wrapper {
+    width: 40px;
+  }
+}
+
+@media (min-width: 1100px) {
+  .participant-wrapper.extra {
+    display: flex;
+  }
+  .plus {
+    display: none;
   }
 }
