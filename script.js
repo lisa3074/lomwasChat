@@ -46,6 +46,7 @@ function scroll($) {
 function getScreenSize($, $a) {
   console.log("[Function] || script.js | getScreenSize()");
   if ($("body").clientWidth > 649) {
+    $(".profiles").setAttribute("data-state", "closed");
     $(".chat-nav").classList = "chat-nav";
     $(".chat-container").classList = "chat-container";
     $a(".desk-search, #chat, #inbox").forEach((el) => {

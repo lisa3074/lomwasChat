@@ -53,6 +53,7 @@ export function setParticipantList($) {
   const menuContainer = $(".chat-nav .menu-container");
 
   $(".participants").addEventListener("click", () => {
+    $(".profiles").setAttribute("data-state", $(".profiles").getAttribute("data-state") === "open" ? "closed" : "open");
     if ($(".participants").dataset.state !== "add") {
       displayParticipantList();
       menu.classList.remove("animate__fadeInDown");
@@ -66,7 +67,8 @@ export function setParticipantList($) {
     displayParticipantList();
     $(".search-participants").dataset.state = "open";
     $(".back").addEventListener("click", () => {
-      $(".search-participants").dataset.state = "closed";
+      $(".search-participants").setAttribute("data-state", "closed");
+      $(".participants").setAttribute("data-open", "closed");
     });
     displayFirstNames($);
   });
@@ -103,6 +105,7 @@ export function setMenu($) {
     addParticipant($);
   });
   $(".menu").addEventListener("click", (e) => {
+    $(".profiles").setAttribute("data-state", "closed");
     if ($(".back").dataset.state !== "new") {
       console.log(e.target);
       e.target.classList.contains("search") === true || e.target.classList.contains("feather-search") === true
@@ -144,4 +147,12 @@ function displayMenu($) {
   menuWrapper.classList.toggle("animate__fadeOutUp");
   menuWrapper.setAttribute("data-open", menuWrapper.getAttribute("data-open") === "closed" ? "open" : "closed");
   menuContainer.setAttribute("data-height", menuWrapper.getAttribute("data-open") === "open" ? "72px" : "68px");
+}
+
+export function setParticipantMenu($) {
+  if ($("body").clientWidth > 1200) {
+    $(".plus").textContent = "Lisa, Sarah, Rikke, Henrik, Kristian, Anders, Stefanie";
+  } else {
+    $(".plus").textContent = "+2";
+  }
 }

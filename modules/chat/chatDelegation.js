@@ -9,6 +9,8 @@ import { search } from "./chatFunctions/search";
 import { setNewChat } from "./chatFunctions/newChat";
 import { setOptions } from "./chatFunctions/options";
 import { unreadMessages } from "./chatBody";
+import { hideMessageActions } from "./chatBody";
+import { setParticipantMenu } from "./chatNavigation";
 
 export function chatDelegation($, $a) {
   console.log("[Function] || CHAT/chatDelegation.js | chatDelegation()");
@@ -17,6 +19,10 @@ export function chatDelegation($, $a) {
   setReactions($);
   setParticipantList($);
   setMenu($);
+  window.addEventListener("resize", () => {
+    setParticipantMenu($);
+  });
+  setParticipantMenu($);
 
   $a(".search.mobile, .search.desktop").forEach((element) => {
     element.addEventListener("focus", () => {
@@ -39,5 +45,8 @@ export function chatDelegation($, $a) {
       checkDataState($);
       displayInboxGroups($, $a, e);
     });
+  });
+  $(".back").addEventListener("click", () => {
+    hideMessageActions($, $a);
   });
 }

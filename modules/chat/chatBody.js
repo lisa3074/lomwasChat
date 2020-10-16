@@ -137,3 +137,18 @@ function displayMessageActions(e) {
     });
   });
 }
+export function hideMessageActions($, $a) {
+  if ($(".back").dataset.state === "view") {
+    $a(".more-container, .reaction-container").forEach((container) => {
+      container.classList.add("hide");
+    });
+    $a(".options svg").forEach((svg) => {
+      svg.classList.remove("blue-stroke");
+      svg.classList.add("gray-stroke");
+    });
+    $a(".options-container div:nth-child(2) div, .options-container div:nth-child(3) div").forEach((wrapper) => {
+      wrapper.classList.remove("animate__flipInX");
+      wrapper.classList.add("animate__flipOutX");
+    });
+  }
+}

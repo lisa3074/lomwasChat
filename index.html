@@ -41,7 +41,7 @@
              </input>
             </label>
         <section class="overview-container">
-             <!-- TEMPLATE APPENDS -->
+             <!-- TEMPLATE APPENDS (inbox-temp) -->
              <!-- STATISK KODEDE BESKEDER -->
        <article class="overview-wrapper">
                 <div class="picture-wrapper">
@@ -190,9 +190,9 @@
           <p>Søg: </p>
           <input type="text" placeholder="Søg efter person">
         </div>
-        <div class="profiles">
+        <div class="profiles" data-state="closed">
           <div class="list">
-              <!-- TEMPLATE APPEND -->
+              <!-- TEMPLATE APPEND (chat-temp) -->
               <div class="participant-wrapper">
                 <img src="static/test/lisa_ME_03.jpg" alt="lisa" class="profile-picture">
             </div>
@@ -220,10 +220,10 @@
             </div>
             <p class="plus">+2</p>
           </div>
-        <div class="dropdown animate__animated animate__fadeOutUp hide" data-open="closed">
+        <div class="dropdown animate__animated animate__fadeOutUp hide" data-open="closed" data-state="view">
             <div class="participants-dropdown">
               <div class="participant-list">
-                <!-- TEMPLATE APPEND -->
+                <!-- TEMPLATE APPEND (participants-temp)-->
                 <!-- STATIC PROFILES -->
 
                 <div class="participant-wrapper">
@@ -259,6 +259,7 @@
                <!-- STATIC PROFILES END -->
               </div>
               <div class="add-new hide">
+                <!-- TEMPLATE APPEND LIST OF ALL PROFILES UNLESS THEY'RE ALREADY IN THE GROUP (participants-temp) -->
                 <div class="participant-wrapper">
                   <img src="static/test/pelleThomsen.jpg" alt="Pelle" class="profile-picture">
                   <h4 class="name overview">Pelle Thomsen</h4>

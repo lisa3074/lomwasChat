@@ -9,7 +9,10 @@
   }
   .search {
     width: 100%;
-    margin: 1rem 0 2rem;
+    margin: calc((60px - 36px) / 2) 0;
+  }
+  .feather-search {
+    transform: translate(-2.3rem, 1.1rem);
   }
   .overview-wrapper {
     display: grid;
@@ -173,6 +176,10 @@
   }
 }
 @media (min-width: 650px) {
+  #chat,
+  #inbox {
+    padding: 0;
+  }
   #inbox {
     grid-area: inbox;
     border: 1px solid var(--light-gray);
@@ -198,7 +205,7 @@
       border-top: 1px solid var(--light-gray);
       z-index: 51;
       background-color: #fff;
-      height: 70px;
+      height: 60px;
       width: 40%;
       padding: 0 1rem 1rem 1rem;
     }
@@ -218,6 +225,26 @@
     .message-preview,
     .name.overview {
       width: 27%;
+    }
+  }
+}
+@media (min-width: 1200px) {
+  #inbox {
+    width: 100%;
+    grid-area: inbox;
+    position: static;
+    border-bottom: none;
+    border-right: none;
+
+    .search-messages-label {
+      width: 30%;
+    }
+    .inbox-container .message-preview,
+    .inbox-container .name.overview {
+      width: 19%;
+    }
+    .inbox-nav {
+      width: 30%;
     }
   }
 }

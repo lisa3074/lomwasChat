@@ -1,7 +1,7 @@
 import { displayFirstNames } from "../chatNavigation";
 export function setNewChat($) {
   console.log("[Function] || CHAT/CHATFUNCTIONS/newChat.js | setNewChat()");
-
+  $(".profiles").setAttribute("data-state", "closed");
   $(".menu-container").setAttribute("data-height", "68px");
   $(".menu-dropdown-wrapper").setAttribute("data-open", "closed");
   $("main").setAttribute("data-state", "chat");

@@ -265,7 +265,8 @@ main [data-state="inbox"] {
   display: none;
 }
 
-.search-participants[data-state="open"] {
+.search-participants[data-state="open"],
+.profiles[data-state="open"] {
   animation: higher 1s linear 1 forwards;
 }
 
@@ -344,10 +345,6 @@ main [data-state="inbox"] {
     grid-template-areas: "back pics search menu";
     grid-template-columns: 3.5rem calc((100% - 7rem) / 2) calc((100% - 7rem) / 2) 3.5rem;
   }
-  .chat-nav .participants .dropdown[data-state="add"],
-  .chat-nav .participants .dropdown[data-state="new"] {
-    width: calc(60vw - 2px);
-  }
 
   .search-participants {
     border-right: 1px solid var(--light-gray);
@@ -370,5 +367,77 @@ main [data-state="inbox"] {
   }
   .plus {
     display: none;
+  }
+}
+@media (min-width: 1200px) {
+  .chat-nav {
+    width: 70%;
+    grid-template-columns: auto 20vw 3.5rem;
+
+    .participants > div > .plus {
+      display: block;
+      max-width: 40%;
+      text-overflow: ellipsis;
+      overflow-y: hidden;
+      white-space: nowrap;
+      //padding-right: 1rem;
+    }
+    .participants {
+      width: calc(70vw - 20vw - 3.5rem);
+    }
+    .search-participants {
+      width: 30vw;
+    }
+  }
+  .chat-nav .menu-dropdown {
+    width: calc(20vw + 3.5rem + 1px);
+  }
+  .chat-nav .list,
+  .chat-nav .participants > div {
+    padding-left: 1rem;
+    justify-content: flex-start;
+  }
+  .chat-nav .desk-search input {
+    width: 15vw;
+  }
+}
+
+@media (min-width: 1400px) {
+  .chat-nav .participants > div > .plus {
+    max-width: 50%;
+  }
+}
+@media (min-width: 1500px) {
+  .chat-nav[data-state="add"],
+  .chat-nav[data-state="new"] {
+    grid-template-columns: 3.5rem auto 20vw 3.5rem;
+  }
+
+  .chat-nav .participants > div {
+    padding-left: 1rem;
+    justify-content: flex-start;
+    width: calc(70vw - 20vw - 7rem - 1px);
+  }
+  .chat-nav .participants[data-state="new"],
+  .chat-nav .participants[data-state="add"] {
+    width: calc(70vw - 20vw - 7rem);
+  }
+  .chat-nav .participants > .profiles {
+    width: calc(70vw - 20vw - 3.5rem);
+  }
+}
+@media (min-width: 1600px) {
+  .chat-nav .participants > div > .plus {
+    max-width: 60%;
+  }
+}
+@media (min-width: 1800px) {
+  .chat-nav .participants > div > .plus {
+    max-width: 70%;
+  }
+}
+@media (min-width: 2000px) {
+  .chat-nav .participants > div > .plus {
+    max-width: 80%;
   }
 }
