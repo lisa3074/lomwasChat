@@ -167,7 +167,7 @@ main [data-state="inbox"] {
   }
 
   .list,
-  .participants > div {
+  .profiles {
     justify-content: center;
     .plus {
       padding: 0 0 0 1rem;
@@ -378,7 +378,7 @@ main [data-state="inbox"] {
       display: block;
       max-width: 40%;
       text-overflow: ellipsis;
-      overflow-y: hidden;
+      overflow: hidden;
       white-space: nowrap;
       //padding-right: 1rem;
     }

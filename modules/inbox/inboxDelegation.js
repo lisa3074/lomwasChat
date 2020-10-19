@@ -6,17 +6,14 @@ export function inboxDelegation($, $a) {
   console.log("[Function] || INBOX/inboxDelegation.js | inboxDelegation()");
   const checkIfLoaded = setInterval(() => {
     if ($(".loading").classList.contains("hide")) {
-      $a(".overview-wrapper").forEach((element) => {
-        console.log("loaded");
-        element.addEventListener("click", (e) => {
+      $a(".overview-wrapper").forEach((elm) => {
+        elm.addEventListener("click", (e) => {
           resetParticipantList($, e);
           checkDataState($);
-          displayConversation($);
+          displayConversation($, $a);
         });
       });
       clearInterval(checkIfLoaded);
-    } else {
-      console.log("not loaded");
     }
   }, 500);
 }

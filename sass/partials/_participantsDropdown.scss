@@ -28,7 +28,9 @@
       position: absolute;
       left: 3.5rem;
       max-height: calc(100vh - 70px);
-      overflow-x: scroll;
+    }
+    .dropdown[data-state="new"] .participants-dropdown {
+      // overflow-x: scroll;
     }
     .profile-picture,
     .no-img {
@@ -60,13 +62,14 @@
 
   .participants .dropdown[data-state="add"],
   .participants .dropdown[data-state="new"] {
-    top: 4.5rem;
+    top: 4.4rem;
     justify-content: center;
 
     .participant-list {
       display: flex;
       justify-content: flex-start;
-      overflow-y: scroll;
+      overflow-x: scroll;
+      scrollbar-width: none;
       &::-webkit-scrollbar {
         width: 0;
         height: 0;
@@ -106,7 +109,8 @@
       height: auto;
       max-height: 50vh;
       width: calc(100vw - 4rem);
-      overflow-x: scroll;
+      overflow-y: scroll;
+      scrollbar-width: none;
       padding: 1rem 0 1rem;
       &::-webkit-scrollbar {
         width: 0;

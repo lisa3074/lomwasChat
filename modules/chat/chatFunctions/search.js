@@ -18,7 +18,9 @@ export function search($, $a) {
     $(".desktop .search").value === "" ? instance.unmark() : "";
   });
   window.addEventListener("resize", () => {
-    resetSearch();
+    if ($("body").clientWidth > 650) {
+      resetSearch();
+    }
   });
   $a(".overview-wrapper, .back, .chat-wrapper").forEach((wrapper) => {
     wrapper.addEventListener("click", () => {

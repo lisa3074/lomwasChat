@@ -24,14 +24,14 @@ export function hideChatOnResize($) {
     }, 400);
   }
 }
-export function displayConversation($) {
+export function displayConversation($, $a) {
   console.log("[Function] || INBOX/inbox.js | displayConversation()");
   $(".dropdown").classList = "dropdown animate__animated animate__fadeOutUp";
   if ($("body").clientWidth < 650) {
-    displayChatMobile($);
+    displayChatMobile($, $a);
   } else {
     //go to new conversation on desktop
-    displayChat($);
+    displayChat($, $a);
   }
 }
 
@@ -45,11 +45,11 @@ export function displayInboxGroups($, $a, e) {
       if ($("body").clientWidth < 650) {
         $(".chat-wrapper").classList.add("hide");
         setTimeout(() => {
-          $a("#chat, .dropdown, .chat-nav, .check").forEach((element) => {
-            element.classList.add("hide");
+          $a("#chat, .dropdown, .chat-nav, .check").forEach((elm) => {
+            elm.classList.add("hide");
           });
-          $a("#inbox, .menu").forEach((element) => {
-            element.classList.remove("hide");
+          $a("#inbox, .menu").forEach((elm) => {
+            elm.classList.remove("hide");
           });
         }, 500);
       }

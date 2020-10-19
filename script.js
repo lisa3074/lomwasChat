@@ -19,6 +19,23 @@ function mainDelegation() {
   window.addEventListener("resize", () => {
     getScreenSize($, $a);
   });
+  $a("#chat, .new-chat, .overview-wrapper").forEach((elm) => {
+    elm.addEventListener("click", () => {
+      $(".search-messages").value = "";
+    });
+  });
+
+  $a(".new-chat, .overview-wrapper, .send").forEach((elm) => {
+    elm.addEventListener("click", () => {
+      $(".new-message").value = "";
+    });
+  });
+
+  $a(".new-chat, .overview-wrapper").forEach((elm) => {
+    elm.addEventListener("click", () => {
+      $(".search-participants input").value = "";
+    });
+  });
 }
 
 export function checkDataState($) {
@@ -55,8 +72,10 @@ function getScreenSize($, $a) {
     $(".inbox-nav").classList = "inbox-nav";
     $(".inbox-container").classList = "inbox-container";
   } else {
-    $a(".desk-search, #chat, .chat-nav").forEach((el) => {
-      el.classList.add("hide");
-    });
+    if ($("main").dataset.state === "inbox") {
+      $a(".desk-search, #chat, .chat-nav").forEach((el) => {
+        el.classList.add("hide");
+      });
+    }
   }
 }

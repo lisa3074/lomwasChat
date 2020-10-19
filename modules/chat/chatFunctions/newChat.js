@@ -1,6 +1,19 @@
 import { displayFirstNames } from "../chatNavigation";
-export function setNewChat($) {
+export function findDevice($, $a) {
   console.log("[Function] || CHAT/CHATFUNCTIONS/newChat.js | setNewChat()");
+  $(".dropdown").classList.remove("animate__fadeInDown");
+  $(".dropdown").classList.add("animate__fadeOutUp");
+  $("#chat").classList = "animate__animated animate__fadeOut animate__faster";
+  if ($("body").clientWidth > 650) {
+    setTimeout(() => {
+      setNewChat($, $a);
+    }, 300);
+  } else {
+    setNewChat($, $a);
+  }
+}
+
+function setNewChat($, $a) {
   $(".profiles").setAttribute("data-state", "closed");
   $(".menu-container").setAttribute("data-height", "68px");
   $(".menu-dropdown-wrapper").setAttribute("data-open", "closed");
@@ -12,12 +25,12 @@ export function setNewChat($) {
       element.setAttribute("data-state", "new");
     });
   }, 100);
-
-  displayNewChat($);
+  displayNewChat($, $a);
 }
 
-function displayNewChat($) {
+function displayNewChat($, $a) {
   console.log("[Function] || CHAT/CHATFUNCTIONS/newChat.js | displayNewChat()");
+  $("#chat").classList = "animate__animated animate__fadeIn animate__faster";
   $(".menu-dropdown-wrapper").classList.remove("animate__fadeInDown");
   $(".menu-dropdown-wrapper").classList.add("animate__fadeOutUp");
   document.querySelectorAll(".menu, .chat-wrapper, .unread-messages, .profiles").forEach((element) => {
@@ -45,5 +58,5 @@ function displayNewChat($) {
   if ($("body").clientWidth < 649) {
     $("#inbox").classList.add("hide");
   }
-  displayFirstNames($);
+  displayFirstNames($, $a);
 }

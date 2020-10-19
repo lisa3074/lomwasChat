@@ -21,6 +21,12 @@ export function hideDropdowns($) {
 export function resetParticipantList($, e) {
   //resetNavBar
   console.log("[Function] || CHAT/chatNavigation.js | resetParticipantList()");
+  if ($(".back").dataset.state === "new") {
+    $("#chat").classList = "animate__animated animate__fadeOut animate__faster";
+    setTimeout(() => {
+      $("#chat").classList = "animate__animated animate__fadeIn animate__faster";
+    }, 400);
+  }
   if ($(".back").dataset.state === "add" || $(".back").dataset.state === "new") {
     setTimeout(() => {
       $(".profiles").classList.remove("hide");
@@ -47,7 +53,7 @@ export function resetParticipantList($, e) {
   }
 }
 
-export function setParticipantList($) {
+export function setParticipantList($, $a) {
   console.log("[Function] || CHAT/chatNavigation.js | setParticipantList()");
   const menu = $(".menu-dropdown-wrapper");
   const menuContainer = $(".chat-nav .menu-container");
@@ -70,27 +76,25 @@ export function setParticipantList($) {
       $(".search-participants").setAttribute("data-state", "closed");
       $(".participants").setAttribute("data-open", "closed");
     });
-    displayFirstNames($);
+    displayFirstNames($, $a);
   });
 
   function displayParticipantList() {
     console.log("[Function] || CHAT/chatNavigation.js | displayParticipantList()");
 
-    const dropdown = $(".dropdown");
-    dropdown.classList.remove("hide");
-    dropdown.classList.toggle("animate__fadeInDown");
-    dropdown.classList.toggle("animate__fadeOutUp");
-    dropdown.setAttribute("data-open", dropdown.getAttribute("data-open") === "closed" ? "open" : "closed");
+    $(".dropdown").classList.remove("hide");
+    $(".dropdown").classList.toggle("animate__fadeInDown");
+    $(".dropdown").classList.toggle("animate__fadeOutUp");
+    $(".dropdown").setAttribute("data-open", $(".dropdown").getAttribute("data-open") === "closed" ? "open" : "closed");
   }
 }
-export function displayFirstNames($) {
+export function displayFirstNames($, $a) {
   console.log("[Function] || CHAT/chatNavigation.js | displayFirstNames()");
 
-  const fullNames = [];
   setTimeout(() => {
     const nav = $(".chat-nav");
     if (nav.dataset.state === "add" || nav.dataset.state === "new") {
-      document.querySelectorAll(".participant-list .participant-wrapper h4").forEach((fullName) => {
+      $a(".participant-list .participant-wrapper h4").forEach((fullName) => {
         const name = fullName.textContent;
         const space = name.indexOf(" ");
         fullName.textContent = name.substring(0, space + 1);
@@ -124,17 +128,15 @@ export function setMenu($) {
 }
 function hideParticipantList($) {
   console.log("[Function] || CHAT/chatNavigation.js | hideParticipantList()");
-
-  const participants = $(".dropdown");
   setTimeout(() => {
     $(".back").setAttribute("data-state", "view");
     $(".chat-nav").setAttribute("data-state", "view");
     $(".participants").setAttribute("data-state", "view");
     $(".dropdown").setAttribute("data-state", "view");
   }, 1000);
-  participants.classList.remove("animate__fadeInDown");
-  participants.classList.add("animate__fadeOutUp");
-  participants.setAttribute("data-open", "closed");
+  $(".dropdown").classList.remove("animate__fadeInDown");
+  $(".dropdown").classList.add("animate__fadeOutUp");
+  $(".dropdown").setAttribute("data-open", "closed");
   displayMenu($);
 }
 
