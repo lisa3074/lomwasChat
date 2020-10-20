@@ -39,17 +39,15 @@
 }
 
 body {
-  /* HUSK HØJDE ? */
-  height: 100vh;
+  /* Height set as window height through js */
+  height: calc(var(--vh, 1vh) * 100);
 }
 
 main {
-  height: 100%;
+  height: calc(100% - 70px);
   width: 100%;
-}
-
-.inbox-container {
-  margin-top: 70px;
+  position: relative;
+  top: 70px;
 }
 
 mark {
@@ -163,7 +161,8 @@ img,
 }
 body,
 html,
-.dropdown {
+.dropdown,
+.inbox-container {
   scrollbar-width: none;
   &::-webkit-scrollbar {
     width: 0;
@@ -177,6 +176,9 @@ html,
     .chat-nav .participants .dropdown[data-state="add"],
     .chat-nav .participants .dropdown[data-state="new"] {
       top: 4.4rem;
+    }
+    .inbox-container .search {
+      width: 99%;
     }
     .inbox-container .feather-search {
       transform: translate(-2.3rem, 0.95rem);
@@ -225,6 +227,9 @@ html,
       height: 0;
     }
   }
+  .inbox-container {
+    margin-top: 70px;
+  }
   .burger {
     display: none;
   }
@@ -253,6 +258,10 @@ html,
 @media (min-width: 1200px) {
   main {
     grid-template-columns: 70% 30%;
+  }
+  .inbox-container,
+  #chat {
+    margin-top: 0px;
   }
   #chat,
   #inbox {

@@ -78,7 +78,7 @@ button {
     background-color: var(--background-gray);
     position: absolute;
     padding: 2rem 1rem 1rem;
-    top: 60px;
+    top: 0;
     left: 0;
     padding-bottom: 60px;
     min-height: calc(100vh - 130px);
@@ -287,7 +287,7 @@ button {
   display: grid;
   grid-template-columns: 3.5rem auto 3.5rem;
   align-items: center;
-  z-index: 50;
+  z-index: 52;
   position: fixed;
   bottom: 0;
   left: 0;
@@ -372,6 +372,9 @@ button {
     width: 100%;
     padding-right: 4rem;
   }
+  .chat-container .chat-wrapper {
+    top: 70px;
+  }
 }
 
 @media (min-width: 1000px) {
@@ -414,7 +417,10 @@ button {
     grid-area: chat;
     position: static;
     height: calc(100vh - 70px);
-    margin-top: 70px;
+    // margin-top: 70px;
+  }
+  .chat-container .chat-wrapper {
+    padding-bottom: 0;
   }
   .chat-container .message-wrapper.me {
     padding-left: 15vw;

@@ -1,11 +1,22 @@
 #chat,
 #inbox {
-  padding: 1rem;
+  padding: 0 1rem;
+}
+#inbox {
+  padding: 0;
 }
 #inbox {
   z-index: 2;
+  overflow: hidden;
+  height: calc(100vh - 70px);
 }
-
+.inbox-container {
+  overflow: scroll;
+  height: calc(100vh - 70px);
+  position: relative;
+  top: 0px;
+  padding: 1rem;
+}
 .inbox-container {
   .overview-container {
     padding-top: 0.8rem;
@@ -180,7 +191,18 @@
     transform: translate(20px, 0px);
     z-index: 0;
   }
+  .search-messages-label {
+    width: 100%;
+  }
 }
+/* //only safari (safari does not display the svg if width === 100% for some reasen
+@media not all and (min-resolution: 0.001dpcm) {
+  @supports (-webkit-appearance: none) and (stroke-color: transparent) {
+    .inbox-container .search {
+      width: 99%;
+    }
+  }
+} */
 @media (min-width: 650px) {
   #chat,
   #inbox {
@@ -204,8 +226,9 @@
   }
 
   .inbox-container {
-    padding: 0 1rem calc(70px + 0.5rem) 1rem;
+    padding: 0 1rem 0.5rem 1rem;
     position: relative;
+    height: calc(100vh - 130px);
     .search-messages-label {
       position: fixed;
       bottom: 0;
@@ -257,6 +280,7 @@
     position: static;
     border-bottom: none;
     border-right: none;
+    border-top: none;
 
     .search-messages-label {
       width: 30%;
@@ -267,6 +291,9 @@
     }
     .inbox-nav {
       width: 30%;
+    }
+    .inbox-container {
+      padding-bottom: 0.5rem;
     }
   }
 }

@@ -108,6 +108,7 @@ main [data-state="inbox"] {
     padding: 1.5rem 1rem 1rem;
     height: 68px;
     border-left: var(--border);
+    //border-right: var(--border);
     position: relative;
     background-color: #fff;
     .mark-as-read p,
@@ -178,6 +179,11 @@ main [data-state="inbox"] {
   .dropdown,
   .menu-dropdown {
     position: absolute;
+  }
+
+  .dropdown {
+    max-height: calc((var(--vh, 1vh) * 100) - 129px);
+    overflow-y: scroll;
   }
 
   .menu-dropdown-wrapper {
@@ -399,6 +405,9 @@ main [data-state="inbox"] {
   }
   .chat-nav .desk-search input {
     width: 15vw;
+  }
+  .menu-container {
+    border-right: var(--border);
   }
 }
 

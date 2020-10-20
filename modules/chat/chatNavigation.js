@@ -59,7 +59,12 @@ export function setParticipantList($, $a) {
   const menuContainer = $(".chat-nav .menu-container");
 
   $(".participants").addEventListener("click", () => {
-    $(".profiles").setAttribute("data-state", $(".profiles").getAttribute("data-state") === "open" ? "closed" : "open");
+    if ($(".participants").dataset.state === "view") {
+      $(".profiles").setAttribute(
+        "data-state",
+        $(".profiles").getAttribute("data-state") === "open" ? "closed" : "open"
+      );
+    }
     if ($(".participants").dataset.state !== "add") {
       displayParticipantList();
       menu.classList.remove("animate__fadeInDown");
@@ -81,11 +86,15 @@ export function setParticipantList($, $a) {
 
   function displayParticipantList() {
     console.log("[Function] || CHAT/chatNavigation.js | displayParticipantList()");
-
-    $(".dropdown").classList.remove("hide");
-    $(".dropdown").classList.toggle("animate__fadeInDown");
-    $(".dropdown").classList.toggle("animate__fadeOutUp");
-    $(".dropdown").setAttribute("data-open", $(".dropdown").getAttribute("data-open") === "closed" ? "open" : "closed");
+    if ($(".participants").dataset.state === "view") {
+      $(".dropdown").classList.remove("hide");
+      $(".dropdown").classList.toggle("animate__fadeInDown");
+      $(".dropdown").classList.toggle("animate__fadeOutUp");
+      $(".dropdown").setAttribute(
+        "data-open",
+        $(".dropdown").getAttribute("data-open") === "closed" ? "open" : "closed"
+      );
+    }
   }
 }
 export function displayFirstNames($, $a) {

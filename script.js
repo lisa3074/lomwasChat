@@ -11,13 +11,16 @@ function mainDelegation() {
   /* vars (being sent to almost all modules) */
   const $ = document.querySelector.bind(document);
   const $a = document.querySelectorAll.bind(document);
+
   chatDelegation($, $a);
   inboxDelegation($, $a);
   getContent();
   scroll($);
   getScreenSize($, $a);
+  setHeight();
   window.addEventListener("resize", () => {
     getScreenSize($, $a);
+    setHeight();
   });
   $a("#chat, .new-chat, .overview-wrapper").forEach((elm) => {
     elm.addEventListener("click", () => {
@@ -31,7 +34,7 @@ function mainDelegation() {
     });
   });
 
-  $a(".new-chat, .overview-wrapper").forEach((elm) => {
+  $a(".new-chat, .overview-wrapper, .back").forEach((elm) => {
     elm.addEventListener("click", () => {
       $(".search-participants input").value = "";
     });
@@ -51,7 +54,7 @@ export function checkDataState($) {
 function scroll($) {
   console.log("[Function] || script.js | scroll()");
   setTimeout(() => {
-    $(".overview-container").scrollTo({ top: 0, left: 0, behavior: "smooth" }); //////scroll to top
+    $(".inbox-container").scrollTo({ top: 0, left: 0, behavior: "smooth" }); //////scroll to top
     $("#chat").scrollTo({ top: $(".chat-wrapper").scrollHeight, left: 0, behavior: "smooth" }); //////scroll to bottom
   }, 100);
   if ($("body").clientWidth < 650) {
@@ -78,4 +81,12 @@ function getScreenSize($, $a) {
       });
     }
   }
+}
+
+function setHeight() {
+  console.log("[Function] || script.js | setHeight()");
+  let vh = window.innerHeight * 0.01;
+  console.log(document.querySelector("body").clientHeight);
+  document.documentElement.style.setProperty("--vh", `${vh}px`);
+  console.log(vh);
 }
