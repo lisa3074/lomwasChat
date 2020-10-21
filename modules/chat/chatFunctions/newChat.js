@@ -23,6 +23,7 @@ function setNewChat($, $a) {
   setTimeout(() => {
     document.querySelectorAll(".dropdown, .chat-nav, .back, .participants").forEach((element) => {
       element.setAttribute("data-state", "new");
+      $(".menu-dropdown-wrapper").classList = "menu-dropdown-wrapper animate__animated  animate__fadeOutUp hide";
     });
   }, 100);
   displayNewChat($, $a);

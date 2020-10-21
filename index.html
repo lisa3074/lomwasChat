@@ -36,49 +36,13 @@
         <section class="inbox-container animate__animated">
          
         <label for="search-messages" class="search-messages-label">
-            <input type="text" id="search-messages" class="search-messages search" placeholder="Søg i beskeder">
+            <input type="search" id="search-messages" class="search-messages search" placeholder="Søg i beskeder" autocomplete="new-password">
                <i data-feather="search"></i>
              </input>
             </label>
         <section class="overview-container">
              <!-- TEMPLATE APPENDS (inbox-temp) -->
-             <!-- STATISK KODEDE BESKEDER -->
-       <article class="overview-wrapper">
-                <div class="picture-wrapper">
-                  <img src="static/test/christianJensen.jpg" alt="Christian Jensen" class="profile-picture overview img1" />
-                  <div class="unread-count"><p>3</p></div>
-                </div>
-                <div class="chat-overview">
-                  <h4 class="name overview">Christian Jensen</h4>
-                  <p class="message-preview">Lorem ipsum dolor sit amet consectetur adipisicing elit. 
-                      Cumque praesentium ratione numquam at odio delectus possimus ea nisi illo 
-                      reprehenderit quibusdam atque nulla veritatis, odit incidunt animi eius pariatur 
-                      officiis?</p>
-                  <div class="time-posted overview" data-read="unread">
-                    <i data-feather="clock"></i>
-                    <p>1 min siden</p>
-                  </div>
-                  <div class="total-participants"></div>
-                </div>
-              </article>
-              <article class="overview-wrapper">
-                <div class="picture-wrapper">
-                  <img src="static/test/AnjaRasmussen.jpg" alt="Anja Rasmussen" class="profile-picture overview img1" />
-                  <div class="unread-count"><p>1</p></div>
-                </div>
-                <div class="chat-overview">
-                  <h4 class="name overview">Anja Rasmussen</h4>
-                  <p class="message-preview">Lorem ipsum dolor sit amet consectetur adipisicing elit. 
-                      Cumque praesentium ratione numquam at odio delectus possimus ea nisi illo 
-                      reprehenderit quibusdam atque nulla veritatis, odit incidunt animi eius pariatur 
-                      officiis?</p>
-                  <div class="time-posted overview" data-read="unread">
-                    <i data-feather="clock"></i>
-                    <p>10 min siden</p>
-                  </div>
-                  <div class="total-participants"></div>
-                </div>
-              </article>
+             <!-- STATISK KODET BESKED -->
               <article class="overview-wrapper">
                 <div class="picture-wrapper">
                   <img src="static/test/sarahThomassen.jpg" alt="Sarah Thomassen" class="profile-picture overview img2" />
@@ -99,81 +63,7 @@
                       <div>7</div></div>
                 </div>
               </article>
-              <article class="overview-wrapper">
-                <div class="picture-wrapper">
-                  <img src="static/test/AnjaRasmussen.jpg" alt="Anja Rasmussen" class="profile-picture overview img2" />
-                  <img src="static/test/andersChristiansen.jpg" alt="Anders Christiansen" class="profile-picture overview img2" />
-                  <div class="unread-count"><p>11</p></div>
-                </div>
-                <div class="chat-overview">
-                  <h4 class="name overview">Team 4</h4>
-                  <p class="message-preview">Lorem ipsum dolor sit amet consectetur adipisicing elit. 
-                      Cumque praesentium ratione numquam at odio delectus possimus ea nisi illo 
-                      reprehenderit quibusdam atque nulla veritatis, odit incidunt animi eius pariatur 
-                      officiis?</p>
-                  <div class="time-posted overview" data-read="unread">
-                    <i data-feather="clock"></i>
-                    <p>1 time 23 min siden</p>
-                  </div>
-                  <div class="total-participants"><div>11</div>
-                </div>
-              </article>
-              <article class="overview-wrapper">
-                <div class="picture-wrapper">
-                    <div class="no-img">
-                        <p class="initials">RV</p>
-                      </div>
-                </div>
-                <div class="chat-overview">
-                  <h4 class="name overview">Rikke Villumsen</h4>
-                  <p class="message-preview">Lorem ipsum dolor sit amet consectetur adipisicing elit. 
-                      Cumque praesentium ratione numquam at odio delectus possimus ea nisi illo 
-                      reprehenderit quibusdam atque nulla veritatis, odit incidunt animi eius pariatur 
-                      officiis?</p>
-                  <div class="time-posted overview">
-                    <i data-feather="clock"></i>
-                    <p>3 dage siden</p>
-                  </div>
-                  <div class="total-participants"></div>
-                </div>
-              </article> 
-              <article class="overview-wrapper">
-                <div class="picture-wrapper">
-                    <div class="no-img">
-                        <p class="initials">DR</p>
-                      </div>
-                </div>
-                <div class="chat-overview">
-                  <h4 class="name overview">Dansk Rengøring</h4>
-                  <p class="message-preview">Lorem ipsum dolor sit amet consectetur adipisicing elit. 
-                      Cumque praesentium ratione numquam at odio delectus possimus ea nisi illo 
-                      reprehenderit quibusdam atque nulla veritatis, odit incidunt animi eius pariatur 
-                      officiis?</p>
-                  <div class="time-posted overview">
-                    <i data-feather="clock"></i>
-                    <p>1 dag siden</p>
-                  </div>
-                  <div class="total-participants"></div>
-                </div>
-              </article>
-              <article class="overview-wrapper">
-                <div class="picture-wrapper">
-                  <img src="static/test/andersChristiansen.jpg" alt="Anders Christiansen" class="profile-picture overview img1" />
-                </div>
-                <div class="chat-overview">
-                  <h4 class="name overview">Anders Christiansen</h4>
-                  <p class="message-preview">Lorem ipsum dolor sit amet consectetur adipisicing elit. 
-                      Cumque praesentium ratione numquam at odio delectus possimus ea nisi illo 
-                      reprehenderit quibusdam atque nulla veritatis, odit incidunt animi eius pariatur 
-                      officiis?</p>
-                  <div class="time-posted overview">
-                    <i data-feather="clock"></i>
-                    <p>10 dage siden</p>
-                  </div>
-                  <div class="total-participants"></div>
-                </div>
-              </article>
-              <!-- STATISK KODEDE BESKEDER SLUT -->
+              <!-- STATISK KODET BESKED SLUT -->
         </section>
       </section>
 
@@ -188,7 +78,7 @@
       <div class="participants" data-state="view">
         <div class="search-participants hide">
           <p>Søg: </p>
-          <input type="text" placeholder="Søg efter person">
+          <input type="search" placeholder="Søg efter person" autocomplete="new-password">
         </div>
         <div class="profiles" data-state="closed">
           <div class="list">
@@ -283,7 +173,7 @@
       </div>
       <div class="desk-search hide">
       <label for="search-chat-desktop" class="search-chat-label desktop">
-        <input class="search-chat desktop search" type="text" id="search-chat-desktop" placeholder="Søg i tråd"><i data-feather="search"></i></input>
+        <input class="search-chat desktop search" type="search" id="search-chat-desktop" placeholder="Søg i tråd" autocomplete="new-password"><i data-feather="search"></i></input>
       </label>
     </div>
       <div class="menu-container" data-height="68px">
@@ -293,7 +183,7 @@
             <div class="menu-dropdown-wrapper animate__animated animate__fadeOutUp hide" data-open="closed">
             <div class="menu-dropdown" data-state="more">
               <label for="search-chat-mobile" class="search-chat-label mobile">
-              <input class="search-chat mobile search" type="text" id="search-chat-mobile" placeholder="Søg i tråd"><i data-feather="search"></i></input>
+              <input class="search-chat mobile search" type="search" id="search-chat-mobile" placeholder="Søg i tråd" autocomplete="new-password"><i data-feather="search"></i></input>
             </label>
               <div class="leave-chat"><p>Forlad samtale</p><i data-feather="log-out"></i></div>
               <div class="add-participant"><p>Tilføj deltager</p><i data-feather="user-plus"></i></div>
@@ -699,26 +589,27 @@ Dette er en tekst, fordi der skal være en tekst, fordi der skal være en tekst,
     </main>
  
     <!-- TEMPLATE INBOX -->
-    
     <template class="inbox-temp">
       <article class="overview-wrapper">
         <div class="picture-wrapper">
-            <!-- CREATE WHATEVER IS NEEDED AND APPEND HERE -->
-      <!--     <img src="" alt="" class="profile-picture overview img*1" />
-        <div class="no-img">
-          <p class="initials"></p>
-        </div>
+            <!-- CREATE WHATEVER IS NEEDED AND APPEND HERE:
+             <img src="" alt="" class="profile-picture overview img1" /> ELLER <img src="" alt="" class="profile-picture overview img2" /> 
+             ELLER
+             <div class="no-img"><p class="initials"></p></div>
+             EVENTUELT
           <div class="unread-count"></div> -->
         </div>
         <div class="chat-overview">
           <h4 class="name overview"></h4>
           <p class="message-preview"></p>
-          <div class="time-posted overview">
+          <!-- TOGGLE DATA-STATE BETWEEN "READ" AND "UNREAD" -->
+          <div class="time-posted overview" data-read="unread">
             <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-clock"><circle cx="12" cy="12" r="10"></circle><polyline points="12 6 12 12 16 14"></polyline></svg>
             <p></p>
           </div>
           <div class="total-participants">
-              <!-- APPEND DIV WITH NUMBER HERE IF MORE THAN 2 -->
+              <!-- APPEND DIV WITH NUMBER HERE IF MORE THAN 2:
+              <div></div> -->
           </div>
         </div>
       </article>

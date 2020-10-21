@@ -11,15 +11,17 @@
   height: calc(100vh - 70px);
 }
 .inbox-container {
-  overflow: scroll;
+  overflow-y: scroll;
   height: calc(100vh - 70px);
   position: relative;
   top: 0px;
   padding: 1rem;
+  overflow-x: hidden;
 }
 .inbox-container {
   .overview-container {
     padding-top: 0.8rem;
+    padding-bottom: 60px;
   }
   .search {
     width: 100%;

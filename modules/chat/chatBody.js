@@ -134,6 +134,7 @@ function displayMessageActions(e, $a) {
   });
 }
 export function hideMessageActions($, $a) {
+  console.log("[Function] || CHAT/chatbody.js | hideMessageActions()");
   if ($(".back").dataset.state === "view") {
     $a(".more-container, .reaction-container").forEach((container) => {
       container.classList.add("hide");
@@ -147,4 +148,13 @@ export function hideMessageActions($, $a) {
       wrapper.classList.add("animate__flipOutX");
     });
   }
+}
+
+export function scrollHandler($) {
+  console.log("[Function] || CHAT/chatbody.js | scrollHandler()");
+  $("#chat").addEventListener("scroll", () => {
+    if ($("#chat").scrollTop === 0) {
+      $(".unread-messages").classList = "unread-messages animate__animated animate__fadeOut";
+    }
+  });
 }

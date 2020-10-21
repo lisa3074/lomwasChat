@@ -3,6 +3,7 @@ import { getContent } from "./modules/db/getContent";
 import { chatDelegation } from "./modules/chat/chatDelegation";
 import { inboxDelegation } from "./modules/inbox/inboxDelegation";
 import "@babel/polyfill";
+import { doc } from "prettier";
 
 window.addEventListener("DOMContentLoaded", mainDelegation);
 
@@ -18,6 +19,7 @@ function mainDelegation() {
   scroll($);
   getScreenSize($, $a);
   setHeight();
+
   window.addEventListener("resize", () => {
     getScreenSize($, $a);
     setHeight();

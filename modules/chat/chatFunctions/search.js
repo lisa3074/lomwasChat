@@ -19,24 +19,31 @@ export function searchChat($, $a) {
   });
 
   //remove search result
-  $(".mobile .search").addEventListener("keyup", () => {
-    $(".mobile .search").value === "" ? instance.unmark() : "";
+  ["keyup", "focus"].forEach((event) => {
+    $(".mobile .search").addEventListener(event, () => {
+      $(".mobile .search").value === "" ? instance.unmark() : "";
+    });
   });
-  $(".desktop .search").addEventListener("keyup", () => {
-    $(".desktop .search").value === "" ? instance.unmark() : "";
+  ["keyup", "focus"].forEach((event) => {
+    $(".desktop .search").addEventListener(event, () => {
+      $(".desktop .search").value === "" ? instance.unmark() : "";
+    });
   });
+
   window.addEventListener("resize", () => {
     if ($("body").clientWidth > 650) {
-      resetSearch();
+      resetSearch($, instance);
     }
   });
-  $a(".overview-wrapper, .back, .chat-wrapper").forEach((wrapper) => {
-    wrapper.addEventListener("click", () => {
-      resetSearch();
+  ["click", "touch"].forEach((event) => {
+    $a(".overview-wrapper, .back, .chat-wrapper").forEach((element) => {
+      element.addEventListener(event, () => {
+        resetSearch($, instance);
+      });
     });
   });
 }
-export function searchInbox($) {
+export function searchInbox($, $a) {
   console.log("[Function] || CHAT/CHATFUNCTIONS/search.js | searchInbox()");
   let instance = new Mark($(".inbox-container"));
 
@@ -55,9 +62,16 @@ export function searchInbox($) {
   $(".search-messages").addEventListener("keyup", () => {
     $(".search-messages").value === "" ? instance.unmark() : "";
   });
+  ["click", "touch"].forEach((event) => {
+    $a(".overview-wrapper, .back, .chat-wrapper").forEach((element) => {
+      element.addEventListener(event, () => {
+        resetSearch($, instance);
+      });
+    });
+  });
 }
 
-function resetSearch() {
+function resetSearch($, instance) {
   console.log("[Function] || CHAT/CHATFUNCTIONS/search.js | resetSearch()");
   $(".desktop .search").value = "";
   $(".mobile .search").value = "";

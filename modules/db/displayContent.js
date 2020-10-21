@@ -1,64 +1,7 @@
 import * as timeago from "timeago.js";
 import { scrollHandler } from "../chat/chatBody";
 
-const HTML = {};
-
-export function getContent() {
-  console.log("[function] || DB/getContent.js | getContent");
-  HTML.groupUrl = "https://frontend-22d4.restdb.io/rest/chatgroup";
-  HTML.profileUrl = "https://frontend-22d4.restdb.io/rest/chatprofile";
-  HTML.messageUrl = "https://frontend-22d4.restdb.io/rest/chatmessage";
-  HTML.apiKey = "5e9581a6436377171a0c234f";
-  getMessage();
-  getProfile();
-  getGroup();
-  HTML.messages;
-}
-
-async function getGroup() {
-  console.log("[Function] || DB/getContent.js | getContent()");
-
-  let response = await fetch(HTML.groupUrl, {
-    method: "get",
-    headers: {
-      "Content-Type": "application/json; charset=utf-8",
-      "x-apikey": HTML.apiKey,
-      "cache-control": "no-cache",
-    },
-  });
-  let data = await response.json();
-  data.filter(displayGroup);
-}
-async function getMessage() {
-  console.log("[Function] || DB/getContent.js | getMessage()");
-
-  let response = await fetch(HTML.messageUrl, {
-    method: "get",
-    headers: {
-      "Content-Type": "application/json; charset=utf-8",
-      "x-apikey": HTML.apiKey,
-      "cache-control": "no-cache",
-    },
-  });
-  let data = await response.json();
-  HTML.messages = data;
-}
-
-async function getProfile() {
-  console.log("[Function] || DB/getContent.js | getProfile()");
-
-  let response = await fetch(HTML.profileUrl, {
-    method: "get",
-    headers: {
-      "Content-Type": "application/json; charset=utf-8",
-      "x-apikey": HTML.apiKey,
-      "cache-control": "no-cache",
-    },
-  });
-  let data = await response.json();
-}
-
-function displayGroup(data) {
+export function displayGroup(data) {
   console.log("[Function] || DB/getContent.js | displayGroup()");
 
   /* Variables */
@@ -147,10 +90,10 @@ function displayGroup(data) {
           clone.querySelector(".time-posted.overview>p").textContent = timeago.format(m.time);
           //If particular date and time is needed
           /*  const year = m.time.substring(0, 4);
-          const month = m.time.substring(5, 7);
-          const day = m.time.substring(8, 10);
-          const time = m.time.substring(11, 16);
-          clone.querySelector(".time-posted.overview>p").textContent = `Sendt d. ${day}/${month}-${year} kl. ${time}`; */
+            const month = m.time.substring(5, 7);
+            const day = m.time.substring(8, 10);
+            const time = m.time.substring(11, 16);
+            clone.querySelector(".time-posted.overview>p").textContent = `Sendt d. ${day}/${month}-${year} kl. ${time}`; */
         }
       });
     });
