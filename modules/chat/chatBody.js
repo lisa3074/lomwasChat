@@ -158,3 +158,10 @@ export function scrollHandler($) {
     }
   });
 }
+
+export function displayOtherChat($, $a) {
+  $(".chat-wrapper").classList = "chat-wrapper animate__animated animate_fadeOut";
+  setTimeout(() => {
+    //$(".chat-container").classList = "chat-container animate__animated animate__fadeIn";
+  }, 1000);
+}

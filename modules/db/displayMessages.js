@@ -3,14 +3,12 @@ import { resetParticipantList } from "../chat/chatNavigation";
 import { displayConversation } from "../inbox/inbox";
 import { checkDataState } from "../../script";
 import { scrollHandler } from "../chat/chatBody";
+import { displayOtherChat } from "../chat/chatBody";
 export function messageDelegation(entry, group, data) {
   console.log(entry);
   const $ = document.querySelector.bind(document);
   const $a = document.querySelectorAll.bind(document);
-  // const clone = $(".chat-temp").cloneNode(true).content;
   data.sort((a, b) => new Date(a.time) - new Date(b.time));
-
-  //  displayImage(clone, entry, $, group, data);
   entry.chatgroup.forEach((message) => {
     if ("5f7c3c35d279373c004bb955" === message._id) {
       displayImage(entry, $);
@@ -26,9 +24,11 @@ export function messageDelegation(entry, group, data) {
           checkDataState($);
           displayConversation($, $a);
           scrollHandler($);
+          displayOtherChat($, $a);
           setTimeout(() => {
             setMessage(entry, $, e);
-          }, 100);
+            $("#chat").scrollTo({ top: $(".chat-wrapper").scrollHeight, left: 0, behavior: "smooth" }); //////scroll to bottom
+          }, 250);
         });
       });
       clearInterval(checkIfLoaded);
@@ -39,8 +39,6 @@ export function messageDelegation(entry, group, data) {
 function setMessage(entry, $, e) {
   entry.chatgroup.forEach((groupId) => {
     if (e.target.dataset.id === groupId._id) {
-      console.log(entry);
-      console.log(e.target.dataset.id + " && " + groupId._id);
       displayImage(entry, $);
     }
   });
