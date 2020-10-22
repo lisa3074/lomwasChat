@@ -15,9 +15,16 @@ import { setParticipantMenu } from "./chatNavigation";
 
 export function chatDelegation($, $a) {
   console.log("[Function] || CHAT/chatDelegation.js | chatDelegation()");
+  const checkIfLoaded = setInterval(() => {
+    if ($(".loading").classList.contains("hide")) {
+      setMessageActions($a);
+      setReactions($);
+      setOptions($);
+      $("#chat").scrollTo({ top: $(".chat-wrapper").scrollHeight, left: 0, behavior: "smooth" }); //////scroll to bottom
+      clearInterval(checkIfLoaded);
+    }
+  }, 200);
 
-  setMessageActions($a);
-  setReactions($);
   setParticipantList($, $a);
   setMenu($);
   window.addEventListener("resize", () => {
@@ -34,7 +41,6 @@ export function chatDelegation($, $a) {
     searchInbox($, $a);
   });
 
-  setOptions($);
   $(".unread-messages").addEventListener("click", () => {
     unreadMessages($);
   });

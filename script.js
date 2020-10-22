@@ -1,5 +1,5 @@
 "use strict";
-import { getContent } from "./modules/db/getContent";
+import { dbDelegation } from "./modules/db/getInbox";
 import { chatDelegation } from "./modules/chat/chatDelegation";
 import { inboxDelegation } from "./modules/inbox/inboxDelegation";
 import "@babel/polyfill";
@@ -15,7 +15,7 @@ function mainDelegation() {
 
   chatDelegation($, $a);
   inboxDelegation($, $a);
-  getContent();
+  dbDelegation();
   scroll($);
   getScreenSize($, $a);
   setHeight();

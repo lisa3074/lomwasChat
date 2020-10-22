@@ -33,9 +33,9 @@ export function displayChatMobile($, $a) {
 
 export function displayChat($, $a) {
   console.log("[Function] || CHAT/chatbody.js | displayChat()");
-  setTimeout(() => {
+  /*   setTimeout(() => {
     $("#chat").scrollTo({ top: $(".chat-wrapper").scrollHeight, left: 0, behavior: "smooth" }); //////scroll to bottom
-  }, 800);
+  }, 800); */
   $(".menu-container").classList.remove("hide");
   if ($(".chat-nav").dataset.state === "new") {
     $(".dropdown").classList = "dropdown animate__animated animate__fadeOutUp";
