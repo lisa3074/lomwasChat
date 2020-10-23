@@ -1,9 +1,11 @@
 import { displayFirstNames } from "../chatNavigation";
 export function findDevice($, $a) {
   console.log("[Function] || CHAT/CHATFUNCTIONS/newChat.js | setNewChat()");
+  //remove and reset animations
   $(".dropdown").classList.remove("animate__fadeInDown");
   $(".dropdown").classList.add("animate__fadeOutUp");
   $("#chat").classList = "animate__animated animate__fadeOut animate__faster";
+  //if desktop, wait for animation/fadeout to end before calling setNewChat
   if ($("body").clientWidth > 650) {
     setTimeout(() => {
       setNewChat($, $a);
@@ -14,12 +16,15 @@ export function findDevice($, $a) {
 }
 
 function setNewChat($, $a) {
-  $(".profiles").setAttribute("data-state", "closed");
+  //Set data attributes on navigation
   $(".menu-container").setAttribute("data-height", "68px");
-  $(".menu-dropdown-wrapper").setAttribute("data-open", "closed");
   $("main").setAttribute("data-state", "chat");
-  $(".dropdown").setAttribute("data-open", "open");
-  $(".search-participants").dataset.state = "open";
+  document.querySelectorAll(".profiles, .menu-dropdown-wrapper").forEach((element) => {
+    element.setAttribute("data-state", "closed");
+  });
+  document.querySelectorAll(".dropdown, .search-participants").forEach((element) => {
+    element.setAttribute("data-state", "open");
+  });
   setTimeout(() => {
     document.querySelectorAll(".dropdown, .chat-nav, .back, .participants").forEach((element) => {
       element.setAttribute("data-state", "new");
@@ -32,6 +37,7 @@ function setNewChat($, $a) {
 function displayNewChat($, $a) {
   console.log("[Function] || CHAT/CHATFUNCTIONS/newChat.js | displayNewChat()");
   const is_safari = navigator.userAgent.indexOf("Safari") > -1;
+  //If NOT safari browser, set animation
   if (!is_safari) {
     $("#chat").classList = "animate__animated animate__fadeIn animate__faster";
   } else {
@@ -49,9 +55,9 @@ function displayNewChat($, $a) {
   $(".dropdown").classList.add("animate__fadeInDown");
   $(".dropdown").classList.remove("animate__fadeOutUp");
   $(".search-participants p").textContent = "Til:";
-
   $(".chat-nav").classList = "chat-nav animate__animated animate__fadeIn animate-faster";
-  //fix for position: fixed vs. transform problem
+
+  //fix for position: fixed vs. transform problem (CSS error that hasn't yet been fixed)
   $(".new-message-wrapper").classList = "new-message-wrapper hide";
   setTimeout(() => {
     $(".new-message-wrapper").classList = "new-message-wrapper animate__animated animate__fadeIn";

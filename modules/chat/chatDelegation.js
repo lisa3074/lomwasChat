@@ -15,6 +15,12 @@ import { setParticipantMenu } from "./chatNavigation";
 
 export function chatDelegation($, $a) {
   console.log("[Function] || CHAT/chatDelegation.js | chatDelegation()");
+
+  setParticipantList($, $a);
+  setParticipantMenu($);
+  setMenu($, $a);
+
+  //If .loading has a hide on, the data is loaded from db
   const checkIfLoaded = setInterval(() => {
     if ($(".loading").classList.contains("hide")) {
       setMessageActions($a);
@@ -23,17 +29,13 @@ export function chatDelegation($, $a) {
       $a("svg").forEach((svg) => {
         svg.setAttribute("viewBox", "0 0 24 24");
       });
-      $("#chat").scrollTo({ top: $(".chat-wrapper").scrollHeight, left: 0, behavior: "smooth" }); //////scroll to bottom
+      $("#chat").scrollTo({ top: $(".chat-wrapper").scrollHeight, left: 0, behavior: "smooth" }); //////scroll to bottom of chat
       clearInterval(checkIfLoaded);
     }
   }, 200);
-
-  setParticipantList($, $a);
-  setMenu($);
   window.addEventListener("resize", () => {
     setParticipantMenu($);
   });
-  setParticipantMenu($);
 
   $a(".search.mobile, .search.desktop").forEach((elm) => {
     elm.addEventListener("focus", () => {
@@ -54,7 +56,7 @@ export function chatDelegation($, $a) {
 
   $a(".menu-container .menu, .back").forEach((elm) => {
     elm.addEventListener("click", (e) => {
-      resetParticipantList($, e);
+      resetParticipantList($, e, $a);
       checkDataState($);
       displayInboxGroups($, $a, e);
     });

@@ -3,8 +3,6 @@ import { scrollHandler } from "../chat/chatBody";
 
 export function displayGroupDelegation(data, previewMessage) {
   console.log("[Function] || DB/getContent.js | displayGroup()");
-
-  /* Variables */
   const $ = document.querySelector.bind(document);
   const clone = $(".inbox-temp").cloneNode(true).content;
 

@@ -9,6 +9,7 @@ import { displayOtherChat } from "../chat/chatBody";
 
 export function inboxDelegation($, $a) {
   console.log("[Function] || INBOX/inboxDelegation.js | inboxDelegation()");
+  //check if data is loaded before setting eventlisteners. If .loaded contains "hide", then data is loaded.
   const checkIfLoaded = setInterval(() => {
     if ($(".loading").classList.contains("hide")) {
       window.scrollTo({ top: 0, left: 0, behavior: "smooth" });

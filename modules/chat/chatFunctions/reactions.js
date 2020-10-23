@@ -3,9 +3,10 @@ export function setReactions() {
   const $a = document.querySelectorAll.bind(document);
 
   $a(".heart.reaction").forEach((heart) => {
-    //read current count from database
+    //read current count from database when connected, then dbCount + count
     let count = 0;
     heart.addEventListener("click", (e) => {
+      //make sure the user can only add +1 or remove
       count === 1 ? count-- : count++;
       //send count to database
       displayReactions(e, "heart", heart, count, $a);
@@ -43,7 +44,7 @@ export function setReactions() {
 
 function displayReactions(e, emoji, singleE, count, $a) {
   console.log("[Function] || CHAT/CHATFUNCTIONS/reactions.js | displayReactions()");
-
+  //mark selected reaction and display/hide same reaction underneath message
   e.target.parentNode.querySelector("." + emoji + ".reaction > svg").classList.toggle("blue-stroke");
   e.target.parentNode.querySelector("." + emoji + ".reaction > svg").classList.toggle("main-gray-stroke");
   count >= 1
@@ -55,6 +56,7 @@ function displayReactions(e, emoji, singleE, count, $a) {
         .classList.add("hide");
 
   $a(".feedback-container").forEach((container) => {
+    //if the clicked container is equal to one of the possible container in the chat
     if (container === e.target.parentNode.parentNode.parentNode.parentNode.querySelector(".feedback-container")) {
       singleE.parentNode.parentNode.parentNode.parentNode.querySelector("." + emoji + "-count").textContent = count;
     }

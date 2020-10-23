@@ -31,7 +31,6 @@
     top: 4.4rem;
   }
   #chat .participants-dropdown {
-    //width: calc(100% + 1px);
     width: 100%;
     overflow-x: hidden;
     &::-webkit-scrollbar {
@@ -42,10 +41,9 @@
   #chat .participants .dropdown[data-state="view"] .participant-list {
     width: 100%;
   }
+
+  #chat .participants .participants-dropdown,
   #chat .participants .dropdown[data-state="view"] {
-    left: 0;
-  }
-  #chat .participants .participants-dropdown {
     left: 0;
   }
 
@@ -77,7 +75,6 @@
 }
 @media (min-width: 1500px) {
   #chat .dropdown .participants-dropdown {
-    width: calc(70vw - 20vw + 1px);
     width: calc(70vw - 20vw - 3.5rem);
   }
 }

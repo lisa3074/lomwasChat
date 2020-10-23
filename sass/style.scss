@@ -230,7 +230,6 @@ input[type="search"] {
 
   #inbox,
   #chat {
-    //height: calc(100vh - 130px);
     height: 100%;
     position: fixed;
     top: 0;
@@ -250,11 +249,13 @@ input[type="search"] {
   }
 }
 //Only safari (otherwise the chat won't scroll)
-@media not all and (min-resolution: 0.001dpcm) {
-  @supports (-webkit-appearance: none) and (stroke-color: transparent) {
-    #inbox,
-    #chat {
-      height: calc(100vh - 130px);
+@media (min-width: 1200px) {
+  @media not all and (min-resolution: 0.001dpcm) {
+    @supports (-webkit-appearance: none) and (stroke-color: transparent) {
+      #inbox,
+      #chat {
+        height: calc(100vh - 130px);
+      }
     }
   }
 }

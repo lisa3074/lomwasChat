@@ -67,6 +67,7 @@ function scroll($) {
 
 function getScreenSize($, $a) {
   console.log("[Function] || script.js | getScreenSize()");
+  //set the correct classes / attibutes after screnn size
   if ($("body").clientWidth > 649) {
     $(".profiles").setAttribute("data-state", "closed");
     $(".chat-nav").classList = "chat-nav";
@@ -87,8 +88,7 @@ function getScreenSize($, $a) {
 
 function setHeight() {
   console.log("[Function] || script.js | setHeight()");
+  //calculate 1vh in px to set the right hight in css
   let vh = window.innerHeight * 0.01;
-  console.log(document.querySelector("body").clientHeight);
   document.documentElement.style.setProperty("--vh", `${vh}px`);
-  console.log(vh);
 }

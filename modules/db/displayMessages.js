@@ -1,11 +1,13 @@
 import * as timeago from "timeago.js";
 
-export function messageDelegation(entry, group, data) {
-  console.log(entry);
+export function messageDelegation(entry, data) {
   const $ = document.querySelector.bind(document);
   const $a = document.querySelectorAll.bind(document);
+  //sort on timestamp
   data.sort((a, b) => new Date(a.time) - new Date(b.time));
   entry.chatgroup.forEach((message) => {
+    //the first group in the inbox is static (to show the "new message" bubble)
+    //This it therefore static code to set the first chat that shows on the screen (desktop)
     if ("5f7c3c35d279373c004bb955" === message._id) {
       displayImage(entry, $);
     }
@@ -29,6 +31,7 @@ export function messageDelegation(entry, group, data) {
 
 function setMessage(entry, $, e) {
   entry.chatgroup.forEach((groupId) => {
+    //filter all messages to find the ones posted in the clicked group
     if (e.target.dataset.id === groupId._id) {
       displayImage(entry, $);
     }
@@ -37,7 +40,6 @@ function setMessage(entry, $, e) {
 
 function displayImage(entry, $) {
   const clone = $(".chat-temp").cloneNode(true).content;
-  console.log(clone.querySelector(".message-wrapper"));
   const img = document.createElement("img");
   const div = document.createElement("div");
   entry.name.forEach((participant) => {
@@ -49,13 +51,12 @@ function displayImage(entry, $) {
       clone.querySelector(".message-wrapper").classList = "message-wrapper you";
     }
     if (participant.image.length === 0) {
-      console.log("no image");
+      //if the user ha no profile picture, append div with initials
       const initials = getInitials(participant);
       div.classList = "no-img no-img3";
       clone.querySelector(".message-wrapper").appendChild(div);
       div.appendChild(initials);
     } else {
-      console.log("image");
       img.src = "https://lomwas-88eb.restdb.io/media/" + participant.image;
       img.classList = "profile-picture img1";
       clone.querySelector(".message-wrapper").appendChild(img);
@@ -65,6 +66,7 @@ function displayImage(entry, $) {
 }
 
 function displayMessageBox(clone, entry, $, participant) {
+  //set data in DOM
   clone.querySelector(".message-wrapper").setAttribute("data-id", entry._id);
   clone.querySelector(".message-wrapper .name").textContent = participant.name;
   clone.querySelector(".message-wrapper .time-posted p").textContent = timeago.format(entry.time);

@@ -29,9 +29,7 @@
       left: 3.5rem;
       max-height: calc(100vh - 70px);
     }
-    .dropdown[data-state="new"] .participants-dropdown {
-      // overflow-x: scroll;
-    }
+
     .profile-picture,
     .no-img {
       margin-bottom: 1rem;
@@ -44,7 +42,6 @@
         margin-bottom: 1rem;
         padding-left: 1rem;
         white-space: nowrap;
-        /*   width: 44vw; */
 
         overflow: hidden;
         text-overflow: ellipsis;

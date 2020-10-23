@@ -33,6 +33,7 @@ function inspectData(data, url) {
   console.log("[Function] || DB/getContent.js | inspectData()");
   if (url === "chatgroup") {
     HTML.group = data;
+    //make sure the message data is loaded
     const checkIfMessagesHasLoaded = setInterval(() => {
       if (HTML.previewMessage !== undefined) {
         clearInterval(checkIfMessagesHasLoaded);
@@ -43,11 +44,12 @@ function inspectData(data, url) {
     }, 200);
   } else {
     HTML.previewMessage = data;
+    //make sure the group data is loaded
     const checkIfGroupHasLoaded = setInterval(() => {
       if (HTML.group !== undefined) {
         clearInterval(checkIfGroupHasLoaded);
         data.forEach((entry) => {
-          messageDelegation(entry, HTML.group, data);
+          messageDelegation(entry, data);
         });
       }
     }, 200);

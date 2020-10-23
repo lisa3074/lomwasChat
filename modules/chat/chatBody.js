@@ -13,33 +13,39 @@ export function unreadMessages($) {
 
 export function displayChatMobile($, $a) {
   console.log("[Function] || CHAT/chatbody.js | displayChatMobile()");
-  /* vars */
   const animateFast = " animate__animated animate__faster animate__";
-
+  const is_explorer = navigator.userAgent.indexOf("MSIE") > -1;
+  const is_opera = navigator.userAgent.toLowerCase().indexOf("op") > -1;
+  if (is_explorer || is_opera) {
+    $("#inbox").style.display = "none";
+  }
+  //Animate inbox out and the chat in
   $(".inbox-nav").classList = animateFast + "fadeOut inbox-nav";
   $(".inbox-container").classList = animateFast + "slideOutLeft animate__fadeOut inbox-container";
   $(".chat-container").classList = animateFast + "slideInRight animate__fadeIn chat-container";
   setTimeout(() => {
-    $("#inbox").classList.add("hide");
-    $(".inbox-nav").classList.add("hide");
+    $a(".inbox, .inbox-nav").forEach((element) => {
+      element.classList.add("hide");
+    });
     $(".chat-nav").classList = animateFast + "fadeIn chat-nav";
     $(".chat-container").classList = animateFast + "fadeIn chat-container";
   }, 400);
   setTimeout(() => {
-    window.scrollTo({ top: $(".chat-wrapper").scrollHeight, left: 0, behavior: "smooth" }); //////scroll to bottom
+    window.scrollTo({ top: $(".chat-wrapper").scrollHeight, left: 0, behavior: "smooth" }); //////scroll to bottom (only mobile)
   }, 800);
+
   displayChat($, $a);
 }
 
 export function displayChat($, $a) {
   console.log("[Function] || CHAT/chatbody.js | displayChat()");
   setTimeout(() => {
-    $("#chat").scrollTo({ top: $(".chat-wrapper").scrollHeight, left: 0, behavior: "smooth" }); //////scroll to bottom
+    $("#chat").scrollTo({ top: $(".chat-wrapper").scrollHeight, left: 0, behavior: "smooth" }); //////scroll to bottom (for desktop)
   }, 800);
   $(".menu-container").classList.remove("hide");
   if ($(".chat-nav").dataset.state === "new") {
-    $(".dropdown").classList = "dropdown animate__animated animate__fadeOutUp";
     $(".dropdown").dataset.state = "closed";
+    $(".dropdown").classList = "dropdown animate__animated animate__fadeOutUp";
     setTimeout(() => {
       $(".dropdown").classList.add("hide");
     }, 500);
@@ -47,12 +53,15 @@ export function displayChat($, $a) {
   } else {
     $(".dropdown").classList.add("hide");
   }
+  //show chat
   $a("#chat, .profiles, .chat-wrapper, .unread-messages").forEach((elm) => {
     elm.classList.remove("hide");
   });
+  //set data attributes to fit settings for this view
   $a(".chat-nav, .dropdown, .participants, .back").forEach((elm) => {
     elm.setAttribute("data-state", "view");
   });
+  //hide the add new navigation
   $a(".search-participants, .add-new").forEach((elm) => {
     elm.classList.add("hide");
   });
@@ -61,8 +70,10 @@ export function displayChat($, $a) {
 
 export function setMessageActions($a) {
   console.log("[Function] || CHAT/chatbody.js | setMessageActions()");
+  //eventlistner for the two options next to each mesage (smiley and three dots)
   $a(".reaction.btn, .more.btn").forEach((btn) => {
     btn.addEventListener("click", (e) => {
+      //set variables to match the clicked option
       HTML.chosen = e.target.classList[0];
       HTML.opposite = e.target.classList[0] === "more" ? "reaction" : "more";
       HTML.mainSvg = HTML.chosen === "more" ? "feather-more-vertical" : "feather-smile";
@@ -78,6 +89,7 @@ export function setMessageActions($a) {
   });
   //reset all more/reaction wrappers
   $a(".more-container button, .reaction-container button").forEach((btn) => {
+    //eventlistners for the next set of options (reactions or copy/info/delete)
     btn.addEventListener("click", (e) => {
       e.target.parentNode.classList = HTML.chosen + "-wrapper animate__animated animate__flipOutX";
       e.target.parentNode.parentNode.parentNode.querySelector("." + HTML.chosen + ".btn>svg").classList =
@@ -135,6 +147,7 @@ function displayMessageActions(e, $a) {
 }
 export function hideMessageActions($, $a) {
   console.log("[Function] || CHAT/chatbody.js | hideMessageActions()");
+  //only mobile has a back button. hide and reset reaction/option containers when going back to inbox view
   if ($(".back").dataset.state === "view") {
     $a(".more-container, .reaction-container").forEach((container) => {
       container.classList.add("hide");
@@ -152,6 +165,7 @@ export function hideMessageActions($, $a) {
 
 export function scrollHandler($) {
   console.log("[Function] || CHAT/chatbody.js | scrollHandler()");
+  //remove the "X unread messages" when page is scolled to the top. Should be when there are no more unread messages
   $("#chat").addEventListener("scroll", () => {
     if ($("#chat").scrollTop === 0) {
       $(".unread-messages").classList = "unread-messages animate__animated animate__fadeOut";
@@ -160,6 +174,7 @@ export function scrollHandler($) {
 }
 
 export function displayOtherChat($, $a) {
+  //fade the chat out and in while another function loads the data of the new chat
   $(".chat-wrapper").classList = "chat-wrapper animate__animated animate_fadeOut";
   setTimeout(() => {
     $(".chat-wrapper").classList = "chat-wrapper animate__animated animate__fadeIn";
