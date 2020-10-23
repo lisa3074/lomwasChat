@@ -21,7 +21,8 @@ export function hideDropdowns($) {
 export function resetParticipantList($, e) {
   //resetNavBar
   console.log("[Function] || CHAT/chatNavigation.js | resetParticipantList()");
-  if ($(".back").dataset.state === "new") {
+  const is_safari = navigator.userAgent.indexOf("Safari") > -1;
+  if ($(".back").dataset.state === "new" && !is_safari) {
     $("#chat").classList = "animate__animated animate__fadeOut animate__faster";
     setTimeout(() => {
       $("#chat").classList = "animate__animated animate__fadeIn animate__faster";
@@ -78,6 +79,7 @@ export function setParticipantList($, $a) {
     displayParticipantList();
     $(".search-participants").dataset.state = "open";
     $(".back").addEventListener("click", () => {
+      $(".profiles").setAttribute("data-state", "closed");
       $(".search-participants").setAttribute("data-state", "closed");
       $(".participants").setAttribute("data-open", "closed");
     });

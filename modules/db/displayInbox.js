@@ -122,9 +122,11 @@ function numberOfParticipants(data, clone, $) {
   //console.log("[Function] || DB/getContent.js | numberOfParticipants()");
   if (data.participants.length > 2) {
     const mark = document.createElement("div");
+    const text = document.createElement("p");
     const number = document.createTextNode(data.participants.length);
     clone.querySelector(".total-participants").appendChild(mark);
-    mark.appendChild(number);
+    mark.appendChild(text);
+    text.appendChild(number);
   }
   $(".overview-container").appendChild(clone);
 }

@@ -4,236 +4,260 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel="stylesheet" href="sass/style.scss" />
-    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;700&display=swap" rel="stylesheet">
-    <link
-    rel="stylesheet"
-    href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"
-  />
-<!--   <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css"> -->
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;700&display=swap" rel="stylesheet" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css" />
+    <!--   <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css"> -->
     <title>Messages</title>
   </head>
   <body>
-
-    
     <main data-state="inbox">
-  <div class="loading animate__animated">
-      <div class="spinner-border text-primary" role="status">
+      <div class="loading animate__animated">
+        <div class="spinner-border text-primary" role="status"></div>
+        <p>loading messages</p>
       </div>
-      <p>loading messages</p>
-    </div>
       <section id="inbox">
-         <!-- INBOX NAVIGATION (INCL. BURGER NAV) -->
-    <nav class="inbox-nav">
-      <div class="burger">
-        <i data-feather="menu"></i>
-      </div>
-      <h1>Indbakke</h1>
-      <div class="new-chat">    
-          <i data-feather="edit"></i></div>
-    </nav>
-      <!-- INBOX -->
-  
+        <!-- INBOX NAVIGATION (INCL. BURGER NAV) -->
+        <nav class="inbox-nav">
+          <div class="burger">
+            <i data-feather="menu"></i>
+          </div>
+          <h1>Indbakke</h1>
+          <div class="new-chat">
+            <i data-feather="edit"></i>
+          </div>
+        </nav>
+        <!-- INBOX -->
+
         <section class="inbox-container animate__animated">
-         
-        <label for="search-messages" class="search-messages-label">
-            <input type="search" id="search-messages" class="search-messages search" placeholder="Søg i beskeder" autocomplete="new-password">
-               <i data-feather="search"></i>
-             </input>
-            </label>
-        <section class="overview-container">
-             <!-- TEMPLATE APPENDS (inbox-temp) -->
-             <!-- STATISK KODET BESKED -->
-              <article class="overview-wrapper" data-id="5f7c3c35d279373c004bb955">
-                <div class="picture-wrapper">
-                  <img src="static/test/sarahThomassen.jpg" alt="Sarah Thomassen" class="profile-picture overview img2" />
-                  <img src="static/test/StefaniHansen.jpg" alt="Stefanie Hansen" class="profile-picture overview img2" />
-                  <div class="unread-count"><p>2</p></div>
+          <label for="search-messages" class="search-messages-label">
+            <input
+              type="search"
+              id="search-messages"
+              class="search-messages search"
+              placeholder="Søg i beskeder"
+              autocomplete="new-password"
+            />
+            <i data-feather="search"></i>
+          </label>
+          <section class="overview-container">
+            <!-- TEMPLATE APPENDS (inbox-temp) -->
+            <!-- STATISK KODET BESKED -->
+            <article class="overview-wrapper" data-id="5f7c3c35d279373c004bb955">
+              <div class="picture-wrapper">
+                <img src="static/test/sarahThomassen.jpg" alt="Sarah Thomassen" class="profile-picture overview img2" />
+                <img src="static/test/StefaniHansen.jpg" alt="Stefanie Hansen" class="profile-picture overview img2" />
+                <div class="unread-count"><p>2</p></div>
+              </div>
+              <div class="chat-overview">
+                <h4 class="name overview">
+                  Sarah Thomassen, Stefanie Hansen, Anders Christiansen, Rikke Villumsen, Henrik Armundsen, Anja
+                  Rasmussen
+                </h4>
+                <p class="message-preview">
+                  Lorem ipsum dolor sit amet consectetur adipisicing elit. Cumque praesentium ratione numquam at odio
+                  delectus possimus ea nisi illo reprehenderit quibusdam atque nulla veritatis, odit incidunt animi eius
+                  pariatur officiis?
+                </p>
+                <div class="time-posted overview" data-read="unread">
+                  <i data-feather="clock"></i>
+                  <p>36 min siden</p>
                 </div>
-                <div class="chat-overview">
-                  <h4 class="name overview">Sarah Thomassen, Stefanie Hansen, Anders Christiansen, Rikke Villumsen, Henrik Armundsen, Anja Rasmussen</h4>
-                  <p class="message-preview">Lorem ipsum dolor sit amet consectetur adipisicing elit. 
-                      Cumque praesentium ratione numquam at odio delectus possimus ea nisi illo 
-                      reprehenderit quibusdam atque nulla veritatis, odit incidunt animi eius pariatur 
-                      officiis?</p>
-                  <div class="time-posted overview" data-read="unread">
-                    <i data-feather="clock"></i>
-                    <p>36 min siden</p>
-                  </div>
-                  <div class="total-participants">
-                      <div>7</div></div>
+                <div class="total-participants">
+                  <div><p>7</p></div>
                 </div>
-              </article>
-              <!-- STATISK KODET BESKED SLUT -->
+              </div>
+            </article>
+            <!-- STATISK KODET BESKED SLUT -->
+          </section>
         </section>
       </section>
-
-  </section>
-    <section id="chat" class="hide">
-          <!-- MESSAGE NAVIGATION -->
-    <nav class="chat-nav hide" data-state="view">
-      <div class="back">    
-          <i data-feather="arrow-left" class="arrow"></i>
-          <i data-feather="x" class="leave hide"></i>
-        </div>
-      <div class="participants" data-state="view">
-        <div class="search-participants hide">
-          <p>Søg: </p>
-          <input type="search" placeholder="Søg efter person" autocomplete="new-password">
-        </div>
-        <div class="profiles" data-state="closed">
-          <div class="list">
-              <!-- TEMPLATE APPEND (participants-temp) -->
-              <!-- STATIC PROFILES -->
-              <div class="participant-wrapper">
-                <img src="static/test/lisa_ME_03.jpg" alt="lisa" class="profile-picture">
-                <h4 class="name overview hide">Lisa</h4>
-            </div>
-              <div class="participant-wrapper">
-                <img src="static/test/sarahThomassen.jpg" alt="sarah" class="profile-picture">
-                <h4 class="name overview hide">Sarah</h4>
-            </div>
-              <div class="participant-wrapper">
-                <div class="no-img no-img2">
-                    <p class="initials">RV</p>
-                </div>
-                <v class="name overview hide">Rikke</h4>
-            </div>
-              <div class="participant-wrapper">
-                <img src="static/test/andersChristiansen.jpg" alt="anders" class="profile-picture">
-                <h4 class="nav-name hide">Anders</h4>
-            </div>
-              <div class="participant-wrapper">
-                <img src="static/test/henrikAmundsen.jpg" alt="henrik" class="profile-picture">
-                <h4 class="name overview hide">Henrik</h4>
-              </div>
-              <div class="participant-wrapper extra hide">
-                <img src="static/test/AnjaRasmussen.jpg" alt="Anja" class="profile-picture">
-                <h4 class="name overview hide">Anja</h4>
-            </div>
-              <div class="participant-wrapper extra hide">
-                <img src="static/test/christianJensen.jpg" alt="Christian" class="profile-picture">
-                <h4 class="name overview hide">Christian</h4>
-              </div>
-              <!-- STATIC PROFILES END -->
-            </div>
-            <p class="plus">+2</p>
+      <section id="chat" class="hide">
+        <!-- MESSAGE NAVIGATION -->
+        <nav class="chat-nav hide" data-state="view">
+          <div class="back">
+            <i data-feather="arrow-left" class="arrow"></i>
+            <i data-feather="x" class="leave hide"></i>
           </div>
-        <div class="dropdown animate__animated animate__fadeOutUp hide" data-open="closed" data-state="view">
-            <div class="participants-dropdown">
-              <div class="participant-list">
-                <!-- TEMPLATE APPEND (participants-temp)-->
+          <div class="participants" data-state="view">
+            <div class="search-participants hide">
+              <p>Søg:</p>
+              <input type="search" placeholder="Søg efter person" autocomplete="new-password" />
+            </div>
+            <div class="profiles" data-state="closed">
+              <div class="list">
+                <!-- TEMPLATE APPEND (participants-temp) -->
                 <!-- STATIC PROFILES -->
                 <div class="participant-wrapper">
-                 <img src="static/test/lisa_ME_03.jpg" alt="lisa" class="profile-picture">
-                 <h4 class="name overview">Lisa Søndergaard</h4>
-             </div>
-               <div class="participant-wrapper">
-                 <img src="static/test/sarahThomassen.jpg" alt="sarah" class="profile-picture">
-                 <h4 class="name overview">Sarah Thomassen</h4>
-             </div>
-               <div class="participant-wrapper">
-                 <div class="no-img no-img2">
-                     <p class="initials">RV</p>
-                 </div>
-                 <h4 class="name overview">Rikke Villumsen</h4>
-             </div>
-               <div class="participant-wrapper">
-                 <img src="static/test/andersChristiansen.jpg" alt="anders" class="profile-picture">
-                 <h4 class="name overview">Anders Christiansen</h4>
-             </div>
-               <div class="participant-wrapper">
-                 <img src="static/test/henrikAmundsen.jpg" alt="henrik" class="profile-picture">
-                 <h4 class="name overview">Henrik Amundsen</h4>
-               </div>
-               <div class="participant-wrapper">
-                 <img src="static/test/StefaniHansen.jpg" alt="Stefanie" class="profile-picture">
-                 <h4 class="name overview">Stefanie Hansen</h4>
-               </div>
-               <div class="participant-wrapper">
-                 <img src="static/test/pernilleSchelde.jpg" alt="Pernille" class="profile-picture">
-                 <h4 class="name overview">Pernille Schelde</h4>
-               </div>
-               <!-- STATIC PROFILES END -->
-              </div>
-              <div class="add-new hide">
-                <!-- TEMPLATE APPEND LIST OF ALL PROFILES UNLESS THEY'RE ALREADY IN THE GROUP (participants-temp) -->
-                <div class="participant-wrapper">
-                  <img src="static/test/pelleThomsen.jpg" alt="Pelle" class="profile-picture">
-                  <h4 class="name overview">Pelle Thomsen</h4>
-              </div>
-                <div class="participant-wrapper">
-                  <img src="static/test/AnjaRasmussen.jpg" alt="Anja" class="profile-picture">
-                  <h4 class="name overview">Anja Rasmussen</h4>
+                  <img src="static/test/lisa_ME_03.jpg" alt="lisa" class="profile-picture" />
+                  <h4 class="name overview hide">Lisa</h4>
                 </div>
                 <div class="participant-wrapper">
-                  <img src="static/test/erikKraft.jpg" alt="Erik" class="profile-picture">
-                  <h4 class="name overview">Erik Kraft</h4>
+                  <img src="static/test/sarahThomassen.jpg" alt="sarah" class="profile-picture" />
+                  <h4 class="name overview hide">Sarah</h4>
                 </div>
                 <div class="participant-wrapper">
-                  <img src="static/test/christianJensen.jpg" alt="Christian" class="profile-picture">
-                  <h4 class="name overview">Christian Jensen</h4>
+                  <div class="no-img no-img2">
+                    <p class="initials">RV</p>
+                  </div>
+                  <h4 class="name overview hide">Rikke</h4>
                 </div>
+                <div class="participant-wrapper">
+                  <img src="static/test/andersChristiansen.jpg" alt="anders" class="profile-picture" />
+                  <h4 class="nav-name hide">Anders</h4>
+                </div>
+                <div class="participant-wrapper">
+                  <img src="static/test/henrikAmundsen.jpg" alt="henrik" class="profile-picture" />
+                  <h4 class="name overview hide">Henrik</h4>
+                </div>
+                <div class="participant-wrapper extra hide">
+                  <img src="static/test/AnjaRasmussen.jpg" alt="Anja" class="profile-picture" />
+                  <h4 class="name overview hide">Anja</h4>
+                </div>
+                <div class="participant-wrapper extra hide">
+                  <img src="static/test/christianJensen.jpg" alt="Christian" class="profile-picture" />
+                  <h4 class="name overview hide">Christian</h4>
+                </div>
+                <!-- STATIC PROFILES END -->
               </div>
+              <p class="plus">+2</p>
+            </div>
+            <div class="dropdown animate__animated animate__fadeOutUp hide" data-open="closed" data-state="view">
+              <div class="participants-dropdown">
+                <div class="participant-list">
+                  <!-- TEMPLATE APPEND (participants-temp)-->
+                  <!-- STATIC PROFILES -->
+                  <div class="participant-wrapper">
+                    <img src="static/test/lisa_ME_03.jpg" alt="lisa" class="profile-picture" />
+                    <h4 class="name overview">Lisa Søndergaard</h4>
+                  </div>
+                  <div class="participant-wrapper">
+                    <img src="static/test/sarahThomassen.jpg" alt="sarah" class="profile-picture" />
+                    <h4 class="name overview">Sarah Thomassen</h4>
+                  </div>
+                  <div class="participant-wrapper">
+                    <div class="no-img no-img2">
+                      <p class="initials">RV</p>
+                    </div>
+                    <h4 class="name overview">Rikke Villumsen</h4>
+                  </div>
+                  <div class="participant-wrapper">
+                    <img src="static/test/andersChristiansen.jpg" alt="anders" class="profile-picture" />
+                    <h4 class="name overview">Anders Christiansen</h4>
+                  </div>
+                  <div class="participant-wrapper">
+                    <img src="static/test/henrikAmundsen.jpg" alt="henrik" class="profile-picture" />
+                    <h4 class="name overview">Henrik Amundsen</h4>
+                  </div>
+                  <div class="participant-wrapper">
+                    <img src="static/test/StefaniHansen.jpg" alt="Stefanie" class="profile-picture" />
+                    <h4 class="name overview">Stefanie Hansen</h4>
+                  </div>
+                  <div class="participant-wrapper">
+                    <img src="static/test/pernilleSchelde.jpg" alt="Pernille" class="profile-picture" />
+                    <h4 class="name overview">Pernille Schelde</h4>
+                  </div>
+                  <!-- STATIC PROFILES END -->
+                </div>
+                <div class="add-new hide">
+                  <!-- TEMPLATE APPEND LIST OF ALL PROFILES UNLESS THEY'RE ALREADY IN THE GROUP (participants-temp) -->
+                  <div class="participant-wrapper">
+                    <img src="static/test/pelleThomsen.jpg" alt="Pelle" class="profile-picture" />
+                    <h4 class="name overview">Pelle Thomsen</h4>
+                  </div>
+                  <div class="participant-wrapper">
+                    <img src="static/test/AnjaRasmussen.jpg" alt="Anja" class="profile-picture" />
+                    <h4 class="name overview">Anja Rasmussen</h4>
+                  </div>
+                  <div class="participant-wrapper">
+                    <img src="static/test/erikKraft.jpg" alt="Erik" class="profile-picture" />
+                    <h4 class="name overview">Erik Kraft</h4>
+                  </div>
+                  <div class="participant-wrapper">
+                    <img src="static/test/christianJensen.jpg" alt="Christian" class="profile-picture" />
+                    <h4 class="name overview">Christian Jensen</h4>
+                  </div>
+                </div>
               </div>
             </div>
-        </div>
-      </div>
-      <div class="desk-search hide">
-      <label for="search-chat-desktop" class="search-chat-label desktop">
-        <input class="search-chat desktop search" type="search" id="search-chat-desktop" placeholder="Søg i tråd" autocomplete="new-password"><i data-feather="search"></i></input>
-      </label>
-    </div>
-      <div class="menu-container" data-height="68px">
-        <i data-feather="check" class="check hide"></i>
-          <div class="menu">
-            <i data-feather="more-vertical"></i>
-            <div class="menu-dropdown-wrapper animate__animated animate__fadeOutUp hide" data-open="closed">
-            <div class="menu-dropdown" data-state="more">
-              <label for="search-chat-mobile" class="search-chat-label mobile">
-              <input class="search-chat mobile search" type="search" id="search-chat-mobile" placeholder="Søg i tråd" autocomplete="new-password"><i data-feather="search"></i></input>
-            </label>
-              <div class="leave-chat"><p>Forlad samtale</p><i data-feather="log-out"></i></div>
-              <div class="add-participant"><p>Tilføj deltager</p><i data-feather="user-plus"></i></div>
-              <div class="mark-as-read"><p>Marker tråd som læst</p><i data-feather="check-circle"></i></div>
           </div>
-        </div>
-      </div>
-      </div>
-    </nav>
+          <div class="desk-search hide">
+            <label for="search-chat-desktop" class="search-chat-label desktop">
+              <input
+                class="search-chat desktop search"
+                type="search"
+                id="search-chat-desktop"
+                placeholder="Søg i tråd"
+                autocomplete="new-password"
+              /><i data-feather="search"></i>
+            </label>
+          </div>
+          <div class="menu-container" data-height="68px">
+            <i data-feather="check" class="check hide"></i>
+            <div class="menu">
+              <i data-feather="more-vertical"></i>
+              <div class="menu-dropdown-wrapper animate__animated animate__fadeOutUp hide" data-open="closed">
+                <div class="menu-dropdown" data-state="more">
+                  <label for="search-chat-mobile" class="search-chat-label mobile">
+                    <input
+                      class="search-chat mobile search"
+                      type="search"
+                      id="search-chat-mobile"
+                      placeholder="Søg i tråd"
+                      autocomplete="new-password"
+                    /><i data-feather="search"></i>
+                  </label>
+                  <div class="leave-chat">
+                    <p>Forlad samtale</p>
+                    <i data-feather="log-out"></i>
+                  </div>
+                  <div class="add-participant">
+                    <p>Tilføj deltager</p>
+                    <i data-feather="user-plus"></i>
+                  </div>
+                  <div class="mark-as-read">
+                    <p>Marker tråd som læst</p>
+                    <i data-feather="check-circle"></i>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </nav>
 
-      <!-- SINGLE CHAT -->
-      <section class="chat-container animate__animated">
-        <div class="unread-messages">
-          <p><span class="total-unread">2</span> ulæste beskeder</p><i data-feather="arrow-up"></i>
-        </div>
-        <article class="chat-wrapper">
-          <!-- TEMPLATE APPENDS -->
-
-        </article>
-        <div class="new-message-wrapper">
-          <button class="attach">
-            <i data-feather="plus"></i>
-          </button>
-          <textarea
-            name="new-message"
-            placeholder="Skriv besked..."
-            id="new-message"
-            cols="30"
-            rows="10"
-            class="new-message"
-          ></textarea>
-          <button class="send">
-            <i data-feather="send"></i>
-          </button>
-        </div>
+        <!-- SINGLE CHAT -->
+        <section class="chat-container animate__animated">
+          <div class="unread-messages">
+            <p><span class="total-unread">2</span> ulæste beskeder</p>
+            <i data-feather="arrow-up"></i>
+          </div>
+          <article class="chat-wrapper">
+            <!-- TEMPLATE APPENDS -->
+          </article>
+          <div class="new-message-wrapper">
+            <button class="attach">
+              <i data-feather="plus"></i>
+            </button>
+            <textarea
+              name="new-message"
+              placeholder="Skriv besked..."
+              id="new-message"
+              cols="30"
+              rows="10"
+              class="new-message"
+            ></textarea>
+            <button class="send">
+              <i data-feather="send"></i>
+            </button>
+          </div>
+        </section>
       </section>
     </main>
- 
+
     <!-- TEMPLATE INBOX -->
     <template class="inbox-temp">
       <article class="overview-wrapper">
         <div class="picture-wrapper">
-            <!-- CREATE WHATEVER IS NEEDED AND APPEND HERE:
+          <!-- CREATE WHATEVER IS NEEDED AND APPEND HERE:
              <img src="" alt="" class="profile-picture overview img1" /> ELLER <img src="" alt="" class="profile-picture overview img2" /> 
              ELLER
              <div class="no-img"><p class="initials"></p></div>
@@ -245,11 +269,25 @@
           <p class="message-preview"></p>
           <!-- TOGGLE DATA-STATE BETWEEN "READ" AND "UNREAD" -->
           <div class="time-posted overview" data-read="unread">
-            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-clock"><circle cx="12" cy="12" r="10"></circle><polyline points="12 6 12 12 16 14"></polyline></svg>
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              width="24"
+              height="24"
+              viewBox="0 0 24 24"
+              fill="none"
+              stroke="currentColor"
+              stroke-width="2"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              class="feather feather-clock"
+            >
+              <circle cx="12" cy="12" r="10"></circle>
+              <polyline points="12 6 12 12 16 14"></polyline>
+            </svg>
             <p></p>
           </div>
           <div class="total-participants">
-              <!-- APPEND DIV WITH NUMBER HERE IF MORE THAN 2:
+            <!-- APPEND DIV WITH NUMBER HERE IF MORE THAN 2:
               <div></div> -->
           </div>
         </div>
@@ -259,8 +297,7 @@
     <!-- TEMPLATE CHAT SINGLE MESSAGE-->
     <template class="chat-temp">
       <article class="message-wrapper">
-                  
-    <!-- APPEND IMG OR DIV (WHATEVER IS NEEDED) :
+        <!-- APPEND IMG OR DIV (WHATEVER IS NEEDED) :
         <img src="" alt="" class="profile-picture img1" />
 
         OR
@@ -268,97 +305,341 @@
         <div class="no-img">
           <p class="initials"></p>
         </div> -->
-        
-          <div class="message-content-wrapper">
-            <h4 class="name"> </h4>
-            <div class="time-posted">
-              <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-clock"><circle cx="12" cy="12" r="10"></circle><polyline points="12 6 12 12 16 14"></polyline></svg>
-              <p></p>
-            </div>
-            <p class="message"></p>
+
+        <div class="message-content-wrapper">
+          <h4 class="name"></h4>
+          <div class="time-posted">
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              width="24"
+              height="24"
+              viewBox="0 0 24 24"
+              fill="none"
+              stroke="currentColor"
+              stroke-width="2"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              class="feather feather-clock"
+            >
+              <circle cx="12" cy="12" r="10"></circle>
+              <polyline points="12 6 12 12 16 14"></polyline>
+            </svg>
+            <p></p>
           </div>
-          <div class="options-container">
-            <div class="options">
-              <button class="reaction btn">
-                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-smile gray-stroke btn"><circle cx="12" cy="12" r="10"></circle><path d="M8 14s1.5 2 4 2 4-2 4-2"></path><line x1="9" y1="9" x2="9.01" y2="9"></line><line x1="15" y1="9" x2="15.01" y2="9"></line></svg>              </button>
-              <button class="more btn">
-                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-more-vertical gray-stroke btn"><circle cx="12" cy="12" r="1"></circle><circle cx="12" cy="5" r="1"></circle><circle cx="12" cy="19" r="1"></circle></svg>                   
-                 </button>
+          <p class="message"></p>
+        </div>
+        <div class="options-container">
+          <div class="options">
+            <button class="reaction btn">
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                width="24"
+                height="24"
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                stroke-width="2"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                class="feather feather-smile gray-stroke btn"
+              >
+                <circle cx="12" cy="12" r="10"></circle>
+                <path d="M8 14s1.5 2 4 2 4-2 4-2"></path>
+                <line x1="9" y1="9" x2="9.01" y2="9"></line>
+                <line x1="15" y1="9" x2="15.01" y2="9"></line>
+              </svg>
+            </button>
+            <button class="more btn">
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                width="24"
+                height="24"
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                stroke-width="2"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                class="feather feather-more-vertical gray-stroke btn"
+              >
+                <circle cx="12" cy="12" r="1"></circle>
+                <circle cx="12" cy="5" r="1"></circle>
+                <circle cx="12" cy="19" r="1"></circle>
+              </svg>
+            </button>
           </div>
           <div class="reaction-container hide">
             <div class="reaction-wrapper animate__animated animate__flipOutX">
-            <button class="smile reaction">
-              <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-smile main-gray-stroke"><circle cx="12" cy="12" r="10"></circle><path d="M8 14s1.5 2 4 2 4-2 4-2"></path><line x1="9" y1="9" x2="9.01" y2="9"></line><line x1="15" y1="9" x2="15.01" y2="9"></line></svg>
-            </button>
-            <button class="frown reaction">
-              <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-frown main-gray-stroke"><circle cx="12" cy="12" r="10"></circle><path d="M16 16s-1.5-2-4-2-4 2-4 2"></path><line x1="9" y1="9" x2="9.01" y2="9"></line><line x1="15" y1="9" x2="15.01" y2="9"></line></svg>
-            </button>
-            <button class="thumbs-up reaction">
-              <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-thumbs-up main-gray-stroke"><path d="M14 9V5a3 3 0 0 0-3-3l-4 9v11h11.28a2 2 0 0 0 2-1.7l1.38-9a2 2 0 0 0-2-2.3zM7 22H4a2 2 0 0 1-2-2v-7a2 2 0 0 1 2-2h3"></path></svg>
-            </button>
-            <button class="thumbs-down reaction">
-              <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-thumbs-down main-gray-stroke"><path d="M10 15v4a3 3 0 0 0 3 3l4-9V2H5.72a2 2 0 0 0-2 1.7l-1.38 9a2 2 0 0 0 2 2.3zm7-13h2.67A2.31 2.31 0 0 1 22 4v7a2.31 2.31 0 0 1-2.33 2H17"></path></svg>
-            </button>
-            <button class="heart reaction">
-              <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-heart main-gray-stroke"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"></path></svg>
-            </button>
+              <button class="smile reaction">
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  width="24"
+                  height="24"
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  stroke-width="2"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  class="feather feather-smile main-gray-stroke"
+                >
+                  <circle cx="12" cy="12" r="10"></circle>
+                  <path d="M8 14s1.5 2 4 2 4-2 4-2"></path>
+                  <line x1="9" y1="9" x2="9.01" y2="9"></line>
+                  <line x1="15" y1="9" x2="15.01" y2="9"></line>
+                </svg>
+              </button>
+              <button class="frown reaction">
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  width="24"
+                  height="24"
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  stroke-width="2"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  class="feather feather-frown main-gray-stroke"
+                >
+                  <circle cx="12" cy="12" r="10"></circle>
+                  <path d="M16 16s-1.5-2-4-2-4 2-4 2"></path>
+                  <line x1="9" y1="9" x2="9.01" y2="9"></line>
+                  <line x1="15" y1="9" x2="15.01" y2="9"></line>
+                </svg>
+              </button>
+              <button class="thumbs-up reaction">
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  width="24"
+                  height="24"
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  stroke-width="2"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  class="feather feather-thumbs-up main-gray-stroke"
+                >
+                  <path
+                    d="M14 9V5a3 3 0 0 0-3-3l-4 9v11h11.28a2 2 0 0 0 2-1.7l1.38-9a2 2 0 0 0-2-2.3zM7 22H4a2 2 0 0 1-2-2v-7a2 2 0 0 1 2-2h3"
+                  ></path>
+                </svg>
+              </button>
+              <button class="thumbs-down reaction">
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  width="24"
+                  height="24"
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  stroke-width="2"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  class="feather feather-thumbs-down main-gray-stroke"
+                >
+                  <path
+                    d="M10 15v4a3 3 0 0 0 3 3l4-9V2H5.72a2 2 0 0 0-2 1.7l-1.38 9a2 2 0 0 0 2 2.3zm7-13h2.67A2.31 2.31 0 0 1 22 4v7a2.31 2.31 0 0 1-2.33 2H17"
+                  ></path>
+                </svg>
+              </button>
+              <button class="heart reaction">
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  width="24"
+                  height="24"
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  stroke-width="2"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  class="feather feather-heart main-gray-stroke"
+                >
+                  <path
+                    d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"
+                  ></path>
+                </svg>
+              </button>
+            </div>
+          </div>
+          <div class="more-container hide">
+            <div class="more-wrapper animate__animated animate__flipOutX">
+              <button class="copy">
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  width="24"
+                  height="24"
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  stroke-width="2"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  class="feather feather-copy main-gray-stroke"
+                >
+                  <rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect>
+                  <path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path>
+                </svg>
+              </button>
+              <button class="info">
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  width="24"
+                  height="24"
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  stroke-width="2"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  class="feather feather-info main-gray-stroke"
+                >
+                  <circle cx="12" cy="12" r="10"></circle>
+                  <line x1="12" y1="16" x2="12" y2="12"></line>
+                  <line x1="12" y1="8" x2="12.01" y2="8"></line>
+                </svg>
+              </button>
+              <button class="delete">
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  width="24"
+                  height="24"
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  stroke-width="2"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  class="feather feather-trash main-gray-stroke"
+                >
+                  <polyline points="3 6 5 6 21 6"></polyline>
+                  <path d="M19 6v14a2 2 0 0 1-2 2H7a2 2 0 0 1-2-2V6m3 0V4a2 2 0 0 1 2-2h4a2 2 0 0 1 2 2v2"></path>
+                </svg>
+              </button>
+            </div>
           </div>
         </div>
-            <div class="more-container hide">
-              <div class="more-wrapper animate__animated animate__flipOutX">
-                <button class="copy">
-                  <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-copy main-gray-stroke"><rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path></svg>          
-                </button>
-                <button class="info">
-                  <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-info main-gray-stroke"><circle cx="12" cy="12" r="10"></circle><line x1="12" y1="16" x2="12" y2="12"></line><line x1="12" y1="8" x2="12.01" y2="8"></line></svg>          
-                </button>
-                <button class="delete">
-                  <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-trash main-gray-stroke"><polyline points="3 6 5 6 21 6"></polyline><path d="M19 6v14a2 2 0 0 1-2 2H7a2 2 0 0 1-2-2V6m3 0V4a2 2 0 0 1 2-2h4a2 2 0 0 1 2 2v2"></path></svg>          
-                </button>
-              </div>
-            </div>
+        <div class="feedback-container hide">
+          <div class="feedback-wrapper smile hide">
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              width="24"
+              height="24"
+              viewBox="0 0 24 24"
+              fill="none"
+              stroke="currentColor"
+              stroke-width="2"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              class="feather feather-smile main-gray-stroke"
+            >
+              <circle cx="12" cy="12" r="10"></circle>
+              <path d="M8 14s1.5 2 4 2 4-2 4-2"></path>
+              <line x1="9" y1="9" x2="9.01" y2="9"></line>
+              <line x1="15" y1="9" x2="15.01" y2="9"></line>
+            </svg>
+            <p class="smile-count">0</p>
           </div>
-          <div class="feedback-container hide">
-            <div class="feedback-wrapper smile hide">
-              <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-smile main-gray-stroke"><circle cx="12" cy="12" r="10"></circle><path d="M8 14s1.5 2 4 2 4-2 4-2"></path><line x1="9" y1="9" x2="9.01" y2="9"></line><line x1="15" y1="9" x2="15.01" y2="9"></line></svg>              <p class="smile-count">0</p>
-            </div>
-            <div class="feedback-wrapper frown hide">
-              <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-frown main-gray-stroke"><circle cx="12" cy="12" r="10"></circle><path d="M16 16s-1.5-2-4-2-4 2-4 2"></path><line x1="9" y1="9" x2="9.01" y2="9"></line><line x1="15" y1="9" x2="15.01" y2="9"></line></svg>
-              <p class="frown-count">0</p>
-            </div>
-            <div class="feedback-wrapper thumbs-up hide">
-              <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-thumbs-up main-gray-stroke"><path d="M14 9V5a3 3 0 0 0-3-3l-4 9v11h11.28a2 2 0 0 0 2-1.7l1.38-9a2 2 0 0 0-2-2.3zM7 22H4a2 2 0 0 1-2-2v-7a2 2 0 0 1 2-2h3"></path></svg>
-              <p class="thumbs-up-count">0</p>
-            </div>
-            <div class="feedback-wrapper thumbs-down hide">
-              <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-thumbs-down main-gray-stroke"><path d="M10 15v4a3 3 0 0 0 3 3l4-9V2H5.72a2 2 0 0 0-2 1.7l-1.38 9a2 2 0 0 0 2 2.3zm7-13h2.67A2.31 2.31 0 0 1 22 4v7a2.31 2.31 0 0 1-2.33 2H17"></path></svg>
-              <p class="thumbs-down-count">0</p>
-            </div>
-            <div class="feedback-wrapper heart hide">
-              <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-heart main-gray-stroke"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"></path></svg>
-              <p class="heart-count">0</p>
-            </div>
+          <div class="feedback-wrapper frown hide">
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              width="24"
+              height="24"
+              viewBox="0 0 24 24"
+              fill="none"
+              stroke="currentColor"
+              stroke-width="2"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              class="feather feather-frown main-gray-stroke"
+            >
+              <circle cx="12" cy="12" r="10"></circle>
+              <path d="M16 16s-1.5-2-4-2-4 2-4 2"></path>
+              <line x1="9" y1="9" x2="9.01" y2="9"></line>
+              <line x1="15" y1="9" x2="15.01" y2="9"></line>
+            </svg>
+            <p class="frown-count">0</p>
           </div>
-        </article>
+          <div class="feedback-wrapper thumbs-up hide">
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              width="24"
+              height="24"
+              viewBox="0 0 24 24"
+              fill="none"
+              stroke="currentColor"
+              stroke-width="2"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              class="feather feather-thumbs-up main-gray-stroke"
+            >
+              <path
+                d="M14 9V5a3 3 0 0 0-3-3l-4 9v11h11.28a2 2 0 0 0 2-1.7l1.38-9a2 2 0 0 0-2-2.3zM7 22H4a2 2 0 0 1-2-2v-7a2 2 0 0 1 2-2h3"
+              ></path>
+            </svg>
+            <p class="thumbs-up-count">0</p>
+          </div>
+          <div class="feedback-wrapper thumbs-down hide">
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              width="24"
+              height="24"
+              viewBox="0 0 24 24"
+              fill="none"
+              stroke="currentColor"
+              stroke-width="2"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              class="feather feather-thumbs-down main-gray-stroke"
+            >
+              <path
+                d="M10 15v4a3 3 0 0 0 3 3l4-9V2H5.72a2 2 0 0 0-2 1.7l-1.38 9a2 2 0 0 0 2 2.3zm7-13h2.67A2.31 2.31 0 0 1 22 4v7a2.31 2.31 0 0 1-2.33 2H17"
+              ></path>
+            </svg>
+            <p class="thumbs-down-count">0</p>
+          </div>
+          <div class="feedback-wrapper heart hide">
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              width="24"
+              height="24"
+              viewBox="0 0 24 24"
+              fill="none"
+              stroke="currentColor"
+              stroke-width="2"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              class="feather feather-heart main-gray-stroke"
+            >
+              <path
+                d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"
+              ></path>
+            </svg>
+            <p class="heart-count">0</p>
+          </div>
+        </div>
+      </article>
     </template>
 
     <!-- TEMPLATE MESSAGE NAVIGATION (PARTICIPANTS) -->
     <template class="participants-temp">
-        <div class="participant-wrapper">      
-              <!-- CREATE WHATEVER IS NEEDED IN JAVASCRIPT AND APPEND HERE -->
-           <!--    <img src="" alt="" class="profile-picture">
+      <div class="participant-wrapper">
+        <!-- CREATE WHATEVER IS NEEDED IN JAVASCRIPT AND APPEND HERE -->
+        <!--    <img src="" alt="" class="profile-picture">
                     <div class="no-img no-img2">
                       <p class="initials"></p>
                     </div>
                      <h4 class="name overview"></h4> -->
-        </div>
+      </div>
     </template>
     <script src="script.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/feather-icons/dist/feather.min.js"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/mark.js/8.11.1/mark.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/mark.js/8.11.1/mark.min.js"></script>
 
     <script>
-        feather.replace()
-      </script> 
+      feather.replace();
+    </script>
   </body>
 </html>

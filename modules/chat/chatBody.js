@@ -27,15 +27,15 @@ export function displayChatMobile($, $a) {
   }, 400);
   setTimeout(() => {
     window.scrollTo({ top: $(".chat-wrapper").scrollHeight, left: 0, behavior: "smooth" }); //////scroll to bottom
-  }, 400);
+  }, 800);
   displayChat($, $a);
 }
 
 export function displayChat($, $a) {
   console.log("[Function] || CHAT/chatbody.js | displayChat()");
-  /*   setTimeout(() => {
+  setTimeout(() => {
     $("#chat").scrollTo({ top: $(".chat-wrapper").scrollHeight, left: 0, behavior: "smooth" }); //////scroll to bottom
-  }, 800); */
+  }, 800);
   $(".menu-container").classList.remove("hide");
   if ($(".chat-nav").dataset.state === "new") {
     $(".dropdown").classList = "dropdown animate__animated animate__fadeOutUp";
@@ -162,6 +162,6 @@ export function scrollHandler($) {
 export function displayOtherChat($, $a) {
   $(".chat-wrapper").classList = "chat-wrapper animate__animated animate_fadeOut";
   setTimeout(() => {
-    //$(".chat-container").classList = "chat-container animate__animated animate__fadeIn";
-  }, 1000);
+    $(".chat-wrapper").classList = "chat-wrapper animate__animated animate__fadeIn";
+  }, 500);
 }

@@ -10,6 +10,7 @@ export function displayInbox($) {
     $(".inbox-nav").classList = "inbox-nav animate__animated animate__fadeIn animate-faster";
   }, 400);
   window.scrollTo(0, 0);
+  $(".overview-wrapper").scrollTo(0, 0);
   hideDropdowns($);
 }
 

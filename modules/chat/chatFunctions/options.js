@@ -1,3 +1,4 @@
+import * as timeago from "timeago.js";
 export function setOptions() {
   console.log("[Function] || CHAT/CHATFUNCTIONS/options.js | setOptions()");
   const $a = document.querySelectorAll.bind(document);
@@ -35,24 +36,42 @@ function copy(parentNodes, e, svg) {
   chosenOption(e, svg);
 }
 
-function info(parentNodes, e, svg) {
+async function info(parentNodes, e, svg) {
   console.log("[Function] || CHAT/CHATFUNCTIONS/options.js | info()");
-  const originalTime = parentNodes.querySelector(".time-posted p").textContent;
-  parentNodes.querySelector(".time-posted p").textContent = "Sendt d. 06/10-2020 kl. 13.45";
-  parentNodes.querySelector(".time-posted p").style.color = "var(--blue)";
-  parentNodes.querySelector(".time-posted svg").classList.add("blue-stroke");
-  setTimeout(() => {
-    parentNodes.querySelector(".time-posted p").textContent = originalTime;
-    parentNodes.querySelector(".time-posted p").style.color = "var(--main-gray)";
-    parentNodes.querySelector(".time-posted svg").classList.remove("blue-stroke");
-  }, 5000);
-  chosenOption(e, svg);
-  //Put db timeDate in
-  /*  const year = db.time.substring(0, 4);
-  const month = db.time.substring(5, 7);
-  const day = db.time.substring(8, 10);
-  const time = db.time.substring(11, 16);
-  parentNodes.querySelector(".time-posted>p").textContent = `Sendt d. ${day}/${month}-${year} kl. ${time}`; */
+  parentNodes.querySelector(".time-posted p").textContent = "...";
+  let response = await fetch("https://lomwas-88eb.restdb.io/rest/lomwas-chatmessage", {
+    method: "get",
+    headers: {
+      "Content-Type": "application/json; charset=utf-8",
+      "x-apikey": "5f910db2d57649786096da6c",
+      "cache-control": "no-cache",
+    },
+  });
+  let data = await response.json();
+  setTime(data, parentNodes, e, svg);
+}
+
+function setTime(data, parentNodes, e, svg) {
+  console.log("[Function] || DB/getContent.js | setTime()");
+  if (data.length !== 0) {
+    data.forEach((entry) => {
+      if (parentNodes.dataset.id === entry._id) {
+        const year = entry.time.substring(0, 4);
+        const month = entry.time.substring(5, 7);
+        const day = entry.time.substring(8, 10);
+        const time = entry.time.substring(11, 16);
+        parentNodes.querySelector(".time-posted>p").textContent = `Sendt d. ${day}/${month}-${year} kl. ${time}`;
+        parentNodes.querySelector(".time-posted p").style.color = "var(--blue)";
+        parentNodes.querySelector(".time-posted svg").classList.add("blue-stroke");
+        setTimeout(() => {
+          parentNodes.querySelector(".time-posted p").textContent = timeago.format(entry.time);
+          parentNodes.querySelector(".time-posted p").style.color = "var(--main-gray)";
+          parentNodes.querySelector(".time-posted svg").classList.remove("blue-stroke");
+        }, 6000);
+        chosenOption(e, svg);
+      }
+    });
+  }
 }
 
 function deleteIt(parentNodes, e, svg) {

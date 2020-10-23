@@ -387,6 +387,15 @@ button {
   .chat-container .chat-wrapper {
     top: 70px;
   }
+  //Only safari (otherwise wrongly positioned)
+  @media not all and (min-resolution: 0.001dpcm) {
+    @supports (-webkit-appearance: none) and (stroke-color: transparent) {
+      .chat-container {
+        position: relative;
+        top: 50px;
+      }
+    }
+  }
 }
 
 @media (min-width: 1000px) {
@@ -503,5 +512,24 @@ button {
   }
   .chat-container .message-wrapper.you .feedback-container {
     padding-right: 33vw;
+  }
+}
+@media (min-width: 1920px) {
+  .new-message-wrapper {
+    width: 80%;
+  }
+  .chat-container .message-wrapper.you {
+    padding-right: 35vw;
+    padding-left: 5vw;
+  }
+  .chat-container .message-wrapper.me {
+    padding-left: 35vw;
+    padding-right: 5vw;
+  }
+  .chat-container .message-wrapper.you .feedback-container {
+    padding-right: 38vw;
+  }
+  .chat-container .message-wrapper.me .feedback-container {
+    padding-left: 38.5vw;
   }
 }

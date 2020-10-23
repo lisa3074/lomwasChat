@@ -31,7 +31,12 @@ function setNewChat($, $a) {
 
 function displayNewChat($, $a) {
   console.log("[Function] || CHAT/CHATFUNCTIONS/newChat.js | displayNewChat()");
-  $("#chat").classList = "animate__animated animate__fadeIn animate__faster";
+  const is_safari = navigator.userAgent.indexOf("Safari") > -1;
+  if (!is_safari) {
+    $("#chat").classList = "animate__animated animate__fadeIn animate__faster";
+  } else {
+    $("#chat").classList = "";
+  }
   $(".menu-dropdown-wrapper").classList.remove("animate__fadeInDown");
   $(".menu-dropdown-wrapper").classList.add("animate__fadeOutUp");
   document.querySelectorAll(".menu, .chat-wrapper, .unread-messages, .profiles").forEach((element) => {

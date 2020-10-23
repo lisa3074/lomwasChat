@@ -20,6 +20,9 @@ export function chatDelegation($, $a) {
       setMessageActions($a);
       setReactions($);
       setOptions($);
+      $a("svg").forEach((svg) => {
+        svg.setAttribute("viewBox", "0 0 24 24");
+      });
       $("#chat").scrollTo({ top: $(".chat-wrapper").scrollHeight, left: 0, behavior: "smooth" }); //////scroll to bottom
       clearInterval(checkIfLoaded);
     }

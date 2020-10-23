@@ -1,9 +1,5 @@
 import * as timeago from "timeago.js";
-import { resetParticipantList } from "../chat/chatNavigation";
-import { displayConversation } from "../inbox/inbox";
-import { checkDataState } from "../../script";
-import { scrollHandler } from "../chat/chatBody";
-import { displayOtherChat } from "../chat/chatBody";
+
 export function messageDelegation(entry, group, data) {
   console.log(entry);
   const $ = document.querySelector.bind(document);
@@ -17,18 +13,13 @@ export function messageDelegation(entry, group, data) {
 
   const checkIfLoaded = setInterval(() => {
     if ($(".loading").classList.contains("hide")) {
+      //Don't set eventlistners until data has been loaded (data is loaded when spinner is hidden)
       $a(".overview-wrapper").forEach((elm) => {
         elm.addEventListener("click", (e) => {
-          $(".chat-wrapper").innerHTML = "";
-          resetParticipantList($, e);
-          checkDataState($);
-          displayConversation($, $a);
-          scrollHandler($);
-          displayOtherChat($, $a);
           setTimeout(() => {
+            //set up the append list with chosen data
             setMessage(entry, $, e);
-            $("#chat").scrollTo({ top: $(".chat-wrapper").scrollHeight, left: 0, behavior: "smooth" }); //////scroll to bottom
-          }, 250);
+          }, 550);
         });
       });
       clearInterval(checkIfLoaded);
@@ -74,6 +65,7 @@ function displayImage(entry, $) {
 }
 
 function displayMessageBox(clone, entry, $, participant) {
+  clone.querySelector(".message-wrapper").setAttribute("data-id", entry._id);
   clone.querySelector(".message-wrapper .name").textContent = participant.name;
   clone.querySelector(".message-wrapper .time-posted p").textContent = timeago.format(entry.time);
   clone.querySelector(".message-wrapper .message").textContent = entry.message;

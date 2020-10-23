@@ -6,7 +6,6 @@
   padding: 0;
 }
 #inbox {
-  z-index: 2;
   overflow: hidden;
   height: calc(100vh - 70px);
 }
@@ -106,12 +105,16 @@
     background-color: var(--blue);
     color: #fff;
     font-size: 12px;
-    text-align: center;
-    padding-top: 0.08rem;
     letter-spacing: -1px;
     position: absolute;
-    top: 0;
+    top: -0.3rem;
     right: -0.5rem;
+    p {
+      text-align: center;
+      vertical-align: middle;
+      line-height: 20px;
+      padding-right: 1px;
+    }
   }
 
   .name.overview {
@@ -154,6 +157,8 @@
     padding-top: 0.2rem;
     .feather-clock {
       stroke: var(--main-gray);
+      width: 19px;
+      height: 19px;
     }
     p {
       color: var(--main-gray);
@@ -167,12 +172,16 @@
     background-color: var(--main-gray);
     color: #fff;
     font-size: 12px;
-    text-align: center;
-    padding-top: 0.08rem;
     letter-spacing: -1px;
     position: absolute;
     top: -0.3rem;
     right: 0rem;
+    p {
+      text-align: center;
+      vertical-align: middle;
+      line-height: 20px;
+      padding-right: 1px;
+    }
   }
 
   .img2 {
@@ -268,6 +277,10 @@
 }
 @media (min-width: 750px) {
   .inbox-container .name.overview {
+    width: 23%;
+  }
+
+  .inbox-container .message-preview {
     width: 25%;
   }
   .time-posted.overview p {
@@ -275,7 +288,8 @@
   }
 }
 @media (min-width: 900px) {
-  .inbox-container .name.overview {
+  .inbox-container .name.overview,
+  .inbox-container .message-preview {
     width: 27%;
   }
 }
@@ -291,8 +305,8 @@
     .search-messages-label {
       width: 30%;
     }
-    .inbox-container .message-preview,
-    .inbox-container .name.overview {
+    .inbox-container .name.overview,
+    .inbox-container .message-preview {
       width: 19%;
     }
     .inbox-nav {
@@ -301,5 +315,17 @@
     .inbox-container {
       padding-bottom: 0.5rem;
     }
+  }
+}
+@media (min-width: 1920px) {
+  #inbox .inbox-nav {
+    width: 20%;
+  }
+  #inbox .search-messages-label {
+    width: 20%;
+  }
+  #inbox .inbox-container .name.overview,
+  #inbox .inbox-container .message-preview {
+    width: 13%;
   }
 }
