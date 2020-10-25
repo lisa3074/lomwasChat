@@ -298,9 +298,27 @@ input[type="search"] {
     color: var(--blue);
   }
 }
+@media (min-width: 992px) {
+  aside {
+    height: 100vh;
+    width: 60px;
+    position: fixed;
+    top: 0;
+    left: 0;
+    background-color: #fff;
+    z-index: 100;
+    border-right: var(--border);
+  }
+  main {
+    grid-template-areas: "menu chat inbox";
+    grid-template-columns: 60px calc(60% - 60px) 40%;
+  }
+}
+
 @media (min-width: 1200px) {
   main {
     grid-template-columns: 70% 30%;
+    grid-template-columns: 60px calc(70% - 60px) 30%;
   }
   .inbox-container,
   #chat {

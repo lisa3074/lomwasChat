@@ -397,6 +397,13 @@ button {
     }
   }
 }
+@media (min-width: 992px) {
+  #chat,
+  .new-message-wrapper {
+    width: calc(60% - 60px);
+    margin-left: 60px;
+  }
+}
 
 @media (min-width: 1000px) {
   .chat-container .message-wrapper.you .message-content-wrapper {
@@ -443,8 +450,11 @@ button {
     grid-area: chat;
     position: static;
     height: calc(100vh - 70px);
-    // margin-top: 70px;
   }
+  #chat {
+    margin-left: 0px;
+  }
+
   .chat-container .chat-wrapper {
     padding-bottom: 0;
   }
@@ -464,8 +474,10 @@ button {
   .chat-container .chat-wrapper {
     position: static;
   }
-  .new-message-wrapper {
-    width: 70%;
+  #chat .new-message-wrapper,
+  #chat .chat-nav {
+    width: calc(70% - 60px);
+    margin-left: 60px;
   }
   .chat-container .unread-messages {
     left: 37%;

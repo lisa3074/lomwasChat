@@ -345,6 +345,12 @@
     width: 40px;
   }
 }
+@media (min-width: 992px) {
+  .chat-nav {
+    width: calc(60% - 60px);
+    margin-left: 60px;
+  }
+}
 
 @media (min-width: 1100px) {
   .participant-wrapper.extra {
