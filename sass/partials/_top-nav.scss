@@ -345,6 +345,9 @@
     width: calc(60% - 60px);
     margin-left: 60px;
   }
+  .chat-nav .menu-dropdown {
+    width: calc(((60% - 7rem) / 2) + 3.5rem - 1px);
+  }
 }
 
 @media (min-width: 1150px) {

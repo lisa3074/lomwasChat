@@ -57,7 +57,7 @@
 }
 @media (min-width: 992px) {
   #chat .participants-dropdown {
-    width: calc(100% - 60px);
+    width: calc(((60vw - 7rem) / 2) - 2px);
   }
 }
 @media (min-width: 1060px) {

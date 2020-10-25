@@ -132,4 +132,7 @@
   .chat-nav .participants .dropdown[data-state="new"] {
     top: 4.4rem;
   }
+  .chat-nav .participants .dropdown .participants-dropdown {
+    border-left: none;
+  }
 }
