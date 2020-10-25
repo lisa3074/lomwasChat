@@ -53,7 +53,7 @@ function displayImage(entry, $) {
     if (participant.image.length === 0) {
       //if the user ha no profile picture, append div with initials
       const initials = getInitials(participant);
-      div.classList = "no-img no-img3";
+      div.classList = "no-img";
       clone.querySelector(".message-wrapper").appendChild(div);
       div.appendChild(initials);
     } else {

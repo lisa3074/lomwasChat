@@ -50,6 +50,10 @@ main {
   top: 70px;
 }
 
+main [data-state="inbox"] {
+  background-color: #fff;
+}
+
 mark {
   background: var(--blue);
   color: white;

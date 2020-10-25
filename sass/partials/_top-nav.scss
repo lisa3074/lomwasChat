@@ -1,6 +1,9 @@
-main [data-state="inbox"] {
-  background-color: #fff;
-}
+////////////////////
+////////////////////
+// # INBOX NAV
+////////////////////
+////////////////////
+
 .inbox-nav {
   background-color: #fff;
   height: 70px;
@@ -20,57 +23,34 @@ main [data-state="inbox"] {
     padding-left: 1rem;
     font-size: 25px;
   }
-
-  .no-img {
-    width: 60px;
-    height: 60px;
-    background-color: var(--background-gray);
-    box-shadow: var(--imageShadow);
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    font-size: 22px;
-    letter-spacing: 1px;
-    padding-bottom: 0.1rem;
-    p {
-      font-size: 22px;
-      letter-spacing: 1px;
-      padding-bottom: 0.1rem;
-    }
-  }
-  .no-img2 {
-    width: 40px;
-    height: 40px;
-    object-fit: cover;
-    position: absolute;
-    bottom: 0;
-    left: 0;
-  }
-  .no-img3 {
-    width: 40px;
-    height: 40px;
-    position: absolute;
-    top: 0;
-    right: 0;
-    z-index: -1;
-  }
-
   .new-chat {
     grid-area: new;
     padding: 1rem;
   }
-  .burger {
-    grid-area: burger;
-    padding: 1rem;
-    height: 65px;
-    border-right: var(--border);
+}
 
-    svg {
-      transform: translateY(0.3rem);
-    }
+////////////////////
+////////////////////
+// # CHAT NAV
+// # BURGER
+////////////////////
+
+.burger {
+  grid-area: burger;
+  padding: 1rem;
+  height: 65px;
+  border-right: var(--border);
+
+  svg {
+    transform: translateY(0.3rem);
   }
 }
 
+////////////////////
+////////////////////
+// # CHAT NAV
+// # GENEREL
+////////////////////
 .chat-nav {
   grid-template-areas: "back pics menu";
   background-color: #fff;

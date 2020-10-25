@@ -1,3 +1,9 @@
+////////////////////
+////////////////////
+// # GENEREL
+////////////////////
+////////////////////
+
 #chat,
 #inbox {
   padding: 0 1rem;
@@ -22,6 +28,12 @@
     padding-top: 0.8rem;
     padding-bottom: 60px;
   }
+
+  ////////////////////
+  ////////////////////
+  // # SEARCH
+  ////////////////////
+  ////////////////////
   .search {
     width: 100%;
     margin: calc((60px - 36px) / 2) 0;
@@ -29,7 +41,15 @@
   .feather-search {
     transform: translate(-2.3rem, 1.1rem);
   }
+  .search-messages-label {
+    width: 100%;
+  }
 
+  ////////////////////
+  ////////////////////
+  // # EACH GROUP
+  ////////////////////
+  ////////////////////
   .overview-wrapper {
     display: grid;
     grid-template-areas: "picture preview";
@@ -204,9 +224,6 @@
 
   div.no-img:nth-child(2) {
     z-index: 0;
-  }
-  .search-messages-label {
-    width: 100%;
   }
 }
 //only safari (safari does not display the svg if width === 100% for some reasen
