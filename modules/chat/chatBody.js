@@ -94,9 +94,13 @@ export function setMessageActions($a) {
       e.target.parentNode.classList = HTML.chosen + "-wrapper animate__animated animate__flipOutX";
       e.target.parentNode.parentNode.parentNode.querySelector("." + HTML.chosen + ".btn>svg").classList =
         "feather " + HTML.mainSvg + " btn gray-stroke";
-      setTimeout(() => {
+      if (document.querySelector("body").clientWidth > 650) {
+        setTimeout(() => {
+          e.target.parentNode.parentNode.classList.add("hide");
+        }, 800);
+      } else {
         e.target.parentNode.parentNode.classList.add("hide");
-      }, 800);
+      }
     });
   });
 }
@@ -112,11 +116,19 @@ function displayMessageActions(e, $a) {
       //If match => Animate in and out on click
       container.parentNode.querySelector("." + HTML.chosen + "-wrapper").classList.toggle("animate__flipOutX");
       container.parentNode.querySelector("." + HTML.chosen + "-wrapper").classList.toggle("animate__flipInX");
-      container.classList.contains("hide")
+      /*       container.classList.contains("hide")
         ? container.classList.remove("hide")
         : setTimeout(() => {
             container.classList.add("hide");
-          }, 800);
+          }, 800); */
+
+      container.classList.contains("hide")
+        ? container.classList.remove("hide")
+        : !container.classList.contains("hide") && document.querySelector("body").clientWidth > 650
+        ? setTimeout(() => {
+            container.classList.add("hide");
+          }, 800)
+        : container.classList.add("hide");
       //Find the child and toggle stroke color on clicked button
       container.parentNode.querySelector("." + HTML.chosenSvg).classList.toggle("blue-stroke");
       container.parentNode.querySelector("." + HTML.chosenSvg).classList.toggle("gray-stroke");

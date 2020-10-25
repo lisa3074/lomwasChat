@@ -15,6 +15,9 @@ import { setParticipantMenu } from "./chatNavigation";
 
 export function chatDelegation($, $a) {
   console.log("[Function] || CHAT/chatDelegation.js | chatDelegation()");
+  const is_chrome = navigator.userAgent.indexOf("chrome") > -1 && !!window.chrome;
+  const is_firefox = navigator.userAgent.indexOf("firefox") > -1;
+  const is_safari = navigator.userAgent.indexOf("safari") > -1;
 
   setParticipantList($, $a);
   setParticipantMenu($);
@@ -23,7 +26,7 @@ export function chatDelegation($, $a) {
   //If .loading has a hide on, the data is loaded from db
   const checkIfLoaded = setInterval(() => {
     if ($(".loading").classList.contains("hide")) {
-      setMessageActions($a);
+      setMessageActions($a, is_safari, is_chrome, is_firefox);
       setReactions($);
       setOptions($);
       $a("svg").forEach((svg) => {
@@ -62,6 +65,6 @@ export function chatDelegation($, $a) {
     });
   });
   $(".back").addEventListener("click", () => {
-    hideMessageActions($, $a);
+    hideMessageActions($, $a, is_safari, is_chrome, is_firefox);
   });
 }

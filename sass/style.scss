@@ -212,6 +212,14 @@ input[type="search"] {
     }
   }
 }
+//clear animation on action menu because Edge and Opera mobile can not handle the animation.
+//It is not possible to detact edge exclusively (css or js), so this is the only fix for now.
+.animate__flipOutX {
+  animation-name: none;
+}
+.animate__flipInX {
+  animation-name: none;
+}
 
 @media (min-width: 650px) {
   body {
@@ -246,6 +254,12 @@ input[type="search"] {
   }
   .burger {
     display: none;
+  }
+  .animate__flipOutX {
+    animation-name: flipOutX;
+  }
+  .animate__flipInX {
+    animation-name: flipInX;
   }
 }
 //Only safari (otherwise the chat won't scroll)
