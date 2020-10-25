@@ -235,7 +235,7 @@
   }
 }
 
-@media (min-width: 650px) {
+@media (min-width: 710px) {
   #chat,
   #inbox {
     padding: 0;
@@ -292,7 +292,7 @@
     }
   }
 }
-@media (min-width: 750px) {
+@media (min-width: 810px) {
   .inbox-container .name.overview {
     width: 23%;
   }
@@ -304,13 +304,13 @@
     max-width: 1000px;
   }
 }
-@media (min-width: 900px) {
+@media (min-width: 960px) {
   .inbox-container .name.overview,
   .inbox-container .message-preview {
     width: 27%;
   }
 }
-@media (min-width: 1200px) {
+@media (min-width: 1260px) {
   #inbox {
     width: 100%;
     grid-area: inbox;
@@ -334,7 +334,7 @@
     }
   }
 }
-@media (min-width: 1920px) {
+@media (min-width: 1980px) {
   #inbox .inbox-nav {
     width: 20%;
   }

@@ -166,9 +166,10 @@ function displayMenu($) {
 }
 
 export function setParticipantMenu($) {
-  if ($("body").clientWidth > 1200) {
+  if ($("body").clientWidth > 1360) {
     //static data. Should be replaced
-    $(".plus").textContent = "Lisa, Sarah, Rikke, Henrik, Kristian, Anders, Stefanie";
+    $(".plus").textContent =
+      "Lisa, Sarah, Rikke, Henrik, Kristian, Anders, Stefanie, Lisa, Sarah, Rikke, Henrik, Kristian, Anders, Stefanie, Lisa, Sarah, Rikke, Henrik, Kristian, Anders, Stefanie, Lisa, Sarah, Rikke, Henrik, Kristian, Anders, Stefanie";
   } else {
     $(".plus").textContent = "+2";
   }

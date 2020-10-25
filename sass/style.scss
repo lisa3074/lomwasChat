@@ -225,7 +225,7 @@ input[type="search"] {
   animation-name: none;
 }
 
-@media (min-width: 650px) {
+@media (min-width: 710px) {
   body {
     max-height: 100vh;
     width: 100vw;
@@ -267,7 +267,7 @@ input[type="search"] {
   }
 }
 //Only safari (otherwise the chat won't scroll)
-@media (min-width: 1200px) {
+@media (min-width: 1260px) {
   @media not all and (min-resolution: 0.001dpcm) {
     @supports (-webkit-appearance: none) and (stroke-color: transparent) {
       #inbox,
@@ -277,7 +277,7 @@ input[type="search"] {
     }
   }
 }
-@media (min-width: 800px) {
+@media (min-width: 860px) {
   svg:hover,
   .menu-container:hover .feather-more-vertical,
   .unread-messages:hover svg,
@@ -315,7 +315,7 @@ input[type="search"] {
   }
 }
 
-@media (min-width: 1200px) {
+@media (min-width: 1260px) {
   main {
     grid-template-columns: 70% 30%;
     grid-template-columns: 60px calc(70% - 60px) 30%;
@@ -330,8 +330,9 @@ input[type="search"] {
     position: static;
   }
 }
-@media (min-width: 1920px) {
+@media (min-width: 1980px) {
   main {
     grid-template-columns: 80% 20%;
+    grid-template-columns: 60px calc(80% - 60px) 20%;
   }
 }

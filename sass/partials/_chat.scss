@@ -363,7 +363,7 @@ button {
   }
 }
 
-@media (min-width: 650px) {
+@media (min-width: 710px) {
   #chat {
     grid-area: chat;
     position: relative;
@@ -405,7 +405,7 @@ button {
   }
 }
 
-@media (min-width: 1000px) {
+@media (min-width: 1060px) {
   .chat-container .message-wrapper.you .message-content-wrapper {
     width: calc(100% - 1rem);
     margin-left: 1rem;
@@ -444,7 +444,7 @@ button {
   }
 }
 
-@media (min-width: 1200px) {
+@media (min-width: 1260px) {
   #chat {
     width: 100%;
     grid-area: chat;
@@ -474,8 +474,7 @@ button {
   .chat-container .chat-wrapper {
     position: static;
   }
-  #chat .new-message-wrapper,
-  #chat .chat-nav {
+  #chat .new-message-wrapper {
     width: calc(70% - 60px);
     margin-left: 60px;
   }
@@ -484,7 +483,7 @@ button {
     transform: translateX(-50%);
   }
 }
-@media (min-width: 1350px) {
+@media (min-width: 1410px) {
   .chat-container .message-wrapper.you .reaction-container {
     transform: translate(4rem, -2.1rem);
   }
@@ -498,7 +497,7 @@ button {
     transform: translate(-8rem, -2.1rem);
   }
 }
-@media (min-width: 1400px) {
+@media (min-width: 1460px) {
   .chat-container .message-wrapper.me {
     padding-left: 25vw;
   }
@@ -512,7 +511,7 @@ button {
     padding-right: 28.5vw;
   }
 }
-@media (min-width: 1700px) {
+@media (min-width: 1760px) {
   .chat-container .message-wrapper.me {
     padding-left: 30vw;
   }
@@ -526,7 +525,7 @@ button {
     padding-right: 33vw;
   }
 }
-@media (min-width: 1920px) {
+@media (min-width: 1980px) {
   .new-message-wrapper {
     width: 80%;
   }

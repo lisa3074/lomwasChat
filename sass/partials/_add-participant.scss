@@ -25,7 +25,7 @@
 .add-new .participant-wrapper {
   width: calc(100% - 4rem);
 }
-@media (min-width: 650px) {
+@media (min-width: 710px) {
   #chat .participants .dropdown[data-state="view"] {
     width: calc(60vw + 1px);
     top: 4.4rem;
@@ -55,12 +55,17 @@
     width: calc(60vw - 4rem);
   }
 }
-@media (min-width: 1000px) {
+@media (min-width: 992px) {
+  #chat .participants-dropdown {
+    width: calc(100% - 60px);
+  }
+}
+@media (min-width: 1060px) {
   #chat .participants .dropdown[data-state="view"] {
     width: 100%;
   }
 }
-@media (min-width: 1200px) {
+@media (min-width: 1260px) {
   #chat .participants .dropdown[data-state="view"] {
     width: calc(100% + 1px);
     left: -1px;
@@ -70,10 +75,10 @@
     width: calc(70vw + 1px);
   }
   #chat .dropdown[data-state="view"] .participants-dropdown {
-    width: calc(70vw - 20vw - 3.5rem + 1px);
+    width: calc(70vw - 3.5rem - 350px - 60px + 1px);
   }
 }
-@media (min-width: 1500px) {
+@media (min-width: 1560px) {
   #chat .dropdown .participants-dropdown {
     width: calc(70vw - 20vw - 3.5rem);
   }
