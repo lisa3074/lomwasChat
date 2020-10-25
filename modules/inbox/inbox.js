@@ -5,6 +5,7 @@ export function displayInbox($) {
   console.log("[Function] || INBOX/inbox.js | displayInbox()");
   const is_explorer = navigator.userAgent.indexOf("MSIE") > -1;
   const is_opera = navigator.userAgent.toLowerCase().indexOf("op") > -1;
+  $("body").classList.remove("gray-background");
   if (is_explorer || is_opera) {
     $("#inbox").style.display = "block";
   }

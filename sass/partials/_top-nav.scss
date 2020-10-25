@@ -373,7 +373,6 @@
       text-overflow: ellipsis;
       overflow: hidden;
       white-space: nowrap;
-      //padding-right: 1rem;
     }
     .participants {
       width: 100%;
@@ -382,11 +381,7 @@
   .chat-nav .menu-dropdown {
     width: calc(3.5rem + 350px);
   }
-  .chat-nav .list,
-  .chat-nav .participants > div {
-    padding-left: 1rem;
-    justify-content: flex-start;
-  }
+
   .chat-nav .desk-search input {
     width: 300px;
   }
@@ -398,6 +393,11 @@
 @media (min-width: 1460px) {
   .chat-nav .participants > div > .plus {
     max-width: 40%;
+  }
+  .chat-nav .list,
+  .chat-nav .participants > div {
+    padding-left: 1rem;
+    justify-content: flex-start;
   }
 }
 @media (min-width: 1560px) {

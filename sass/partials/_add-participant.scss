@@ -57,7 +57,10 @@
 }
 @media (min-width: 992px) {
   #chat .participants-dropdown {
-    width: calc(((60vw - 7rem) / 2) - 2px);
+    width: calc(((60vw - 3.5rem) / 2) - 2px);
+  }
+  #chat .dropdown[data-state="view"] .participants-dropdown {
+    width: calc(30vw - 3.5rem - 2px);
   }
 }
 @media (min-width: 1060px) {
@@ -76,6 +79,9 @@
   }
   #chat .dropdown[data-state="view"] .participants-dropdown {
     width: calc(70vw - 3.5rem - 350px - 60px + 1px);
+  }
+  #chat .participants-dropdown {
+    width: calc(((70vw - 3.5rem) / 2) - 2px);
   }
 }
 @media (min-width: 1560px) {

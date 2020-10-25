@@ -39,6 +39,7 @@ export function displayChatMobile($, $a) {
 
 export function displayChat($, $a) {
   console.log("[Function] || CHAT/chatbody.js | displayChat()");
+  $("body").classList.add("gray-background");
   setTimeout(() => {
     $("#chat").scrollTo({ top: $(".chat-wrapper").scrollHeight, left: 0, behavior: "smooth" }); //////scroll to bottom (for desktop)
   }, 800);

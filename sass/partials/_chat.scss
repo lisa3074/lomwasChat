@@ -72,16 +72,14 @@ button {
   }
 }
 .chat-container {
-  min-height: calc(100vh - 140px);
-
   .chat-wrapper {
     background-color: var(--background-gray);
     position: absolute;
     padding: 2rem 1rem 1rem;
-    top: 0;
+    top: 70px;
     left: 0;
     padding-bottom: 60px;
-    min-height: calc(100vh - 130px);
+    min-height: calc((var(--vh, 1vh) * 100) - 130px);
     width: 100%;
   }
   .message-wrapper {

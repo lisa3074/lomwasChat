@@ -22,7 +22,6 @@
   --actionShadow: 3px 3px 10px rgb(28, 39, 60, 0.3);
   --suddleShadow: 0 0 10px rgba(21, 30, 47, 0.079);
   /* borders */
-  /*   --inboxBorder: 1px solid rgb(72, 94, 144, 0.29); */
   --border: 1px solid #cad0df;
   --border-radius: 0.2rem;
 }
@@ -43,6 +42,10 @@ body {
   height: calc(var(--vh, 1vh) * 100);
 }
 
+.gray-background {
+  transition: 1s;
+  background-color: var(--background-gray);
+}
 main {
   height: calc(100% - 70px);
   width: 100%;
@@ -50,8 +53,11 @@ main {
   top: 70px;
 }
 
-main [data-state="inbox"] {
+main[data-state="inbox"] {
   background-color: #fff;
+}
+main {
+  background-color: var(--background-gray);
 }
 
 mark {
