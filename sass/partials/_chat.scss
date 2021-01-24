@@ -524,8 +524,8 @@ button {
   }
 }
 @media (min-width: 1980px) {
-  .new-message-wrapper {
-    width: 80%;
+  #chat .new-message-wrapper {
+    width: calc(80% - 60px);
   }
   .chat-container .message-wrapper.you {
     padding-right: 35vw;
